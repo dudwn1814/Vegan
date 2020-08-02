@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import { Router, Route, Link, Switch } from 'react-router-dom';
-import { Home, Login, Register} from 'pages';
+import { Router, Route, Link, Switch, BrowserRouter } from 'react-router-dom';
+import { Home, Login, Register, Restaurant} from 'pages';
 
 export class App extends Component {
 
@@ -11,6 +11,7 @@ export class App extends Component {
         <Switch>
           <Route path= "/login" component = {Login}/>
           <Route path= "/register" component = {Register}/>
+          <Route path= "/restaurant" component = {Restaurant} />
         </Switch>
       </div>
     )
@@ -18,3 +19,9 @@ export class App extends Component {
 }
 
 export default App;
+
+// BrowserRouter : history API를 사용해 URL과 UI를 동기화하는 라우터
+// Route : 컴포넌트 속성에 설정된 URL과 현재 경로가 일치하면 해당 컴포넌트, 함수 렌더링
+// Link : 'a' tag와 비슷함 to속성에 설정된 링크로 이동함, 기록이 history 스택에 저장됨
+// Switch : 자식 컴포넌트 Route 또는 Redirect중 매치되는 첫 요소를 랜더링함
+//   -> swith는 browserouter와 다르게 하나의 매칭되는 요소만 랜더링함
