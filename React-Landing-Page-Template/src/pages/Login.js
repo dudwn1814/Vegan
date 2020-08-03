@@ -58,7 +58,10 @@ class Login extends Component {
               />
             </div>
             <div>
-              <button><Link to= "/">SignIn</Link></button>
+              <button><Link to= {{
+                  pathname: '/',
+                  state: this.state.id,
+                }}>SignIn</Link></button>
             </div>
             <div>
               <Link to="/register">SignUp</Link>
