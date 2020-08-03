@@ -1,3 +1,4 @@
+
 $(function() {
 
     $("input,textarea").jqBootstrapValidation({
@@ -17,13 +18,15 @@ $(function() {
                 firstName = name.split(' ').slice(0, -1).join(' ');
             }
             $.ajax({
-                url: "././mail/contact_me.php",
+                crossOrigin: true,
+                url: "http://localhost:8080/nodemailerTest",
                 type: "POST",
                 data: {
                     name: name,
                     email: email,
                     message: message
                 },
+                
                 cache: false,
                 success: function() {
                     // Success message
