@@ -12,9 +12,11 @@ var http = require('http');
 const cors = require('cors');
 const { response } = require('express');
 const { decode } = require('punycode');
+
 const { db } = require('../../../../Bitnami/wampstack-7.4.8-0/apache2/htdocs/week4/models/users');
 const multer = require('multer');
 const router = express.Router();
+
 var app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
@@ -23,6 +25,7 @@ app.use(express.static('bootstrap'));
 app.use(express.static('moviegridview/'));
 app.use(express.static('bootstrap2'));
 app.use(express.static('/findall'));
+app.use(express.static('/loadingitems'));
 app.use(cors());
 
 //Create MongoDB Client
@@ -59,6 +62,16 @@ MongoClient.connect(url,{useUnifiedTopology: true},function(err,client){
     console.log('Unable to connect to the mongoDB server.Error', err);
   else{
 
+    app.get('/loadingitems', function(req, res){
+      var db = client.db('Vegan') 
+      var area = req.query.area;
+      console.log(area);
+      db.collection('restaurant').find({'area':area}).toArray(function(err, users){
+        if(err) return res.status(500).send({error: 'database failure'});
+        res.json(users)
+        
+      })
+    });
 
     app.get('/users', function(req, res){
         var db = client.db('Vegan') 
