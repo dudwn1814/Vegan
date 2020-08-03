@@ -1,6 +1,9 @@
 import React from 'react';
 
 function Restaurant_item({ImageURL, RestaurantName}) {
+
+    
+
     return (
 
         <div className="col-sm-6 col-md-4 col-lg-4">
@@ -8,7 +11,7 @@ function Restaurant_item({ImageURL, RestaurantName}) {
         <div className="hover-bg">
             {" "}
             <a
-            href="img/portfolio/01-large.jpg"
+            href="/Restaurant_Info"
             title="Project Title"
             data-lightbox-gallery="gallery1"
             >

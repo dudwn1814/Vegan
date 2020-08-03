@@ -38,15 +38,37 @@ MongoClient.connect(url,{useUnifiedTopology: true},function(err,client){
     console.log('Unable to connect to the mongoDB server.Error', err);
   else{
 
-    app.get('/loadingitems', function(req, res){
+    app.get('/oneitem', function(req, res){
       var db = client.db('Vegan') 
+      
+      var name = req.query.name;
+
+      db.collection('users').find({'name': name}).toArray(function(err, users){
+        if(err) return res.status(500).send({error: 'database failure'});
+        res.send(users)
+        
+      })
+    });
+
+    app.get('/loadingitems', function(req, res){
+      var db = client.db('Vegan');
       var area = req.query.area;
       console.log(area);
-      db.collection('restaurant').find({'area':area}).toArray(function(err, users){
+      if (area == '') {
+        db.collection('restaurant').find().toArray(function(err, users){
         if(err) return res.status(500).send({error: 'database failure'});
         res.json(users)
         
       })
+      }
+      else {
+        db.collection('restaurant').find({'area':area}).toArray(function(err, users){
+          if(err) return res.status(500).send({error: 'database failure'});
+            res.json(users)
+          
+        })
+      }
+      
     });
 
     app.get('/users', function(req, res){

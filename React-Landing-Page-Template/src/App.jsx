@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Router, Route, Link, Switch, BrowserRouter } from 'react-router-dom';
-import { Home, Login, Register, Restaurant} from 'pages';
+import { Home, Login, Register, Restaurant, Restaurant_Info} from 'pages';
 
 export class App extends Component {
 
@@ -12,6 +12,7 @@ export class App extends Component {
           <Route path= "/login" component = {Login}/>
           <Route path= "/register" component = {Register}/>
           <Route path= "/restaurant" component = {Restaurant} />
+          <Route path= "/restaurant_info" component = {Restaurant_Info} />
         </Switch>
       </div>
     )
