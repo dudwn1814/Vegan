@@ -13,6 +13,8 @@ const cors = require('cors');
 const { response } = require('express');
 const { decode } = require('punycode');
 const { db } = require('../../../../Bitnami/wampstack-7.4.8-0/apache2/htdocs/week4/models/users');
+const multer = require('multer');
+const router = express.Router();
 var app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
@@ -22,6 +24,7 @@ app.use(express.static('moviegridview/'));
 app.use(express.static('bootstrap2'));
 app.use(express.static('/findall'));
 app.use(cors());
+
 //Create MongoDB Client
 var MongoClient = mongodb.MongoClient;
 
@@ -30,6 +33,25 @@ var MongoClient = mongodb.MongoClient;
 // var url = 'mongodb://localhost:27017'
 var url = 'mongodb+srv://vegan:1111@cluster0.hso7u.mongodb.net/Vegan?retryWrites=true&w=majority'
 
+fs.readdir('uploads', (error) => {
+  // uploads 폴더 없으면 생성
+  if (error) {
+      fs.mkdirSync('uploads');
+  }
+})
+
+const upload = multer({
+  storage: multer.diskStorage({
+      destination(req, file, cb) {
+          cb(null, '../React-Landing-Page-Template/public/img/');
+      },
+      filename(req, file, cb) {
+          const ext = path.extname(file.originalname);
+          cb(null, path.basename(file.originalname, ext) + Date.now() + ext);
+      },
+  }),
+  limits: { fileSize: 5 * 1024 * 1024 },
+})
 
 
 MongoClient.connect(url,{useUnifiedTopology: true},function(err,client){
@@ -97,9 +119,35 @@ MongoClient.connect(url,{useUnifiedTopology: true},function(err,client){
           res.status(204).end();
         })
       })
-
-
+  
+    app.post('/upload', upload.single('file'), (req, res) => {
+        //console.log(req.file);
+        res.send(req.file.filename);
+    })
     
+    app.post('/foodrecipe', function(req, res){
+      var db = client.db('Vegan')
+      var recipe = {
+        food: req.body.food,
+        ingredients: req.body.ingredients,
+        img : req.body.img,
+        content: req.body.content
+      }
+      db.collection('Recipes').save(recipe)
+      res.json({result: "success"})
+    })
+    app.get('/foodrecipe', function(req, res){
+      var db = client.db('Vegan')
+      db.collection('Recipes').find().toArray(function(err, recipes){
+        res.send(recipes)
+      })
+    })
+    app.get('/foodrecipe/:food', function(req, res){
+      var db = client.db('Vegan')
+      db.collection('Recipes').find({food: req.params.food},{food: 1, img: 1, ingredients:1, content: 1}).toArray(function(err, recipe){
+        res.send(recipe)
+      })
+    })
 
     app.listen(8080,()=> {
       console.log('Connected to MongoDB Server, WebService running on port 8080');

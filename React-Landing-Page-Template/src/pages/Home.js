@@ -9,6 +9,7 @@ import Testimonials from '../components/testimonials';
 import Team from '../components/Team';
 import Contact from '../components/contact';
 import JsonData from '../data/data.json';
+import {Link} from 'react-router-dom';
 
 export class Home extends Component {
   state = {
@@ -22,11 +23,18 @@ export class Home extends Component {
     this.getlandingPageData();
   }
 
+  // componentWillMount(){
+  //   console.log(this.props.location.state)
+  // }
   render() {
+    
     return (
       <div>
-        <Navigation />
+        
+        <Navigation dataFromParent={this.props.location.state}/>
+        
         <Header data={this.state.landingPageData.Header} />
+        
         <Features data={this.state.landingPageData.Features} />
         <About data={this.state.landingPageData.About} />
         <Services data={this.state.landingPageData.Services} />

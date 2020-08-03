@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-
+import { Link } from 'react-router-dom';
+ 
 export class Services extends Component {
   render() {
     return (
@@ -12,6 +13,10 @@ export class Services extends Component {
               dapibus leonec.
             </p>
           </div>
+          <div><Link to={{
+                  pathname: "/recipe",
+                  state: "LoggedIn",
+                }}>Recipe</Link></div>
           <div className="row">
             {this.props.data
               ? this.props.data.map((d, i) => (
