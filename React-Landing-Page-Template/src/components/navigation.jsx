@@ -199,7 +199,6 @@ export class Navigation extends Component {
               <button className = "LoginButton">
                 <Link to="/login"  className = "login-button">Login</Link>
               </button>
-
             </ul>
           </div>
         </div>

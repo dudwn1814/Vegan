@@ -8,10 +8,12 @@ var buffer = require('buffer');
 var path = require('path');
 var fs = require('fs');
 var http = require('http');
-
 const cors = require('cors');
+
 const { response } = require('express');
 const { decode } = require('punycode');
+const router = express.Router();
+
 // const { db } = require('../../../../Bitnami/wampstack-7.4.8-0/apache2/htdocs/week4/models/users');
 var app = express();
 app.use(bodyParser.json());
@@ -22,7 +24,27 @@ app.use(express.static('moviegridview/'));
 app.use(express.static('bootstrap2'));
 app.use(express.static('/findall'));
 app.use(express.static('/loadingitems'));
-app.use(cors());
+
+app.use(
+  cors({
+    origin: ["http://localhost:8080","http://localhost:3000"],
+    exposeHeaders: ["WWW-Authenticate", "Server-Authorization"],
+    // maxAge: 5,
+    // credentials: true,
+    allowMethods: ["GET", "POST", "DELETE"],
+    allowHeaders: [
+      "Content-Type",
+      "Authorization",
+      "Accept",
+      "application/json",
+      "X-Requested-With",
+      "Origin",
+    ],
+  })
+);
+
+app.use(express.static('nodemailerTest'));
+
 //Create MongoDB Client
 var MongoClient = mongodb.MongoClient;
 
@@ -31,7 +53,7 @@ var MongoClient = mongodb.MongoClient;
 // var url = 'mongodb://localhost:27017'
 var url = 'mongodb+srv://vegan:1111@cluster0.hso7u.mongodb.net/Vegan?retryWrites=true&w=majority'
 
-
+const nodemailer = require('nodemailer');
 
 MongoClient.connect(url,{useUnifiedTopology: true},function(err,client){
   if (err)
@@ -48,6 +70,44 @@ MongoClient.connect(url,{useUnifiedTopology: true},function(err,client){
         
       })
     });
+
+
+    app.post("/nodemailerTest", function(req, res){
+      let email = req.body.email;
+      let name = req.body.name;
+      let message = req.body.message;
+    
+  
+      //내가 사용자한테 보내는게 됨...
+      let transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+          user: 'dudwn1814@gmail.com',  // gmail 계정 아이디를 입력
+          pass: 'QWvpfm86!!er'          // gmail 계정의 비밀번호를 입력
+        }
+      });
+    
+      let mailOptions = {
+        from: email,    // 발송 메일 주소 (위에서 작성한 gmail 계정 아이디)
+        to: 'dudwn1814@gmail.com',                     // 수신 메일 주소
+        subject: name,   // 제목
+        text: message  // 내용
+      };
+    
+      transporter.sendMail(mailOptions, function(error, info){
+        console.log('들어왔어');
+        if (error) {
+          console.log(error);
+        }
+        else {
+          console.log('Email sent: ' + info.response);
+        }
+      });
+      
+      //res.redirect("/");
+    })
+  
+ 
 
     app.get('/users', function(req, res){
         var db = client.db('Vegan') 

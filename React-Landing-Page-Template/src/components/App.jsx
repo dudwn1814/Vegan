@@ -7,6 +7,7 @@ import Services from './services';
 import Testimonials from './testimonials';
 import Team from './Team';
 import Contact from './contact';
+import Mypage from './mypage';
 import $ from 'jquery';
 
 export class App extends Component {
