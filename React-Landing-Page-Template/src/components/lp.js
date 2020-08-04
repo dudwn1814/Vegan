@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Restaurant_item from "./Restaurant_item";
+import path from 'path';
 
 class Listpage extends Component {
   state = {};
@@ -10,10 +11,14 @@ class Listpage extends Component {
           
             {restaurant_item &&
             restaurant_item.map((itemdata) => {
+
+              var url = itemdata.url;
+                
                 return (
                 <Restaurant_item
                     key={JSON.stringify(itemdata._id)}
-                    ImageURL={"img/portfolio/01-small.jpg"}
+                    ImageURL={url}
+                    Area={itemdata.area}
                     RestaurantName={itemdata.name}
                 />
                 );

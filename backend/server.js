@@ -13,9 +13,9 @@ const cors = require('cors');
 const { response } = require('express');
 const { decode } = require('punycode');
 
-const { db } = require('../../../../Bitnami/wampstack-7.4.8-0/apache2/htdocs/week4/models/users');
 const multer = require('multer');
 const router = express.Router();
+var tls = require('tls');
 
 var app = express();
 app.use(bodyParser.json());
@@ -72,6 +72,9 @@ const upload = multer({
   limits: { fileSize: 5 * 1024 * 1024 },
 })
 
+//Create MongoDB Client
+var MongoClient = mongodb.MongoClient;
+
 
 MongoClient.connect(url,{useUnifiedTopology: true},function(err,client){
   if (err)
@@ -81,9 +84,10 @@ MongoClient.connect(url,{useUnifiedTopology: true},function(err,client){
     app.get('/oneitem', function(req, res){
       var db = client.db('Vegan') 
       
+      var area = req.query.area;
       var name = req.query.name;
 
-      db.collection('users').find({'name': name}).toArray(function(err, users){
+      db.collection('users').find({'name': name, 'area': area}).toArray(function(err, users){
         if(err) return res.status(500).send({error: 'database failure'});
         res.send(users)
         
@@ -124,7 +128,8 @@ MongoClient.connect(url,{useUnifiedTopology: true},function(err,client){
         auth: {
           user: 'dudwn1814@gmail.com',  // gmail 계정 아이디를 입력
           pass: 'QWvpfm86!!er'          // gmail 계정의 비밀번호를 입력
-        }
+        },
+        tls: {rejectUnauthorized: false}
       });
     
       let mailOptions = {

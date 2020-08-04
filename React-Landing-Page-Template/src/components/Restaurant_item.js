@@ -1,8 +1,8 @@
 import React from 'react';
 
-function Restaurant_item({ImageURL, RestaurantName}) {
+function Restaurant_item({ImageURL, Area, RestaurantName}) {
 
-    
+    var url = "/Restaurant_Info?area="+Area+"&name="+RestaurantName;
 
     return (
 
@@ -11,7 +11,7 @@ function Restaurant_item({ImageURL, RestaurantName}) {
         <div className="hover-bg">
             {" "}
             <a
-            href="/Restaurant_Info"
+            href={url}
             title="Project Title"
             data-lightbox-gallery="gallery1"
             >
@@ -19,7 +19,7 @@ function Restaurant_item({ImageURL, RestaurantName}) {
                 <h4>{RestaurantName}</h4>
             </div>
             <img
-                src="img/portfolio/01-small.jpg"
+                src={ImageURL}
                 className="img-responsive"
                 alt="Project Title"
             />{" "}
