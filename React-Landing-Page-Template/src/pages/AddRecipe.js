@@ -8,7 +8,9 @@ class AddRecipe extends Component {
         food: '',
         ingredients: '',
         img : null,
-        content : ''
+        content : '',
+        like : 0,
+        seelater: 0
     }
     onChange = async(e) => {
         this.setState({

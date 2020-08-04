@@ -35,11 +35,15 @@ class RecipeInfo extends Component {
     const {
       name, id
     } = this.props.info;
+    const user = this.props.dataFromParent
     return (
       <div style={style}>
         <Link to={{
             pathname: '/food',
-            state: name
+            state: {
+                user: user,
+                food: name
+            }
         }}><div><b>{name}</b></div></Link>
       </div>
     );

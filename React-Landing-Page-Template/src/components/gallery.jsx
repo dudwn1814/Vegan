@@ -7,24 +7,51 @@ import Restaurant from '../pages/Restaurant';
 export class Gallery extends Component {
 
   state = {
+    keyword: '',
   };
 
+
+  handleChange = (e) => {
+    this.setState({
+      keyword: e.target.value,
+    });
+  }
+
   render() {
-    const { itemlist} = this.props;
-    const { area} = this.props;
+    const {itemlist} = this.props;
+    const {area} = this.props;
+    const {keyword} = this.state;
+    var filteredList = [];
+    if (keyword === '') {
+      filteredList = itemlist;
+    }
+    else {
+      for (var i = 0; i<itemlist.length; i++) {
+        if (itemlist[i].name === keyword) {
+          filteredList.push(itemlist[i]);
+        }
+      }
+    }
     return (
       <div id="portfolio" className="text-center">
         <div className="container">
           <div className="section-title">
             <h2>{area}</h2>
-            <p>
-              채식전문의 경우 락토오버 이상이며, 채식지원의 경우 채식메뉴를 일부 지원해준다는 의미입니다.
-            </p>
+            <div style={{margin: '10px'}}>
+              채식전문 : 락토오버 이상
+            </div>
+            <div style={{margin: '10px'}}>
+              채식지원 : 채식메뉴를 일부 지원함
+            </div>
+            <input
+              placeholder="식당 이름을 검색하세요"
+              onChange={this.handleChange}
+              value={keyword}
+              style = {{marginTop: '10px'}}
+            />
           </div>
           <div className="row">
-
-              <Listpage restaurant_item = {itemlist} />
-
+            <Listpage restaurant_item = {filteredList} />
           </div>
         </div>
       </div>

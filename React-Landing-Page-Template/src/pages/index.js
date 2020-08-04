@@ -5,4 +5,5 @@ export { default as Recipe } from './Recipe';
 export { default as AddRecipe } from './AddRecipe';
 export { default as Food } from './Food';
 export { default as Restaurant} from './Restaurant';
+export { default as Restaurant_Info} from './Restaurant_Info';
 export { default as Mypage} from './Mypage';

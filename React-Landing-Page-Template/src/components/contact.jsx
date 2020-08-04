@@ -93,18 +93,17 @@ export class Contact extends Component {
                   <ul>
                     <li>
                       <a
-                        href={this.props.data ? this.props.data.facebook : "/"}
-                      >
+                        href="http://www.facebook.com" target="_blank">
                         <i className="fa fa-facebook"></i>
                       </a>
                     </li>
                     <li>
-                      <a href={this.props.data ? this.props.data.twitter : "/"}>
+                      <a href="http://www.twitter.com" target="_blank">
                         <i className="fa fa-twitter"></i>
                       </a>
                     </li>
                     <li>
-                      <a href={this.props.data ? this.props.data.youtube : "/"}>
+                      <a href="http://www.youtube.com" target="_blank">
                         <i className="fa fa-youtube"></i>
                       </a>
                     </li>
@@ -117,9 +116,9 @@ export class Contact extends Component {
         <div id="footer">
           <div className="container text-center">
             <p>
-              &copy; 2020 Issaaf Kattan React Land Page Template. Design by{" "}
-              <a href="http://www.templatewire.com" rel="nofollow">
-                TemplateWire
+              &copy; 2020 MadCamp 4th Week. Design by{" "}
+              <a href="http://www.madcamp.io" target="_blank" rel="nofollow">
+                YG JH JH
               </a>
             </p>
           </div>

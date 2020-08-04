@@ -11,12 +11,16 @@ class Restaurant extends Component {
         area: "",
         loading: false,
         ItemList: [],
+        title: "전국"
     }
     
     loadItem = async () => {
         const query = new URLSearchParams(this.props.location.search);
         this.setState({
             area: query.get('area')
+        })
+        this.setState({
+          title: '전국'
         })
         var AREA = query.get('area');
         axios.get("http://localhost:8080/loadingitems?area="+AREA)
@@ -25,12 +29,10 @@ class Restaurant extends Component {
               for (var i = 0; i < response.data.length; i++) {
                 list.push(response.data[i]);
               }
-    
               this.setState({
                 loading: true,
                 ItemList: list
               });
-              // console.log(ItemList);
             })
             .catch(e => {
               console.error(e);
@@ -40,21 +42,31 @@ class Restaurant extends Component {
             });
       }
 
-    
-
     componentDidMount() {
         this.loadItem();  // loadItem 호출
     }
     render() {
         const {area} = this.state;
+        const {title} = this.state;
         const {ItemList} = this.state;
-        return (
+        if (area === '') {
+          return (
+            <Fragment>
+                <Navigation />
+                <Gallery itemlist ={ItemList} area = {title} />
+            </Fragment>
+            
+        );
+        }
+        else {
+          return (
             <Fragment>
                 <Navigation />
                 <Gallery itemlist ={ItemList} area = {area} />
             </Fragment>
             
         );
+        }
     }
 }
 
