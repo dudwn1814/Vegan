@@ -20,6 +20,7 @@ class RecipeList extends Component {
         <RecipeInfo
           key= {info.id}
           info={info}
+          dataFromParent = {this.props.dataFromParent}
           onRemove={onRemove}
         />)
     );

@@ -1,12 +1,17 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 class Register extends Component {
   state = {
     name: '',
     id: '',
     password: '',
-    email: ''
+    email: '',
+    mypage: {
+      like : new Array(),
+      seelater: new Array()
+    }
   }
   handleChange = (e) => {
     this.setState({
@@ -26,7 +31,11 @@ class Register extends Component {
       name: '',
       id: '',
       password: '',
-      email: ''
+      email: '',
+      mypage: {
+        like : new Array(),
+        seelater: new Array()
+      }
     })
     // axios.get("http://localhost:8080/hello")
     // .then(response => {
@@ -72,6 +81,9 @@ class Register extends Component {
         </div>
         <div>
           <button type="submit">Register</button>
+        </div>
+        <div>
+          <Link to='/login'><button type="button">돌아가기</button></Link>
         </div>
       </form>
     )

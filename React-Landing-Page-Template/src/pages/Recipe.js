@@ -40,7 +40,8 @@ class Recipe extends Component {
     }
    
     render(){
-        
+        console.log(this.props.location.state)
+
         const { information, keyword } = this.state;
         const filteredList = information.filter(
             info => info.name.indexOf(keyword) !== -1
@@ -59,10 +60,13 @@ class Recipe extends Component {
                 <hr />
                 <RecipeList
                     data= {filteredList}
+                    dataFromParent = {this.props.location.state}
                     onRemove = {this.handleRemove}
                 />
                 <button> 
-                    <Link to="/recipeadd">Add Recipe</Link>
+                    <Link to={{
+                        path : "/recipeadd",
+                        state : this.props.location.state}}>Add Recipe</Link>
                 </button>
                 
             </Fragment>  
