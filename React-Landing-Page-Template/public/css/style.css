@@ -235,7 +235,7 @@ header .intro-text {
 	right: -100px;
 	background-color: #ffffff;
 	border: 1px solid black;
-	margin-left: 40px
+	margin-left: 40px;
 	margin-top: 14px;
 }
 
@@ -607,3 +607,4 @@ color: #777;
 	margin: 50px 0;
 }
 }
+

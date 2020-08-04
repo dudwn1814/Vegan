@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import axios from 'axios';
+import styles from './Login.css';
+
 
 class Login extends Component {
 
@@ -36,18 +38,29 @@ class Login extends Component {
 
 
   render(){
+
+    const tempStyle={
+      display:"inline-block",
+      width:"100px",
+      height:"100px",
+      boder:"1px solid black",
+      background:"orange",
+      }
+
+
     console.log(this.state)
     for(var i=0; i<this.state.auth.length; i++){
       if(this.state.id===this.state.auth[i].id&&this.state.password===this.state.auth[i].password){
         return (
+
           <form>
             <div>
-              <input
+              <input> 
                 placeholder = "Id"
                 value = {this.state.id}
                 onChange = {this.handleChange}
                 name = "id"
-              />
+              </input>
             </div>
             <div>
               <input
@@ -57,7 +70,7 @@ class Login extends Component {
                 name= "password"
               />
             </div>
-            <div>
+            <div style={tempStyle}>
               <button><Link to= {{
                   pathname: '/',
                   state: this.state.id,
@@ -99,5 +112,8 @@ class Login extends Component {
     )
   }
 }
+
+
+
 
 export default Login;

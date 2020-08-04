@@ -13,7 +13,7 @@ const cors = require('cors');
 const { response } = require('express');
 const { decode } = require('punycode');
 
-const { db } = require('../../../../Bitnami/wampstack-7.4.8-0/apache2/htdocs/week4/models/users');
+// const { db } = require('../../../../Bitnami/wampstack-7.4.8-0/apache2/Vegan/Vegan/models/users');
 const multer = require('multer');
 const router = express.Router();
 
@@ -43,6 +43,10 @@ app.use(
     ],
   })
 );
+
+//Create MongoDB Client
+var MongoClient = mongodb.MongoClient;
+
 
 app.use(express.static('nodemailerTest'));
 
