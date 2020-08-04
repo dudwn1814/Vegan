@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import Login from './Login';
+import { Link, Redirect } from 'react-router-dom';
+import { useHistory } from "react-router-dom";
 
 class Register extends Component {
   state = {
@@ -35,13 +37,12 @@ class Register extends Component {
       mypage: {
         like : new Array(),
         seelater: new Array()
-      }
-    })
-    // axios.get("http://localhost:8080/hello")
-    // .then(response => {
-    // })
-    // .catch(error => {
-    // })
+      }});
+      this.goBack();
+  }
+
+  goBack = () => {
+    this.props.history.goBack();
   }
 
   render(){
