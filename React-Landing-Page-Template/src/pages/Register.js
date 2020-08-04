@@ -1,12 +1,19 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import Login from './Login';
+import { Link, Redirect } from 'react-router-dom';
+import { useHistory } from "react-router-dom";
 
 class Register extends Component {
   state = {
     name: '',
     id: '',
     password: '',
-    email: ''
+    email: '',
+    mypage: {
+      like : new Array(),
+      seelater: new Array()
+    }
   }
   handleChange = (e) => {
     this.setState({
@@ -26,13 +33,16 @@ class Register extends Component {
       name: '',
       id: '',
       password: '',
-      email: ''
-    })
-    // axios.get("http://localhost:8080/hello")
-    // .then(response => {
-    // })
-    // .catch(error => {
-    // })
+      email: '',
+      mypage: {
+        like : new Array(),
+        seelater: new Array()
+      }});
+      this.goBack();
+  }
+
+  goBack = () => {
+    this.props.history.goBack();
   }
 
   render(){
@@ -72,6 +82,9 @@ class Register extends Component {
         </div>
         <div>
           <button type="submit">Register</button>
+        </div>
+        <div>
+          <Link to='/login'><button type="button">돌아가기</button></Link>
         </div>
       </form>
     )

@@ -13,6 +13,7 @@ const cors = require('cors');
 const { response } = require('express');
 const { decode } = require('punycode');
 
+// const { db, remove } = require('../../../../Bitnami/wampstack-7.4.8-0/apache2/htdocs/week4/models/users');
 const multer = require('multer');
 const router = express.Router();
 var tls = require('tls');
@@ -45,7 +46,7 @@ app.use(
 );
 
 app.use(express.static('nodemailerTest'));
-
+var MongoClient = mongodb.MongoClient;
 //Connection URL
 //var url = 'mongodb+srv://admin:madcamp@week2.ivjze.mongodb.net/week2nodejs?retryWrites=true&w=majority' // 27017 is default port
 // var url = 'mongodb://localhost:27017'
@@ -163,9 +164,9 @@ MongoClient.connect(url,{useUnifiedTopology: true},function(err,client){
           
         })
       });
-    app.get('/users/id/:id', function(req, res){
+    app.get('/users/name/:name', function(req, res){
         var db = client.db('Vegan') 
-        db.collection('users').find({id: req.params.id}, {id:1, password:1, email:1}, function(err, user){
+        db.collection('users').find({name: req.params.name}).toArray(function(err, user){
           if(err) return res.status(500).json({error: err});
           if(!user.length === 0) return res.status(404).json({error: 'user not found'});
           res.send(user);
@@ -182,21 +183,48 @@ MongoClient.connect(url,{useUnifiedTopology: true},function(err,client){
              res.send({result: "failure"})
              return;
           }
+          db.collection('users').find({name: req.body.name}, function(err, name){
+            if(name. length){
+              res.send({result: "failure"})
+              return;
+            }
+          })
           var name = req.body.name
           var id = req.body.id
           var password = req.body.password
           var email = req.body.email
+          var mypage = req.body.mypage
           var newuser = {
               name : name,
               id : id,
               password : password,
-              email : email
+              email : email,
+              mypage : mypage
             }
           
           db.collection('users').save(newuser)
           res.json({result: "success"})
         })       
       });
+
+    app.post('/users/like', function(req,res){
+      var db = client.db('Vegan')
+      db.collection('users').remove({id: req.body.id})
+      var name = req.body.name
+          var id = req.body.id
+          var password = req.body.password
+          var email = req.body.email
+          var mypage = req.body.mypage
+          var newuser = {
+              name : name,
+              id : id,
+              password : password,
+              email : email,
+              mypage : mypage
+            }
+          
+      db.collection('users').save(newuser)
+    })
     app.post('/users/login',function(req,res){
         var db = client.db('Vegan') 
         db.collection('users').find({id: req.body.id, password: req.body.password}, function(err, user){
@@ -225,11 +253,28 @@ MongoClient.connect(url,{useUnifiedTopology: true},function(err,client){
         food: req.body.food,
         ingredients: req.body.ingredients,
         img : req.body.img,
-        content: req.body.content
+        content: req.body.content,
+        like: req.body.like,
+        seelater: req.body.seelater
       }
       db.collection('Recipes').save(recipe)
       res.json({result: "success"})
     })
+    app.post('/foodrecipe/like', function(req, res){
+      var db = client.db('Vegan')
+      var recipe = {
+        food: req.body.food,
+        ingredients: req.body.ingredients,
+        img : req.body.img,
+        content: req.body.content,
+        like: req.body.like,
+        seelater: req.body.seelater
+      }
+      db.collection('Recipes').remove({img : req.body.img})
+      db.collection('Recipes').save(recipe)
+      res.json({result: "success"})
+    })
+
     app.get('/foodrecipe', function(req, res){
       var db = client.db('Vegan')
       db.collection('Recipes').find().toArray(function(err, recipes){

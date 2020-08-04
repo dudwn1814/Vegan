@@ -37,8 +37,10 @@ class Login extends Component {
 
   render(){
     console.log(this.state)
+    let name = ""
     for(var i=0; i<this.state.auth.length; i++){
       if(this.state.id===this.state.auth[i].id&&this.state.password===this.state.auth[i].password){
+        name = this.state.auth[i].name
         return (
           <form>
             <div>
@@ -60,7 +62,7 @@ class Login extends Component {
             <div>
               <button><Link to= {{
                   pathname: '/',
-                  state: this.state.id,
+                  state: name
                 }}>SignIn</Link></button>
             </div>
             <div>
