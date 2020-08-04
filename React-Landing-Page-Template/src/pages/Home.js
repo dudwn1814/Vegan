@@ -26,7 +26,6 @@ export class Home extends Component {
   //   console.log(this.props.location.state)
   // }
   render() {
-    console.log(this.props.location.state)
     return (
       
       <div>
