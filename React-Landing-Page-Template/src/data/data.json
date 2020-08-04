@@ -1,23 +1,23 @@
 {
     "Header": {
 
-        "title": "We are a Landing Page",
-        "paragraph": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sed commodo nibh ante facilisis bibendum."
+        "title": "we are for vegetarians",
+        "paragraph": "채식주의자들을 위해 채식 식당과 채식 레시피를 제공하는 웹사이트입니다. 계정을 만들면 다른 채식주의자분들과 다양한 정보를 공유할 수 있습니다."
 
     },
     "About": {
-        "paragraph": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "paragraph": "식당 선택에 어려움을 겪는 채식주의자들을 위해 지역별 채식 식당 정보를 제공하였으며, 채식 요리 레시피를 공유하며 채식주의자분들과 교류할 수 있습니다.",
         "Why": [
-            "Lorem ipsum dolor",
-            "Tempor incididunt",
-            "Lorem ipsum dolor",
-            "Incididunt ut labore"
+            "지역별 채식 식당 정보",
+            "식당 별 세부 정보 제공",
+            "좋아요 기능을 통한 관심 식당 관리",
+            "댓글 기능을 통한 식당 후기 공유"
         ],
         "Why2": [
-            "Aliquip ex ea commodo",
-            "Lorem ipsum dolor",
-            "Exercitation ullamco",
-            "Lorem ipsum dolor"
+            "레시피 작성을 통해 정보 공유",
+            "다른 사람이 작성한 레시피 정보",
+            "좋아요 기능을 통한 요리 꿀팁 저장",
+            "Wish List를 통해 특정 레시피 보관"
         ]
     },
     "Services": [{
@@ -86,28 +86,24 @@
     ],
     "Team": [{
             "img": "img/team/01.jpg",
-            "name": "John Doe",
-            "job": "Director"
+            "name": "김정현",
+            "job": "KAIST 18"
         },
         {
             "img": "img/team/02.jpg",
-            "name": "Mike Doe",
-            "job": "Senior Designer"
-        }, {
-            "img": "img/team/03.jpg",
-            "name": "Jane Doe",
-            "job": "Senior Designer"
+            "name": "김지훈",
+            "job": "KAIST 17"
         },
         {
             "img": "img/team/04.jpg",
-            "name": "Karen Doe",
-            "job": "Project Manager"
+            "name": "안영주",
+            "job": "SMWU 18"
         }
     ],
     "Contact": {
         "address": "291, Daehak-ro, Yuseong-gu, Daejeon, Republic of Korea",
         "phone": "+82 123 456 1234",
-        "email": "info@company.com",
+        "email": "dudwn1814@gmail.com",
         "facebook": "fb.com",
         "twitter": "twitter.com",
         "youtube": "youtube.com"

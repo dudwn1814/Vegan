@@ -36,7 +36,12 @@ export class Navigation extends Component {
     if(this.props.dataFromParent){
       return (
         <nav id="menu" className="navbar navbar-default navbar-fixed-top">
+          <div style={{float: 'right', marginRight: '10px'}}>{this.props.dataFromParent}님 환영합니다
+              <button className = "LogoutButton" style={{marginLeft:'10px'}}>
+                  <Link to="/"  className = "login-button">LogOut</Link>
+                </button></div>
           <div className="container">
+          
             <div className="navbar-header">
               <button
                 type="button"
@@ -59,51 +64,42 @@ export class Navigation extends Component {
               className="collapse navbar-collapse"
               id="bs-example-navbar-collapse-1"
             >
-              <ul className="nav navbar-nav navbar-right">
-                <li>
-                  <a href="#features" className="page-scroll">
-                    Features
-                  </a>
-                </li>
-                <li>
-                  <a href="#about" className="page-scroll">
-                    About
-                  </a>
-                </li>
-                <li>
-                  <Link to={{
-                  pathname: "/recipe",
-                  state: this.props.dataFromParent,
-                }} className="page-scroll">
-                    요리 레시피
-                  </Link>
-                </li>
-                <li>
+              <ul className="nav navbar-nav navbar-right" style={{verticalalign: 'middle'}}>
+              <li>
+                <a href="/#features" className="page-scroll">
+                채식주의자란
+                </a>
+              </li>
+              <li>
+                <a href="/#about" className="page-scroll">
+                  포 비건
+                </a>
+              </li>
+              <li>
+                <a href="/#team" className="page-scroll">
+                  개발자
+                </a>
+              </li>
+              <li>
+                <a href="/#contact" className="page-scroll">
+                  문의
+                </a>
+              </li>
+              <li>
                 <a href="/Restaurant"  className="page-scroll" onMouseEnter={this.showMenu} onClick={this.hideMenu}>
                   국내 비건 식당
                 </a>
               </li>
-                <li>
-                  <a href="#testimonials" className="page-scroll">
-                    Testimonials
-                  </a>
-                </li>
-                <li>
-                  <a href="#team" className="page-scroll">
-                    Team
-                  </a>
-                </li>
-                <li>
-                  <a href="#contact" className="page-scroll">
-                    Contact
-                  </a>
-                </li>
-              
-                <button className = "LoginButton">
-                  <Link to="/"  className = "login-button">LogOut</Link>
-                </button>
-                <button>MyPage</button>
-                <text>{this.props.dataFromParent}님 환영합니다.</text>
+              <li>
+                <Link to="/recipe" className="page-scroll">
+                  요리 레시피
+                </Link>
+              </li>
+              <li>
+                <Link to="/mypage" className="page-scroll">
+                  마이 페이지
+                </Link>
+              </li>
               </ul>
             </div>
             {
@@ -185,6 +181,9 @@ export class Navigation extends Component {
     }
     return (
       <nav id="menu" className="navbar navbar-default navbar-fixed-top">
+        <button className = "LoginButton" style={{float: 'right', marginRight: '10px'}}>
+          <Link to="/login"  className = "login-button">Login</Link>
+        </button>
         <div className="container">
           <div className="navbar-header">
             <button
@@ -211,18 +210,23 @@ export class Navigation extends Component {
             <ul className="nav navbar-nav navbar-right" style={{verticalalign: 'middle'}}>
               <li>
                 <a href="/#features" className="page-scroll">
-                  Features
+                채식주의자란
                 </a>
               </li>
               <li>
                 <a href="/#about" className="page-scroll">
-                  About
+                  포 비건
                 </a>
               </li>
               <li>
-                <Link to="/recipe" className="page-scroll">
-                  요리 레시피
-                </Link>
+                <a href="/#team" className="page-scroll">
+                  개발자
+                </a>
+              </li>
+              <li>
+                <a href="/#contact" className="page-scroll">
+                  문의
+                </a>
               </li>
               <li>
                 <a href="/Restaurant"  className="page-scroll" onMouseEnter={this.showMenu} onClick={this.hideMenu}>
@@ -230,24 +234,10 @@ export class Navigation extends Component {
                 </a>
               </li>
               <li>
-                <a href="/#testimonials" className="page-scroll">
-                  Testimonials
-                </a>
+                <Link to="/recipe" className="page-scroll">
+                  요리 레시피
+                </Link>
               </li>
-              <li>
-                <a href="/#team" className="page-scroll">
-                  Team
-                </a>
-              </li>
-              <li>
-                <a href="/#contact" className="page-scroll">
-                  Contact
-                </a>
-              </li>
-            
-              <button className = "LoginButton">
-                <Link to="/login"  className = "login-button">Login</Link>
-              </button>
             </ul>
           </div>
           {

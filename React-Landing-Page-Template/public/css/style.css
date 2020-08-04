@@ -40,7 +40,7 @@ p.intro {
 	line-height: 24px;
 }
 a {
-	color: #608dfd;
+	color: #000000;
 	font-weight: 400;
 }
 a:hover, a:focus {
@@ -155,7 +155,7 @@ hr {
 	font-family: 'Raleway', sans-serif;
 	text-transform: uppercase;
 	color: #fff;
-	background-color: #5ca9fb;
+	background-color: #73E640;
 	background-image: linear-gradient(to right, #73E640 0%, #21C43F 100%);
 	padding: 14px 34px;
 	letter-spacing: 1px;
@@ -169,7 +169,7 @@ hr {
 .btn-custom:hover, .btn-custom:focus, .btn-custom.focus, .btn-custom:active, .btn-custom.active {
 	color: #fff;
 	background-image: none;
-	background-color: #6372ff;
+	background-color: #21C43F;
 }
 .btn:active, .btn.active {
 	background-image: none;
@@ -222,22 +222,47 @@ header .intro-text {
 	padding-bottom: 200px;
 	text-align: center;
 }
-.login-button{  /*로그인버튼 글씨*/
-	color: #555555 !important;
-	background-color: #ffffff;
+.LoginButton{  /*로그인버튼 글씨*/
+	color: #ffffff !important;
 	border: 0px;
 	margin: 0px;
 	font-size: 15px;
 }
 
-.LoginButton{  /*로그인 버튼*/
+/* .LoginButton{  로그인 버튼
 	position: relative;
 	right: -100px;
 	background-color: #ffffff;
-	border: 1px solid black;
+	border: 1px solid rgb(69, 179, 63);
 	margin-left: 40px;
 	margin-top: 14px;
-}
+} */
+
+.LoginButton{
+	margin-left: 50px;
+	margin-top: 13px;
+	background-color: white; 
+	color: black; 
+	border: 1px solid #4CAF50;
+  }
+  
+  .LoginButton:hover {
+	background-color: #4CAF50;
+	color: white !important;
+  }
+
+  .LogoutButton{
+	margin-left: 30px;
+	margin-top: 13px;
+	background-color: white; 
+	color: black; 
+	border: 1px solid #4CAF50;
+  }
+  
+  .LogoutButton:hover {
+	background-color: #4CAF50;
+	color: white !important;
+  }
 
 /* Features Section */
 #features {
@@ -299,7 +324,7 @@ header .intro-text {
 #about .about-text li:before {
 	content: '\f00c';
 	font-family: 'FontAwesome';
-	color: #5ca9fb;
+	color: #50a72d;
 	font-size: 11px;
 	font-weight: 300;
 	padding-right: 8px;
@@ -451,13 +476,16 @@ header .intro-text {
 }
 #team .team-img {
 	width: 240px;
+	margin-left: 140px;
 }
 #team .thumbnail {
 	background: transparent;
 	border: 0;
 }
 #team .thumbnail .caption {
-	padding: 10px 0 0 0;
+	margin-left: 150px;
+	width: 210px;
+	padding: 10px 0 0 0px;
 	color: #888;
 }
 /* Contact Section */
@@ -495,7 +523,7 @@ header .intro-text {
 	font-weight: 400;
 }
 #contact form {
-	padding-top: 20px;
+	padding-top: 0px;
 }
 #contact .text-danger {
 	color: #cc0033;
@@ -507,7 +535,7 @@ header .intro-text {
 	border: 2px solid #fff;
 }
 #contact .btn-custom:hover {
-	color: #1f386e;
+	color: #024210;
 	background: #fff;
 }
 label {
@@ -583,7 +611,7 @@ color: #777;
 	transition: all 0.3s;
 }
 #contact .social i.fa:hover {
-	color: #608dfd;
+	color: #19972a;
 	background: #fff;
 }
 /* Footer Section*/
@@ -596,10 +624,10 @@ color: #777;
 	font-size: 14px;
 }
 #footer a {
-	color: #608dfd;
+	color: #19972a;
 }
 #footer a:hover {
-	border-bottom: 2px solid #608dfd;
+	border-bottom: 2px solid #19972a;
 }
 
 @media (max-width: 768px) {

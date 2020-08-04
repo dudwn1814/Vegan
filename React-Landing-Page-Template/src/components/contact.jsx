@@ -10,9 +10,8 @@ export class Contact extends Component {
               <div className="row">
                 <div className="section-title">
                   <h2>Get In Touch</h2>
-                  <p>
-                    Please fill out the form below to send us an email and we
-                    will get back to you as soon as possible.
+                  <p style={{marginTop: '20px', marginBottom: '20px'}}> 
+                    이름과 이메일, 메세지를 넣어 운영진에게 메일을 보내보세요! <br/> 가능한 빨리 답장해 드립니다.
                   </p>
                 </div>
                 <form name="sentMessage" id="contactForm" noValidate>

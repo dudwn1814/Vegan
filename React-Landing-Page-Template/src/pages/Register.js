@@ -48,7 +48,9 @@ class Register extends Component {
   render(){
     return (
       <form onSubmit={this.handleClick}>
-        <div>
+        <div style={{backgroundColor: '#72F540',  fontWeight: '400', padding: '200px 200px 390px 200px'}}>
+        <div style={{ backgroundColor: '#ffffff', width: '450px', margin: 'auto', boxShadow: '0px 14px 80px rgba(34, 35, 58, 0.2)', padding: '20px 100px 100px 55px', borderRadius: '15px', transition: 'all .3s'}}>
+        <div div style={{textAlign: 'center', marginTop: '30px', fontSize: '20px', marginLeft: '30px'}}>
           <input
             placeholder = "Name"
             value = {this.state.name}
@@ -56,7 +58,7 @@ class Register extends Component {
             name = "name"
           />
         </div>
-        <div>
+        <div div style={{textAlign: 'center', marginTop: '30px', fontSize: '20px', marginLeft: '30px'}}>
           <input
             placeholder = "Id"
             value = {this.state.id}
@@ -64,7 +66,7 @@ class Register extends Component {
             name = "id"
           />
         </div>
-        <div>
+        <div div style={{textAlign: 'center', marginTop: '30px', fontSize: '20px', marginLeft: '30px'}}>
           <input
             placeholder = "Password"
             value = {this.state.password}
@@ -72,7 +74,7 @@ class Register extends Component {
             name= "password"
           />
         </div>
-        <div>
+        <div div style={{textAlign: 'center', marginTop: '30px', fontSize: '20px', marginLeft: '30px'}}>
           <input
             placeholder = "Email"
             value = {this.state.email}
@@ -81,10 +83,10 @@ class Register extends Component {
           />
         </div>
         <div>
-          <button type="submit">Register</button>
+          <button type="submit" style={{borderColor: '#72F540', backgroundColor: '#72F540', color: 'black', width: '130px', marginRight: '10px', boxShadow: 'none', fontSize: '15px', marginLeft: '15px'}}>Register</button>
+          <Link to='/login'><button type="button" style={{borderColor: '#72F540', backgroundColor: '#72F540', color: 'black', width: '130px', marginRight: '10px', boxShadow: 'none', fontSize: '15px', marginLeft: '15px'}}>돌아가기</button></Link>
         </div>
-        <div>
-          <Link to='/login'><button type="button">돌아가기</button></Link>
+        </div>
         </div>
       </form>
     )

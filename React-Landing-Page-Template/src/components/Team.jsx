@@ -3,13 +3,12 @@ import React, { Component } from "react";
 export class Team extends Component {
   render() {
     return (
-      <div id="team" className="text-center">
+      <div id="team" className="text-center" style={{backgroundColor: '#f6f6f6'}}>
         <div className="container">
           <div className="col-md-8 col-md-offset-2 section-title">
             <h2>Meet the Team</h2>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit duis sed
-              dapibus leonec.
+              FOR VEGAN을 제작한 개발자들입니다.
             </p>
           </div>
           <div id="row">
