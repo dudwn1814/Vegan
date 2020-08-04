@@ -91,11 +91,12 @@ MongoClient.connect(url,{useUnifiedTopology: true},function(err,client){
       
       var area = req.query.area;
       var name = req.query.name;
+      console.log(name);
+      console.log(area);
 
-      db.collection('users').find({'name': name, 'area': area}).toArray(function(err, users){
+      db.collection('restaurant').find({"name": name, "area": area}).toArray(function(err, users){
         if(err) return res.status(500).send({error: 'database failure'});
-        res.send(users)
-        
+        res.json(users)
       })
     });
 

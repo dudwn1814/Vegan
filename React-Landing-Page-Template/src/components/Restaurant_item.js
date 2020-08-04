@@ -22,6 +22,7 @@ function Restaurant_item({ImageURL, Area, RestaurantName}) {
                 src={ImageURL}
                 className="img-responsive"
                 alt="Project Title"
+                style={{width: '400px', height: '280px'}}
             />{" "}
             </a>{" "}
         </div>

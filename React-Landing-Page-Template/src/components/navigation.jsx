@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import axios from 'axios';
-import { Router, Route, Link, Switch } from 'react-router-dom';
+import { Link} from 'react-router-dom';
 
 
 export class Navigation extends Component {
@@ -29,7 +28,7 @@ export class Navigation extends Component {
 
     this.setState({
       showMenu: false
-    })
+    });
   }
 
   render() {

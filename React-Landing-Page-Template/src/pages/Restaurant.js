@@ -1,9 +1,7 @@
 import React, { Component, Fragment } from 'react';
-import { Link, Redirect } from 'react-router-dom';
 import axios from 'axios';
 import Gallery from '../components/gallery';
 import Navigation from '../components/navigation';
-import qs from 'querystring';
 
 class Restaurant extends Component {
 
