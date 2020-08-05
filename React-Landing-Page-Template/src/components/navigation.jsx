@@ -44,6 +44,7 @@ export class Navigation extends Component {
 
   render() {
     console.log(this.state.data)
+    console.log(this.props.dataFromParent)
     if(this.props.dataFromParent){
       const user = "&name="+this.props.dataFromParent
       return (
@@ -78,7 +79,7 @@ export class Navigation extends Component {
             >
               <ul className="nav navbar-nav navbar-right" style={{verticalalign: 'middle'}}>
               <li>
-                <a href="/#features?"  className="page-scroll">
+                <a href="/#features?" className="page-scroll">
                 채식주의자란
                 </a>
               </li>

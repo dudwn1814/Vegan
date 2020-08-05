@@ -25,7 +25,7 @@ class RecipeInfo extends Component {
       
     })
   }
-  
+ 
   render() {
     console.log('render RecipeInfo' + this.props.info.id);
     const style = {
