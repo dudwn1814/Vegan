@@ -52,10 +52,10 @@ class AddRestaurant extends Component {
             <Navigation dataFromParent={this.props.location.state}/> 
             <div style={{marginTop: '100px', marginLeft: '600px'}}>
             <div className="section-title" style={{marginBottom: '20px'}}>
-                <h2 style= {{textAlign: 'center', marginRight: '550px', marginBottom:'50px', fontSize: '27px', marginTop: '150px'}}>레시피추가</h2></div>
+                <h2 style= {{textAlign: 'center', marginRight: '550px', marginBottom:'50px', fontSize: '27px', marginTop: '150px'}}>식당 추가</h2></div>
                 <div>
                     <input style={{ border: '1px solid black', padding: '3px', outline: 'none', width: '228px', height: '34px', marginBottom: '10px', outline: 'none'}}
-                        placeholder=" 식당이름"
+                        placeholder=" 식당 이름"
                         onChange={this.handleChange}
                         value = {this.state.name}
                         name = "name"
@@ -70,7 +70,7 @@ class AddRestaurant extends Component {
                     />
                 </div>
                 <div>
-                    <textarea style={{width:'700px', height:'100px', resize: 'none', border: '1px solid black' , outline: 'none'}}
+                    <input style={{ border: '1px solid black', padding: '3px', outline: 'none', width: '228px', height: '34px', marginBottom: '10px', outline: 'none'}}
                         placeholder=" 음식점 종류"
                         onChange={this.handleChange}
                         value = {this.state.category}
@@ -78,7 +78,7 @@ class AddRestaurant extends Component {
                     />
                 </div>
                 <div>
-                    <textarea style={{width:'700px', height:'100px', resize: 'none', border: '1px solid black' , outline: 'none'}}
+                <input style={{ border: '1px solid black', padding: '3px', outline: 'none', width: '228px', height: '34px', marginBottom: '10px', outline: 'none'}}
                         placeholder=" 전화번호"
                         onChange={this.handleChange}
                         value = {this.state.contact}
@@ -86,7 +86,7 @@ class AddRestaurant extends Component {
                     />
                 </div>
                 <div>
-                    <textarea style={{width:'700px', height:'100px', resize: 'none', border: '1px solid black' , outline: 'none'}}
+                    <textarea style={{border: '1px solid black',width:'700px', height:'100px', resize: 'none', border: '1px solid black', marginBottom: '10px' , outline: 'none'}}
                         placeholder=" 상세주소"
                         onChange={this.handleChange}
                         value = {this.state.address}
@@ -94,7 +94,7 @@ class AddRestaurant extends Component {
                     />
                 </div>
                 <div>
-                    <textarea style={{width:'700px', height:'100px', resize: 'none', border: '1px solid black' , outline: 'none'}}
+                    <textarea style={{border: '1px solid black',width:'700px', height:'100px', resize: 'none', border: '1px solid black', marginBottom: '10px' , outline: 'none'}}
                         placeholder=" Vegan Level"
                         onChange={this.handleChange}
                         value = {this.state.vegan_level}
@@ -102,7 +102,7 @@ class AddRestaurant extends Component {
                     />
                 </div>
                 <div>
-                    <textarea style={{width:'700px', height:'100px', resize: 'none', border: '1px solid black' , outline: 'none'}}
+                    <textarea style={{border: '1px solid black',width:'700px', height:'100px', resize: 'none', border: '1px solid black', marginBottom: '10px' , outline: 'none'}}
                         placeholder=" 비고"
                         onChange={this.handleChange}
                         value = {[this.state.detail]}
