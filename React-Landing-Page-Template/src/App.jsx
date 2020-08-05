@@ -6,7 +6,6 @@ import Features from './components/features';
 import About from './components/about';
 import Team from './components/Team';
 import Contact from './components/contact';
-import Mypage from './mypage';
 export class App extends Component {
 
   render() {
@@ -23,10 +22,7 @@ export class App extends Component {
           <Route path= "/restaurant_info" component = {Restaurant_Info} />
           <Route path= "/mypage" component = {Mypage} />
           <Route path= "/restaurantadd" component = {AddRestaurant} />
-          <Route path= "/#features" component = {Features}/>
-          <Route path= "/#about" component = {About}/>
-          <Route path= "/#team" component = {Team}/>
-          <Route path= "/#contact" component = {Contact}/>
+
         </Switch>
         
       </div>
