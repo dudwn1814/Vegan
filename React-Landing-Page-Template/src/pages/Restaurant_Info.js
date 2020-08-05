@@ -397,7 +397,7 @@ class Restaurant_Info extends Component {
             return (
                 
                 <Fragment>
-                    <Navigation/>
+                    <Navigation dataFromParent={query.get('user')}/>
                     <div id="about" style={{margin: '30px'}}>
                         <div className="container">
                         <div>

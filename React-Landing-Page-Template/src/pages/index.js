@@ -7,3 +7,4 @@ export { default as Food } from './Food';
 export { default as Restaurant} from './Restaurant';
 export { default as Restaurant_Info} from './Restaurant_Info';
 export { default as Mypage} from './Mypage';
+export { default as AddRestaurant} from './AddRestaurant';

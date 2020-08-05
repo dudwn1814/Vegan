@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react';
 import axios from 'axios';
 import Gallery from '../components/gallery';
 import Navigation from '../components/navigation';
+import { Link } from 'react-router-dom';
 
 class Restaurant extends Component {
 
@@ -56,7 +57,13 @@ class Restaurant extends Component {
           return (
             <Fragment >
                 <Navigation dataFromParent={query.get('name')}/>
+                <button  style={{backgroundColor: '#4CAF50', border: '1px solid #4CAF50', float: 'right', marginRight: '175px', width: '130px',  boxShadow: 'none', fontSize: '15px', borderRadius: '10px', padding: '5px', fontWeight: 'bold', outline: 'none',  marginTop: "100px"}}> 
+                    <Link style={{ textDecoration: 'none', color: 'white'}} to={{
+                         pathname : "/restaurantadd",
+                        state : query.get('name')}}>식당 추가</Link>
+                </button>
                 <Gallery itemlist ={ItemList} area = {title} dataFromParent={query.get('name')}/>
+                
             </Fragment>
             
         );
@@ -65,7 +72,13 @@ class Restaurant extends Component {
           return (
             <Fragment>
                 <Navigation dataFromParent={query.get('name')}/>
+                <button  style={{backgroundColor: '#4CAF50', border: '1px solid #4CAF50', float: 'right', marginRight: '175px', width: '130px',  boxShadow: 'none', fontSize: '15px', borderRadius: '10px', padding: '5px', fontWeight: 'bold', outline: 'none',  marginTop: "100px"}}> 
+                    <Link style={{ textDecoration: 'none', color: 'white'}} to={{
+                         pathname : "/restaurantadd",
+                        state : query.get('name')}}>식당 추가</Link>
+                </button>
                 <Gallery itemlist ={ItemList} area = {area} dataFromParent={query.get('name')} />
+                
             </Fragment>
             
         );
