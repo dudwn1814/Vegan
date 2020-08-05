@@ -1,8 +1,8 @@
 import React from 'react';
 
-function Restaurant_item({ImageURL, Area, RestaurantName}) {
-
-    var url = "/Restaurant_Info?area="+Area+"&name="+RestaurantName;
+function Restaurant_item({ImageURL, Area, RestaurantName, User}) {
+    console.log(User)
+    var url = "/Restaurant_Info?area="+Area+"&name="+RestaurantName+"&user="+User;
 
     return (
 

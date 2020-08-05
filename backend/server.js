@@ -57,6 +57,7 @@ var MongoClient = mongodb.MongoClient;
 var url = 'mongodb+srv://vegan:1111@cluster0.hso7u.mongodb.net/Vegan?retryWrites=true&w=majority'
 
 const nodemailer = require('nodemailer');
+const { timeStamp } = require('console');
 fs.readdir('uploads', (error) => {
   // uploads 폴더 없으면 생성
   if (error) {
@@ -99,6 +100,21 @@ MongoClient.connect(url,{useUnifiedTopology: true},function(err,client){
         res.json(users)
       })
     });
+    app.post('/restaurant/like', function(req, res){
+      var db = client.db('Vegan') 
+      
+      db.collection('restaurant').update({contact: req.body.contact},{$set: {like: req.body.like}})
+      
+      res.json({result: "success"})
+    })
+    app.post('/restaurant/seelater', function(req, res){
+      var db = client.db('Vegan') 
+      
+      db.collection('restaurant').update({contact: req.body.contact},{$set: {seelater: req.body.seelater}})
+      
+      res.json({result: "success"})
+    })
+
 
     app.get('/loadingitems', function(req, res){
       var db = client.db('Vegan');
@@ -123,11 +139,27 @@ MongoClient.connect(url,{useUnifiedTopology: true},function(err,client){
 
     app.get('/addcomment', function(req, res){
       var db = client.db('Vegan');
+      var name = req.query.name;
+      var area = req.query.area;
       var text = req.query.text;
       console.log(text);
       
-      db.collection('restaurant').find({'area':area}).toArray(function(err, users){
-        db.collection('restaurant').update({'area': area},{$set: {comment: users[0].concat([text])}})
+      db.collection('restaurant').find({'name':name, 'area': area}).toArray(function(err, users){
+        var currentDate = new Date();
+        var date = currentDate.getDate();
+        var month = currentDate.getMonth();
+        var year = currentDate.getFullYear();
+        var hour = currentDate.getHours();
+        var min = currentDate.getMinutes();
+        var dateString = year + "년 " + (month + 1) + "월 " + date + "일 " + hour + "시 " + min;
+        console.log(users[0].comment)
+        console.log(users[0].comment.length)
+      
+
+        db.collection('restaurant').updateMany({'name':name, 'area': area},{$set: {'comment': users[0].comment.concat([['작성자',dateString,text]])}});
+        
+        res.json(users)
+
       })
       
     });

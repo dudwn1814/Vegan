@@ -42,7 +42,7 @@ class Restaurant extends Component {
       }
     
     componentWillMount() {
-        console.log(this.props.location.state)
+        
         this.loadItem();
           // loadItem 호출
     }
@@ -56,7 +56,7 @@ class Restaurant extends Component {
           return (
             <Fragment >
                 <Navigation dataFromParent={query.get('name')}/>
-                <Gallery itemlist ={ItemList} area = {title} />
+                <Gallery itemlist ={ItemList} area = {title} dataFromParent={query.get('name')}/>
             </Fragment>
             
         );
@@ -65,7 +65,7 @@ class Restaurant extends Component {
           return (
             <Fragment>
                 <Navigation dataFromParent={query.get('name')}/>
-                <Gallery itemlist ={ItemList} area = {area} />
+                <Gallery itemlist ={ItemList} area = {area} dataFromParent={query.get('name')} />
             </Fragment>
             
         );
