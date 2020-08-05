@@ -29,7 +29,8 @@ class Recipe extends Component {
             for(var i=0; i< response.data.length;i++){
                 recipelist.push({
                     id : i,
-                    name : response.data[i].food
+                    name : response.data[i].food,
+                    writer : response.data[i].writer
                 })
             }
             this.setState({
@@ -59,21 +60,22 @@ class Recipe extends Component {
                 </div >
                 <div className="section-title" style={{marginBottom: '20px'}}>
                 <h2 style= {{textAlign: 'center'}}>레시피</h2>
-                <div style={{textAlign: 'center'}}>
+                <div style={{textAlign: 'center', marginBottom: '70px'}}>
                   자유롭게 채식요리 레시피를 공유해주세요
                </div>
                 </div>
-                <button  style={{float: "right", marginRight: '20px', border: '1px solid black'  ,backgroundColor: '#ffffff', width: '130px', marginLeft: '10px', boxShadow: 'none', fontSize: '15px'}}> 
-                    <Link style={{ textDecoration: 'none', color: 'black'}} to={{
-                         pathname : "/recipeadd",
-                        state : this.props.location.state}}>Add Recipe</Link>
-                </button><br/><br/>
+
                 <div style={{padding: '20px 20px'}}>
                 <RecipeList
                     data= {filteredList}
                     dataFromParent = {this.props.location.state}
                     onRemove = {this.handleRemove}
                 /></div>
+                <button  style={{backgroundColor: '#4CAF50', border: '1px solid #4CAF50', float: 'right', marginRight: '175px', width: '130px',  boxShadow: 'none', fontSize: '15px', borderRadius: '10px', padding: '5px', fontWeight: 'bold', outline: 'none',  marginTop: "20px"}}> 
+                    <Link style={{ textDecoration: 'none', color: 'white'}} to={{
+                         pathname : "/recipeadd",
+                        state : this.props.location.state}}>Add Recipe</Link>
+                </button>
 
                 
             </Fragment>  

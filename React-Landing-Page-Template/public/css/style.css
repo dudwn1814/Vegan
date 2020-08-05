@@ -242,8 +242,9 @@ header .intro-text {
 	margin-left: 50px;
 	margin-top: 13px;
 	background-color: white; 
-	color: black; 
 	border: 1px solid #4CAF50;
+	color: black; 
+
   }
   
   .LoginButton:hover {
