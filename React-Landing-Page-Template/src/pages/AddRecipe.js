@@ -1,6 +1,7 @@
-import React, { Component, useState } from 'react';
+import React, { Component, useState, Fragment } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import Navigation from '../components/navigation';
 
 class AddRecipe extends Component {
     
@@ -36,7 +37,9 @@ class AddRecipe extends Component {
     render(){
         
         return(
-            <div>
+            <Fragment>
+            <Navigation dataFromParent={this.props.location.state}/> 
+            <div style={{marginTop: '100px', marginLeft: '600px'}}>
                 <div>
                     <input
                         placeholder="요리이름"
@@ -54,7 +57,7 @@ class AddRecipe extends Component {
                     />
                 </div>
                 <div>
-                    <textarea
+                    <textarea style={{width:'700px', height:'400px'}}
                         placeholder="요리순서"
                         onChange={this.handleChange}
                         value = {this.state.content}
@@ -65,6 +68,7 @@ class AddRecipe extends Component {
                 <button type="button" onClick={this.onClick}>사진 업로드</button>
                 <button type="button"><Link to="/recipe">제출 완료!</Link></button>
             </div>
+            </Fragment>
             )
     }
 }

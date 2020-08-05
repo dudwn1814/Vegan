@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import axios from 'axios';
+import car from './LoginImage2.png'
 
 
 
@@ -46,37 +47,49 @@ class Login extends Component {
         return (
 
 
+
+
           <form onSubmit = {this.handleSubmit}>
-          <div style={{background: 'url(../../public/img/background.jpg)',  fontWeight: '400', padding: '200px 200px 390px 200px'}}>
-          <div style={{ backgroundColor: '#ffffff', width: '450px', margin: 'auto', boxShadow: '0px 14px 80px rgba(34, 35, 58, 0.2)', padding: '20px 100px 100px 55px', borderRadius: '15px', transition: 'all .3s'}}>
+
+          <div style={{backgroundImage:`url(${car})`,  fontWeight: '400', padding: '200px 200px 390px 200px'}}>
+         
+        
+          <a href="/" style={{fontSize: '50px' ,color: 'white', position: 'absolute', top: '1px', left: '20px'}}>⇦</a>
+         
+          <div style={{ backgroundColor: '#00000070', width: '450px', margin: 'auto', padding: '20px 100px 55px  55px', borderRadius: '15px', transition: 'all .3s'}}>
           <div style={{textAlign: 'center', fontSize: '20px', marginLeft: '30px'}}>
-            <h1 style={{textAlign: 'center', fontSize: '30px', color: 'black', marginTop: '10px', marginBottom: '100px'}}>FOR VEGAN</h1>
-            
-            <input
-              placeholder = "Id"
+          <h1 style={{textAlign: 'center', fontSize: '30px', color: 'white', marginTop: '10px', marginBottom: '30px'}}>FOR VEGAN</h1>
+          <div style={{textAlign: 'center', fontSize: '18px', color: 'white', marginTop: '10px'}}>로그인</div><hr style={{marginBottom: '40px', color: 'white'}}/>
+          </div>
+          <div style={{textAlign: 'center', marginTop: '30px', fontSize: '15px', marginLeft: '30px', color: 'blakc'}}>
+            <input style={{ border: 'none', borderRadius: '15px', padding: '3px', outline: 'none', width: '228px', height: '34px'}}
+              placeholder = "  Id"
               value = {this.state.id}
               onChange = {this.handleChange}
               name = "id"
             />
           </div>
-          <div style={{textAlign: 'center', marginTop: '30px', fontSize: '20px', marginLeft: '30px'}}>
-            <input
-              placeholder = "Password"
+          <div style={{textAlign: 'center', marginTop: '30px', fontSize: '15px', marginLeft: '30px', color: 'blakc'}}>
+            <input style={{border: 'none', borderRadius: '15px', padding: '3px', outline: 'none', width: '228px', height: '34px'}}
+              placeholder = "  Password"
               value = {this.state.password}
               onChange = {this.handleChange}
               name= "password"
             />
           </div>
           <div style={{textAlign: 'center', marginTop: '50px'}}>
-            <button style={{borderColor: '#72F540', backgroundColor: '#72F540', color: 'black', width: '130px', marginRight: '10px', boxShadow: 'none', fontSize: '15px', marginLeft: '15px'}}><Link to= {{
+          <button type="submit" style={{marginLeft: '30px', backgroundColor: '#1E7A46',  width: '180px',  boxShadow: 'none', fontSize: '15px', color: 'darkgreen', border: 'none', borderRadius: '10px', padding: '5px', fontWeight: 'bold', outline: 'none',  marginTop: "20px"}}><Link style={{ textDecoration: 'none', color: 'white'}} to= {{
                   pathname: '/',
                   state: name
-                }}>SignIn</Link></button>
-            <button style={{borderColor: '#72F540', backgroundColor: '#72F540', width: '130px', marginLeft: '10px', boxShadow: 'none', fontSize: '15px'}}><Link to="/register" style={{color: 'black'}}>SignUp</Link></button>
+                }}>로그인</Link></button>
+           </div>
+           <div style={{textAlign: 'center', marginTop: '20px'}}>     
+          <button type="submit" style={{marginLeft: '30px', backgroundColor: '#1E7A46',  width: '180px',  boxShadow: 'none', fontSize: '15px', border: 'none', borderRadius: '10px', padding: '5px', outline: 'none'}}><Link to="/register" style={{color: 'white'}}>회원가입</Link></button>
           </div>
           </div>
           </div>
         </form>
+
         )
       }
     }
@@ -84,34 +97,41 @@ class Login extends Component {
     return (
 
       <form onSubmit = {this.handleSubmit}>
-        <div style={{background: 'url(../../public/img/background.jpg)',  fontWeight: '400', padding: '200px 200px 390px 200px'}}>
-        <div style={{ backgroundColor: '#ffffff', width: '450px', margin: 'auto', boxShadow: '0px 14px 80px rgba(34, 35, 58, 0.2)', padding: '20px 100px 100px 55px', borderRadius: '15px', transition: 'all .3s'}}>
+        <div style={{backgroundImage:`url(${car})`,  fontWeight: '400', padding: '200px 200px 390px 200px'}}>
+        
+        
+        <a href="/" style={{fontSize: '50px' ,color: 'white', position: 'absolute', top: '1px', left: '20px'}}>⇦</a>
+
+        <div style={{ backgroundColor: '#00000070', width: '450px', margin: 'auto', padding: '20px 100px 55px  55px', borderRadius: '15px', transition: 'all .3s'}}>
         <div style={{textAlign: 'center', fontSize: '20px', marginLeft: '30px'}}>
-          <h1 style={{textAlign: 'center', fontSize: '30px', color: 'black', marginTop: '10px', marginBottom: '100px'}}>FOR VEGAN</h1>
-          
-          <input
-            placeholder = "Id"
+          <h1 style={{textAlign: 'center', fontSize: '30px', color: 'white', marginTop: '10px', marginBottom: '30px'}}>FOR VEGAN</h1>
+          <div style={{textAlign: 'center', fontSize: '18px', color: 'white', marginTop: '10px'}}>로그인</div><hr style={{marginBottom: '40px', color: 'white'}}/>
+          </div>
+          <div style={{textAlign: 'center', marginTop: '30px', fontSize: '15px', marginLeft: '30px', color: 'blakc'}}>
+          <input style={{border: 'none', borderRadius: '15px', padding: '3px', outline: 'none', width: '228px', height: '34px'}}
+            placeholder = "  Id"
             value = {this.state.id}
             onChange = {this.handleChange}
             name = "id"
           />
         </div>
-        <div style={{textAlign: 'center', marginTop: '30px', fontSize: '20px', marginLeft: '30px'}}>
-          <input
-            placeholder = "Password"
+        <div style={{textAlign: 'center', marginTop: '30px', fontSize: '15px', marginLeft: '30px', color: 'blakc'}}>
+          <input style={{border: 'none', borderRadius: '15px', padding: '3px', outline: 'none', width: '228px', height: '34px'}}
+            placeholder = "  Password"
             value = {this.state.password}
             onChange = {this.handleChange}
             name= "password"
           />
         </div>
         <div style={{textAlign: 'center', marginTop: '50px'}}>
-          <button type="submit" style={{borderColor: '#72F540', backgroundColor: '#72F540', color: 'black', width: '130px', marginRight: '10px', boxShadow: 'none', fontSize: '15px', marginLeft: '15px'}}>SignIn</button>
-          <button style={{borderColor: '#72F540', backgroundColor: '#72F540', width: '130px', marginLeft: '10px', boxShadow: 'none', fontSize: '15px'}}><Link to="/register" style={{color: 'black'}}>SignUp</Link></button>
+          <button type="submit" style={{marginLeft: '30px', backgroundColor: '#1E7A46',  width: '180px',  boxShadow: 'none', fontSize: '15px', color: 'white', border: 'none', borderRadius: '10px', padding: '5px', outline: 'none', marginTop: "20px"}}>로그인</button>
+        </div>
+        <div style={{textAlign: 'center', marginTop: '20px'}}> 
+          <button style={{marginLeft: '30px', backgroundColor: '#1E7A46', width: '180px',  boxShadow: 'none', fontSize: '15px', border: 'none', borderRadius: '10px', padding: '5px', outline: 'none'}}><Link style={{ textDecoration: 'none' }} to="/register" style={{color: 'white'}}>회원가입</Link></button>
         </div>
         </div>
         </div>
       </form>
-
     )
   }
 }

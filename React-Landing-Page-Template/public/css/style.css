@@ -561,6 +561,8 @@ label {
 	-o-transition: none;
 	transition: none;
 }
+
+
 #contact .form-control:focus {
 	border-color: #999;
 	outline: 0;

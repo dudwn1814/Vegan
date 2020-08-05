@@ -42,12 +42,12 @@ export class Gallery extends Component {
             </div>
             <div style={{margin: '10px'}}>
               채식지원 : 채식메뉴를 일부 지원함
-            </div>
-            <input
-              placeholder="식당 이름을 검색하세요"
+            </div> 	🔍&nbsp;
+            <input 
+              placeholder="    식당 이름을 검색하세요"
               onChange={this.handleChange}
               value={keyword}
-              style = {{marginTop: '10px'}}
+              style = {{marginTop: '10px', borderRadius: '15px', padding: '3px 8px', width: '200px', outline: 'none'}}
             />
           </div>
           <div className="row">

@@ -36,8 +36,8 @@ export class Navigation extends Component {
       return (
         <nav id="menu" className="navbar navbar-default navbar-fixed-top">
           <div style={{float: 'right', marginRight: '10px'}}>{this.props.dataFromParent}님 환영합니다
-              <button className = "LogoutButton" style={{marginLeft:'10px'}}>
-                  <Link to="/"  className = "login-button">LogOut</Link>
+              <button className = "LogoutButton" style={{marginLeft:'10px', borderRadius: '15px', padding: '3px 8px', outline: 'none'}}>
+                  <Link style={{ textDecoration: 'none', color: 'black' }} to="/"  className = "login-button">로그아웃</Link>
                 </button></div>
           <div className="container">
           
@@ -180,8 +180,8 @@ export class Navigation extends Component {
     }
     return (
       <nav id="menu" className="navbar navbar-default navbar-fixed-top">
-        <button className = "LoginButton" style={{float: 'right', marginRight: '10px'}}>
-          <Link to="/login"  className = "login-button">Login</Link>
+        <button className = "LoginButton" style={{float: 'right', marginRight: '10px', borderRadius: '15px', padding: '3px 8px', outline: 'none'}}>
+          <Link style={{ textDecoration: 'none', color: 'black' }}  to="/login"  className = "login-button">로그인</Link>
         </button>
         <div className="container">
           <div className="navbar-header">
