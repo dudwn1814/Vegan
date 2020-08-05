@@ -49,6 +49,7 @@ class Restaurant extends Component {
     }
     render() {
       const query = new URLSearchParams(this.props.location.search);
+      console.log(this.props)
         const {area} = this.state;
         const {title} = this.state;
         const {ItemList} = this.state;

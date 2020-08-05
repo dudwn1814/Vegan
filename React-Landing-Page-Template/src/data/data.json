@@ -85,17 +85,17 @@
         }
     ],
     "Team": [{
-            "img": "img/team/01.jpg",
+            "img": "img/team/김정현_프로필.jpg",
             "name": "김정현",
             "job": "KAIST 18"
         },
         {
-            "img": "img/team/02.jpg",
+            "img": "img/team/김지훈_프로필.jpg",
             "name": "김지훈",
             "job": "KAIST 17"
         },
         {
-            "img": "img/team/04.jpg",
+            "img": "img/team/안영주_프로필.jpg",
             "name": "안영주",
             "job": "SMWU 18"
         }

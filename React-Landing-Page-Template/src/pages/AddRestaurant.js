@@ -35,6 +35,9 @@ class AddRestaurant extends Component {
         })
         let upload = 'restaurant'+ this.state.area + this.state.name
         console.log(upload)
+        this.setState({
+            detail : [this.state.detail]
+        })
         axios.post("http://localhost:8080/restaurant",this.state)
         axios.post('http://localhost:8080/users/name/uploader/',{name: this.props.location.state, upload: upload})
     }
@@ -105,7 +108,7 @@ class AddRestaurant extends Component {
                     <textarea style={{border: '1px solid black',width:'700px', height:'100px', resize: 'none', border: '1px solid black', marginBottom: '10px' , outline: 'none'}}
                         placeholder=" 비고"
                         onChange={this.handleChange}
-                        value = {[this.state.detail]}
+                        value = {this.state.detail}
                         name = "detail"
                     />
                 </div>
