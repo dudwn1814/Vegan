@@ -50,24 +50,31 @@ class Recipe extends Component {
             <Fragment>
                 { <Navigation dataFromParent={this.props.location.state}/>  }
                 
-                <div style={{marginTop: "100px"}}>
+                <div style={{marginTop: "100px", marginLeft: '1710px'}}>🔍&nbsp;
                     <input
                         placeholder="검색"
                         onChange={this.handleChange}
                         value = {keyword}
                     />
+                </div >
+                <div className="section-title" style={{marginBottom: '20px'}}>
+                <h2 style= {{textAlign: 'center'}}>레시피</h2>
+                <div style={{textAlign: 'center'}}>
+                  자유롭게 채식요리 레시피를 공유해주세요
+               </div>
                 </div>
-                <hr />
+                <button  style={{float: "right", marginRight: '20px', border: '1px solid black'  ,backgroundColor: '#ffffff', width: '130px', marginLeft: '10px', boxShadow: 'none', fontSize: '15px'}}> 
+                    <Link style={{ textDecoration: 'none', color: 'black'}} to={{
+                         pathname : "/recipeadd",
+                        state : this.props.location.state}}>Add Recipe</Link>
+                </button><br/><br/>
+                <div style={{padding: '20px 20px'}}>
                 <RecipeList
                     data= {filteredList}
                     dataFromParent = {this.props.location.state}
                     onRemove = {this.handleRemove}
-                />
-                <button> 
-                    <Link to={{
-                        path : "/recipeadd",
-                        state : this.props.location.state}}>Add Recipe</Link>
-                </button>
+                /></div>
+
                 
             </Fragment>  
         )

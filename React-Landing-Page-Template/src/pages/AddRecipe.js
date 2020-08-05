@@ -1,6 +1,7 @@
-import React, { Component, useState } from 'react';
+import React, { Component, useState, Fragment } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import Navigation from '../components/navigation';
 
 class AddRecipe extends Component {
     
@@ -10,7 +11,8 @@ class AddRecipe extends Component {
         img : null,
         content : '',
         like : 0,
-        seelater: 0
+        seelater: 0,
+        writer: ''
     }
     onChange = async(e) => {
         this.setState({
@@ -23,9 +25,13 @@ class AddRecipe extends Component {
         formData.append('file', this.state.img);
         const res = await axios.post("http://localhost:8080/upload", formData);
         this.setState({
-            img: res.data
+            img: res.data,
+            writer: this.props.location.state
         })
+        let upload = 'food'+ this.state.food
+        console.log(upload)
         axios.post("http://localhost:8080/foodrecipe",this.state)
+        axios.post('http://localhost:8080/users/name/uploader/',{name: this.props.location.state, upload: upload})
     }
     handleChange = (e) => {
         this.setState({
@@ -35,8 +41,11 @@ class AddRecipe extends Component {
    
     render(){
         
+        console.log(this.props.location.state)
         return(
-            <div>
+            <Fragment>
+            <Navigation dataFromParent={this.props.location.state}/> 
+            <div style={{marginTop: '100px', marginLeft: '600px'}}>
                 <div>
                     <input
                         placeholder="요리이름"
@@ -54,7 +63,7 @@ class AddRecipe extends Component {
                     />
                 </div>
                 <div>
-                    <textarea
+                    <textarea style={{width:'700px', height:'400px'}}
                         placeholder="요리순서"
                         onChange={this.handleChange}
                         value = {this.state.content}
@@ -63,8 +72,9 @@ class AddRecipe extends Component {
                 </div>
                 <input type="file" name="file" onChange={this.onChange}/>
                 <button type="button" onClick={this.onClick}>사진 업로드</button>
-                <button type="button"><Link to="/recipe">제출 완료!</Link></button>
+                <button type="button"><Link to={{pathname: "/recipe", state: this.props.location.state}}>제출 완료!</Link></button>
             </div>
+            </Fragment>
             )
     }
 }
