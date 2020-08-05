@@ -99,6 +99,21 @@ MongoClient.connect(url,{useUnifiedTopology: true},function(err,client){
         res.json(users)
       })
     });
+    app.post('/restaurant/like', function(req, res){
+      var db = client.db('Vegan') 
+      
+      db.collection('restaurant').update({contact: req.body.contact},{$set: {like: req.body.like}})
+      
+      res.json({result: "success"})
+    })
+    app.post('/restaurant/seelater', function(req, res){
+      var db = client.db('Vegan') 
+      
+      db.collection('restaurant').update({contact: req.body.contact},{$set: {seelater: req.body.seelater}})
+      
+      res.json({result: "success"})
+    })
+
 
     app.get('/loadingitems', function(req, res){
       var db = client.db('Vegan');

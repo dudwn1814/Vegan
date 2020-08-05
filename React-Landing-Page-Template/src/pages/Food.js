@@ -158,9 +158,9 @@ class Food extends Component {
                         </div>
                     </div>
                     <div>
-                        <button>Like</button>
+                        <button onClick={this.onClickLike}>Like</button>
                         <text>{this.state.like}</text>
-                        <button>SeeLater</button>
+                        <button onClick={this.onClickLater}>SeeLater</button>
                         <text>{this.state.seelater}</text>
                     </div>
                     </div>

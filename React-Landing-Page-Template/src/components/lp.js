@@ -5,6 +5,7 @@ import path from 'path';
 class Listpage extends Component {
   state = {};
   render() {
+    console.log(this.props.dataFromParent)
     const { restaurant_item } = this.props;
     return (
         <div className="portfolio-items">
@@ -20,6 +21,7 @@ class Listpage extends Component {
                     ImageURL={url}
                     Area={itemdata.area}
                     RestaurantName={itemdata.name}
+                    User={this.props.dataFromParent}
                 />
                 );
             })}
