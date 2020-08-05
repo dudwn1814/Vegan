@@ -172,9 +172,9 @@ class Restaurant_Info extends Component {
                 <div id="about" style={{margin: '30px'}}>
                     <div className="container">
                     <div>
-                        <button onClick={this.onClickLike}>Like</button>
-                        <text>{this.state.like}</text>
-                        <button onClick={this.onClickLater}>SeeLater</button>
+                        <button onClick={this.onClickLike} style={{backgroundColor: 'white', border: 'none', outline: 'none', marginLeft:'410px'}}>❤️</button>
+                        <text>{this.state.like}&nbsp;&nbsp;&nbsp;</text>
+                        <button onClick={this.onClickLater} style={{backgroundColor: 'white', border: 'none', outline: 'none'}}>⭐</button>
                         <text>{this.state.seelater}</text>
                     </div>
                     <div className="row">
@@ -246,9 +246,9 @@ class Restaurant_Info extends Component {
                     <div id="about" style={{margin: '30px'}}>
                         <div className="container">
                         <div>
-                            <button onClick={this.onClickLike}>Like</button>
-                            <text>{this.state.like}</text>
-                            <button onClick={this.onClickLater}>SeeLater</button>
+                            <button onClick={this.onClickLike} style={{backgroundColor: 'white', border: 'none', outline: 'none', marginLeft:'410px'}}>❤️</button>
+                            <text>{this.state.like}&nbsp;&nbsp;&nbsp;</text>
+                            <button onClick={this.onClickLater} style={{backgroundColor: 'white', border: 'none', outline: 'none'}}>⭐</button>
                             <text>{this.state.seelater}</text>
                         </div>
                         <div className="row">
@@ -317,9 +317,9 @@ class Restaurant_Info extends Component {
                     <div id="about" style={{margin: '30px'}}>
                         <div className="container">
                         <div>
-                            <button>Like</button>
-                            <text>{this.state.like}</text>
-                            <button onClick={this.onClickLater}>SeeLater</button>
+                            <button style={{backgroundColor: 'white', border: 'none', outline: 'none', marginLeft:'410px'}}>❤️</button>
+                            <text>{this.state.like}&nbsp;&nbsp;&nbsp;</text>
+                            <button onClick={this.onClickLater} style={{backgroundColor: 'white', border: 'none', outline: 'none'}}>⭐</button>
                             <text>{this.state.seelater}</text>
                         </div>
                         <div className="row">
@@ -388,9 +388,9 @@ class Restaurant_Info extends Component {
                     <div id="about" style={{margin: '30px'}}>
                         <div className="container">
                         <div>
-                            <button onClick={this.onClickLike}>Like</button>
-                            <text>{this.state.like}</text>
-                            <button >SeeLater</button>
+                            <button onClick={this.onClickLike} style={{backgroundColor: 'white', border: 'none', outline: 'none', marginLeft:'410px'}}>❤️</button>
+                            <text>{this.state.like}&nbsp;&nbsp;&nbsp;</text>
+                            <button style={{backgroundColor: 'white', border: 'none', outline: 'none'}}>⭐</button>
                             <text>{this.state.seelater}</text>
                         </div>
                         <div className="row">
@@ -458,9 +458,9 @@ class Restaurant_Info extends Component {
                     <div id="about" style={{margin: '30px'}}>
                         <div className="container">
                         <div>
-                            <button>Like</button>
-                            <text>{this.state.like}</text>
-                            <button>SeeLater</button>
+                            <button style={{backgroundColor: 'white', border: 'none', outline: 'none', marginLeft:'410px'}}>❤️</button>
+                            <text>{this.state.like}&nbsp;&nbsp;&nbsp;</text>
+                            <button style={{backgroundColor: 'white', border: 'none', outline: 'none'}}>⭐</button>
                             <text>{this.state.seelater}</text>
                         </div>
                         <div className="row">
