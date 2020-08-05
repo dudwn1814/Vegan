@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import Navigation from '../components/navigation';
 
+
 class AddRestaurant extends Component {
     
     state = {
@@ -17,7 +18,8 @@ class AddRestaurant extends Component {
         url : "img/",
         like : 0,
         seelater: 0,
-        writer: ''
+        writer: '',
+        radiogroup: ''
     }
     onChange = async(e) => {
         this.setState({
@@ -46,6 +48,17 @@ class AddRestaurant extends Component {
             [e.target.name]: e.target.value,
         });
       }
+
+    
+      handleRadio = (e) => {
+        let obj = {}
+        obj[e.target.value] = e.target.checked
+        this.setState({
+            radiogroup: obj,
+            vegan_level: e.target.value
+        })
+      }
+  
    
     render(){
         
@@ -57,7 +70,7 @@ class AddRestaurant extends Component {
             <div className="section-title" style={{marginBottom: '20px'}}>
                 <h2 style= {{textAlign: 'center', marginRight: '550px', marginBottom:'50px', fontSize: '27px', marginTop: '150px'}}>식당 추가</h2></div>
                 <div>
-                    <input style={{ border: '1px solid black', padding: '3px', outline: 'none', width: '228px', height: '34px', marginBottom: '10px', outline: 'none'}}
+                    <input style={{ border: '1px solid black', padding: '3px', width: '228px', height: '34px', marginBottom: '10px', outline: 'none'}}
                         placeholder=" 식당 이름"
                         onChange={this.handleChange}
                         value = {this.state.name}
@@ -65,7 +78,7 @@ class AddRestaurant extends Component {
                     />
                 </div>
                 <div>
-                    <input  style={{ border: '1px solid black', padding: '3px', outline: 'none', width: '300px', height: '34px', marginBottom: '10px', outline: 'none'}}
+                    <input  style={{ border: '1px solid black', padding: '3px', width: '300px', height: '34px', marginBottom: '10px', outline: 'none'}}
                         placeholder=" 지역"
                         onChange={this.handleChange}
                         value = {this.state.area}
@@ -73,7 +86,14 @@ class AddRestaurant extends Component {
                     />
                 </div>
                 <div>
-                    <input style={{ border: '1px solid black', padding: '3px', outline: 'none', width: '228px', height: '34px', marginBottom: '10px', outline: 'none'}}
+                    <form>
+                        <span>채식지원&nbsp;</span><input type='radio' name='radiogroup' value='채식지원' checked={this.state.radiogroup['채식지원']} onChange={this.handleRadio}></input> 
+                        <span>&nbsp;&nbsp;&nbsp;채식전문&nbsp;</span><input type='radio' name='radiogroup' value='채식전문' checked={this.state.radiogroup['채식전문']} onChange={this.handleRadio}></input> 
+                    </form>  
+
+                </div>
+                <div>
+                    <input style={{ border: '1px solid black', padding: '3px', width: '228px', height: '34px', marginBottom: '10px', outline: 'none'}}
                         placeholder=" 음식점 종류"
                         onChange={this.handleChange}
                         value = {this.state.category}
@@ -81,7 +101,7 @@ class AddRestaurant extends Component {
                     />
                 </div>
                 <div>
-                <input style={{ border: '1px solid black', padding: '3px', outline: 'none', width: '228px', height: '34px', marginBottom: '10px', outline: 'none'}}
+                <input style={{ border: '1px solid black', padding: '3px', width: '228px', height: '34px', marginBottom: '10px', outline: 'none'}}
                         placeholder=" 전화번호"
                         onChange={this.handleChange}
                         value = {this.state.contact}
@@ -89,19 +109,11 @@ class AddRestaurant extends Component {
                     />
                 </div>
                 <div>
-                    <textarea style={{border: '1px solid black',width:'700px', height:'100px', resize: 'none', border: '1px solid black', marginBottom: '10px' , outline: 'none'}}
+                <input style={{ border: '1px solid black', padding: '3px', width: '700px', height: '34px', marginBottom: '10px', outline: 'none'}}
                         placeholder=" 상세주소"
                         onChange={this.handleChange}
                         value = {this.state.address}
                         name = "address"
-                    />
-                </div>
-                <div>
-                    <textarea style={{border: '1px solid black',width:'700px', height:'100px', resize: 'none', border: '1px solid black', marginBottom: '10px' , outline: 'none'}}
-                        placeholder=" Vegan Level"
-                        onChange={this.handleChange}
-                        value = {this.state.vegan_level}
-                        name = "vegan_level"
                     />
                 </div>
                 <div>
