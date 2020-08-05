@@ -21,6 +21,7 @@ export class Gallery extends Component {
     const {itemlist} = this.props;
     const {area} = this.props;
     const {keyword} = this.state;
+    console.log(this.props.dataFromParent)
     var filteredList = [];
     if (keyword === '') {
       filteredList = itemlist;
@@ -51,7 +52,7 @@ export class Gallery extends Component {
             />
           </div>
           <div className="row">
-            <Listpage restaurant_item = {filteredList} />
+            <Listpage dataFromParent={this.props.dataFromParent} restaurant_item = {filteredList} />
           </div>
         </div>
       </div>
