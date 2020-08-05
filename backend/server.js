@@ -248,7 +248,9 @@ MongoClient.connect(url,{useUnifiedTopology: true},function(err,client){
         // })
         db.collection('users').find({name: req.body.name}).toArray(function(err, user){
           db.collection('users').update({name: req.body.name}, {$set : {upload: user[0].upload.concat(req.body.upload)}})
+          console.log(user[0])
         })
+        
      })
     app.post('/users',(req,res)=>{
         console.log('check1')
@@ -353,7 +355,25 @@ MongoClient.connect(url,{useUnifiedTopology: true},function(err,client){
         //console.log(req.file);
         res.send(req.file.filename);
     })
-    
+    app.post('/restaurant', function(req, res){
+      var db = client.db('Vegan')
+      var restaurant = {
+        name: req.body.name,
+        area: req.body.area,
+        category : req.body.category,
+        contact: req.body.contact,
+        address: req.body.address,
+        vegan_level: req.body.vegan_level,
+        detail: req.body.detail,
+        comment: req.body.comment,
+        url : req.body.url,
+        like: req.body.like,
+        seelater: req.body.seelater,
+        writer: req.body.writer,
+      }
+      db.collection('restaurant').save(restaurant)
+      res.json({result: "success"})
+    })
     app.post('/foodrecipe', function(req, res){
       var db = client.db('Vegan')
       var recipe = {
