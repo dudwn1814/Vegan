@@ -5,6 +5,7 @@ class RecipeInfo extends Component {
   static defaultProps = {
     info: {
       name: '이름',
+      writer: '이름',
       id: 0
     }
   }
@@ -21,19 +22,22 @@ class RecipeInfo extends Component {
     const { name, value } = e.target;
     this.setState({
       [name]: value
+      
     })
   }
   
   render() {
     console.log('render RecipeInfo' + this.props.info.id);
     const style = {
-      border: '1px solid black',
-      padding: '8px',
-      margin: '8px'
+      width: '1500px',
+      borderBottom: '1px solid black',
+      padding: '15px',
+      margin: '8px',
+      fontSize: '16px',
     };
 
     const {
-      name, id
+      name, writer, id
     } = this.props.info;
     const user = this.props.dataFromParent
     return (
@@ -44,7 +48,7 @@ class RecipeInfo extends Component {
                 user: user,
                 food: name
             }
-        }}><div><b>{name}</b></div></Link>
+        }}><div>🟢&nbsp;&nbsp;&nbsp;<b>{name}</b><div style={{float:"right"}}>{writer}</div></div></Link>
       </div>
     );
   }

@@ -25,7 +25,7 @@ class RecipeList extends Component {
         />)
     );
     return (
-      <div>
+      <div style={{marginLeft: '200px'}}>
         {list}
       </div>
     );

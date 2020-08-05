@@ -90,16 +90,30 @@ class Food extends Component {
             <div id="about">
                 { <Navigation dataFromParent={this.props.location.state.user}/>  }
                 <div className="container" style={{marginTop: "100px"}}>
+
+                <button style={{border: 'none', backgroundColor: 'white'}}><Link style={{fontSize: '25px', fontWeight: 'bold', color:'darkgreen'}} to={{
+                        pathname : "/recipe",
+                        state : this.props.location.state.user}}>⬅</Link></button>
+
+
+                    <button style={{backgroundColor: 'white', border: 'none', outline: 'none', marginLeft:'390px'}} onClick={this.onClickLike}>❤️</button>
+                    <text>{this.state.like}&nbsp;&nbsp;&nbsp;</text>
+                    <button style={{backgroundColor: 'white', border: 'none', outline: 'none'}} onClick={this.onClickLater}>⭐</button>
+                    <text>{this.state.seelater}</text>
+
+
+
                     <div className="row">   
                         <div className="col-xs-12 col-md-6"> <img src={imgsrc} className="img-responsive" alt=""/> </div>
                         <div className="col-xs-12 col-md-6">
                         <div className="about-text">
-                            <h2>{this.state.food}</h2>
-                            <p>{this.state.ingredients}</p>
-                            <h3>CookingRecipe</h3>
+                        <h2 style={{marginBottom: '50px'}}>{this.state.food}</h2>
+                            <h4>재료</h4>
+                            <div>{this.state.ingredients}</div>
+                            <h4 style={{marginTop: '30px'}}>레시피</h4>
                             <div className="list-style">
                             <div className="col-lg-6 col-sm-6 col-xs-12">
-                                <ul>
+                            <ul>
                                 {
                                 this.state.content.split('\n').map( line =>{
                                     return(<span>{line}<br /></span>)
@@ -111,16 +125,9 @@ class Food extends Component {
                         </div>
                     </div>
                 </div>
-                <div>
-                    <button onClick={this.onClickLike}>Like</button>
-                    <text>{this.state.like}</text>
-                    <button onClick={this.onClickLater}>SeeLater</button>
-                    <text>{this.state.seelater}</text>
+
+     
                 </div>
-                </div>
-                    <button><Link to={{
-                        pathname : "/recipe",
-                        state : this.props.location.state.user}}>목록</Link></button>
                 </div>
             </div>
             // <div>
@@ -136,16 +143,29 @@ class Food extends Component {
                 <div id="about">
                     { <Navigation dataFromParent={this.props.location.state.user}/>  }
                     <div className="container" style={{marginTop: "100px"}}>
+
+                    <button style={{border: 'none', backgroundColor: 'white', outline: 'none'}}><Link style={{fontSize: '25px', fontWeight: 'bold', color:'darkgreen'}} to={{
+                        pathname : "/recipe",
+                        state : this.props.location.state.user}}>⬅</Link></button>
+
+                        <button style={{backgroundColor: 'white', border: 'none', outline: 'none', marginLeft:'370px'}}>❤️</button>
+                        <text>{this.state.like}&nbsp;&nbsp;&nbsp;</text>
+                        <button style={{backgroundColor: 'white', border: 'none', outline: 'none'}}>⭐</button>
+                        <text>{this.state.seelater}</text>
+        
+
+
                         <div className="row">
-                            <div className="col-xs-12 col-md-6"> <img src={imgsrc} className="img-responsive" alt=""/> </div>
+                            <div className="col-xs-12 col-md-6"> <img style={{width: '500px', height: '380px'}} src={imgsrc} className="img-responsive" alt=""/> </div>
                             <div className="col-xs-12 col-md-6">
                             <div className="about-text">
-                                <h2>{this.state.food}</h2>
-                                <p>{this.state.ingredients}</p>
-                                <h3>CookingRecipe</h3>
+                            <h2 style={{marginBottom: '50px'}}>{this.state.food}</h2>
+                                <h4>재료</h4>
+                                <div>{this.state.ingredients}</div>
+                                <h4 style={{marginTop: '30px'}}>레시피</h4>
                                 <div className="list-style">
                                 <div className="col-lg-6 col-sm-6 col-xs-12">
-                                    <ul>
+                                <ul>
                                     {
                                     this.state.content.split('\n').map( line =>{
                                         return(<span>{line}<br /></span>)
@@ -164,9 +184,6 @@ class Food extends Component {
                         <text>{this.state.seelater}</text>
                     </div>
                     </div>
-                        <button><Link to={{
-                            pathname : "/recipe",
-                            state : this.props.location.state.user}}>목록</Link></button>
                     </div>
                 </div>
                 // <div>
@@ -182,16 +199,28 @@ class Food extends Component {
                 <div id="about">
                     { <Navigation dataFromParent={this.props.location.state.user}/>  }
                     <div className="container" style={{marginTop: "100px"}}>
+
+                    <button style={{border: 'none', backgroundColor: 'white', outline: 'none'}}><Link style={{fontSize: '25px', fontWeight: 'bold', color:'darkgreen'}} to={{
+                        pathname : "/recipe",
+                        state : this.props.location.state.user}}>⬅</Link></button>
+
+                        <button style={{backgroundColor: 'white', border: 'none', outline: 'none', marginLeft:'370px'}}>❤️</button>
+                        <text>{this.state.like}&nbsp;&nbsp;&nbsp;</text>
+                        <button style={{backgroundColor: 'white', border: 'none', outline: 'none'}} onClick={this.onClickLater}>⭐</button>
+                        <text>{this.state.seelater}</text>
+               
+
                         <div className="row">
-                            <div className="col-xs-12 col-md-6"> <img src={imgsrc} className="img-responsive" alt=""/> </div>
+                            <div className="col-xs-12 col-md-6"> <img style={{width: '500px', height: '380px'}} src={imgsrc} className="img-responsive" alt=""/> </div>
                             <div className="col-xs-12 col-md-6">
                             <div className="about-text">
-                                <h2>{this.state.food}</h2>
-                                <p>{this.state.ingredients}</p>
-                                <h3>CookingRecipe</h3>
+                            <h2 style={{marginBottom: '50px'}}>{this.state.food}</h2>
+                                <h4>재료</h4>
+                                <div>{this.state.ingredients}</div>
+                                <h4 style={{marginTop: '30px'}}>레시피</h4>
                                 <div className="list-style">
                                 <div className="col-lg-6 col-sm-6 col-xs-12">
-                                    <ul>
+                                <ul>
                                     {
                                     this.state.content.split('\n').map( line =>{
                                         return(<span>{line}<br /></span>)
@@ -203,16 +232,9 @@ class Food extends Component {
                             </div>
                         </div>
                     </div>
-                    <div>
-                        <button>Like</button>
-                        <text>{this.state.like}</text>
-                        <button onClick={this.onClickLater}>SeeLater</button>
-                        <text>{this.state.seelater}</text>
+        
+          
                     </div>
-                    </div>
-                        <button><Link to={{
-                            pathname : "/recipe",
-                            state : this.props.location.state.user}}>목록</Link></button>
                     </div>
                 </div>
                 // <div>
@@ -228,16 +250,28 @@ class Food extends Component {
                 <div id="about">
                     { <Navigation dataFromParent={this.props.location.state.user}/>  }
                     <div className="container" style={{marginTop: "100px"}}>
+
+                    <button style={{border: 'none', backgroundColor: 'white', outline: 'none'}}><Link style={{fontSize: '25px', fontWeight: 'bold', color:'darkgreen'}} to={{
+                        pathname : "/recipe",
+                        state : this.props.location.state.user}}>⬅</Link></button>
+
+                        <button style={{backgroundColor: 'white', border: 'none', outline: 'none', marginLeft:'370px'}} onClick={this.onClickLike}>❤️</button>
+                        <text>{this.state.like}&nbsp;&nbsp;&nbsp;</text>
+                        <button  style={{backgroundColor: 'white', border: 'none', outline: 'none'}}>⭐</button>
+                        <text>{this.state.seelater}</text>
+           
+
                         <div className="row">
-                            <div className="col-xs-12 col-md-6"> <img src={imgsrc} className="img-responsive" alt=""/> </div>
+                            <div className="col-xs-12 col-md-6"> <img style={{width: '500px', height: '380px'}} src={imgsrc} className="img-responsive" alt=""/> </div>
                             <div className="col-xs-12 col-md-6">
                             <div className="about-text">
-                                <h2>{this.state.food}</h2>
-                                <p>{this.state.ingredients}</p>
-                                <h3>CookingRecipe</h3>
+                            <h2 style={{marginBottom: '50px'}}>{this.state.food}</h2>
+                                <h4>재료</h4>
+                                <div>{this.state.ingredients}</div>
+                                <h4 style={{marginTop: '30px'}}>레시피</h4>
                                 <div className="list-style">
                                 <div className="col-lg-6 col-sm-6 col-xs-12">
-                                    <ul>
+                                <ul>
                                     {
                                     this.state.content.split('\n').map( line =>{
                                         return(<span>{line}<br /></span>)
@@ -249,16 +283,9 @@ class Food extends Component {
                             </div>
                         </div>
                     </div>
-                    <div>
-                        <button onClick={this.onClickLike}>Like</button>
-                        <text>{this.state.like}</text>
-                        <button >SeeLater</button>
-                        <text>{this.state.seelater}</text>
+
+              
                     </div>
-                    </div>
-                        <button><Link to={{
-                            pathname : "/recipe",
-                            state : this.props.location.state.user}}>목록</Link></button>
                     </div>
                 </div>
                 // <div>
@@ -274,13 +301,27 @@ class Food extends Component {
             <div id="about">
                 { <Navigation dataFromParent={this.props.location.state.user}/>  }
                 <div className="container" style={{marginTop: "100px"}}>
+
+
+                <button style={{border: 'none', backgroundColor: 'white', outline: 'none'}}><Link style={{fontSize: '25px', fontWeight: 'bold', color:'darkgreen'}} to={{
+                        pathname : "/recipe",
+                        state : this.props.location.state.user}}>⬅</Link></button>
+
+                
+                    <button style={{backgroundColor: 'white', border: 'none', outline: 'none', marginLeft:'370px'}}>❤️</button>
+                    <text>{this.state.like}&nbsp;&nbsp;&nbsp;</text>
+                    <button style={{backgroundColor: 'white', border: 'none', outline: 'none'}}>⭐</button>
+                    <text>{this.state.seelater}</text>
+                
+
                     <div className="row">
-                        <div className="col-xs-12 col-md-6"> <img src={imgsrc} className="img-responsive" alt=""/> </div>
+                        <div className="col-xs-12 col-md-6"> <img style={{width: '500px', height: '380px'}} src={imgsrc} className="img-responsive" alt=""/> </div>
                         <div className="col-xs-12 col-md-6">
                         <div className="about-text">
-                            <h2>{this.state.food}</h2>
-                            <p>{this.state.ingredients}</p>
-                            <h3>CookingRecipe</h3>
+                            <h2 style={{marginBottom: '50px'}}>{this.state.food}</h2>
+                            <h4>재료</h4>
+                            <div>{this.state.ingredients}</div>
+                            <h4 style={{marginTop: '30px'}}>레시피</h4>
                             <div className="list-style">
                             <div className="col-lg-6 col-sm-6 col-xs-12">
                                 <ul>
@@ -295,16 +336,8 @@ class Food extends Component {
                         </div>
                     </div>
                 </div>
-                <div>
-                    <button>Like</button>
-                    <text>{this.state.like}</text>
-                    <button>SeeLater</button>
-                    <text>{this.state.seelater}</text>
+
                 </div>
-                </div>
-                    <button><Link to={{
-                        pathname : "/recipe",
-                        state : this.props.location.state.user}}>목록</Link></button>
                 </div>
             </div>
         )
