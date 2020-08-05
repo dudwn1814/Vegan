@@ -177,6 +177,35 @@ MongoClient.connect(url,{useUnifiedTopology: true},function(err,client){
           res.send(user);
         })
       })
+
+      app.post('/users/name/uploader/', function(req, res){
+        var db = client.db('Vegan') 
+        // db.collection('users').find({name: req.body.name}).toArray(function(err, user){
+          
+        //   var name = user[0].name
+        //   var id = user[0].id
+        //   var password = user[0].password
+        //   var email = user[0].email
+        //   const modified = {
+        //       name: name,
+        //       id: id,
+        //       password: password,
+        //       email: email,
+        //       like : user[0].like,  
+        //       seelater: user[0].seelater,
+        //       upload: user[0].upload.concat([req.body.upload])
+        //     }
+        //   console.log(req.body.name)
+        //   console.log(user[0])
+        //   console.log(user)
+        //   console.log(modified)
+        //   db.collection('users').remove({name: req.body.name})
+        //   db.collection('users').save(modified)
+        // })
+        db.collection('users').find({name: req.body.name}).toArray(function(err, user){
+          db.collection('users').update({name: req.body.name}, {$set : {upload: user[0].upload.concat(req.body.upload)}})
+        })
+     })
     app.post('/users',(req,res)=>{
         console.log('check1')
 
@@ -198,37 +227,66 @@ MongoClient.connect(url,{useUnifiedTopology: true},function(err,client){
           var id = req.body.id
           var password = req.body.password
           var email = req.body.email
-          var mypage = req.body.mypage
+          var like = req.body.like
+          var seelater = req.body.seelater
+          var upload = req.body.upload
           var newuser = {
               name : name,
               id : id,
               password : password,
               email : email,
-              mypage : mypage
+              like : like,
+              seelater : seelater,
+              upload : upload
             }
           
           db.collection('users').save(newuser)
           res.json({result: "success"})
         })       
       });
-
     app.post('/users/like', function(req,res){
+        var db = client.db('Vegan')
+        // db.collection('users').find({name: req.body.name}).toArray(function(err, user){
+            
+        //   let modified = {
+        //       name: user[0].name,
+        //       id: user[0].id,
+        //       password: user[0].password,
+        //       email: user[0].email,
+              
+        //       like : user[0].like.concat([req.body.like]),
+        //       seelater: user[0].seelater,
+        //       upload: user[0].upload
+              
+        //     }
+        //   db.collection('users').remove({name: req.body.name})
+        //   db.collection('users').save(modified)
+        // })
+        db.collection('users').find({name: req.body.name}).toArray(function(err, user){
+          db.collection('users').update({name: req.body.name}, {$set : {like: user[0].like.concat(req.body.like)}})
+        })
+      })
+    app.post('/users/later', function(req,res){
       var db = client.db('Vegan')
-      db.collection('users').remove({id: req.body.id})
-      var name = req.body.name
-          var id = req.body.id
-          var password = req.body.password
-          var email = req.body.email
-          var mypage = req.body.mypage
-          var newuser = {
-              name : name,
-              id : id,
-              password : password,
-              email : email,
-              mypage : mypage
-            }
+      db.collection('users').find({name: req.body.name}).toArray(function(err, user){
           
-      db.collection('users').save(newuser)
+        // let modified = {
+        //     name: user[0].name,
+        //     id: user[0].id,
+        //     password: user[0].password,
+        //     email: user[0].email,
+            
+        //         like : user[0].like,
+        //         seelater: user[0].seelater.concat([req.body.later]),
+        //         upload: user[0].upload
+            
+        //   }
+        // db.collection('users').remove({name: req.body.name})
+        // db.collection('users').save(modified)
+        db.collection('users').find({name: req.body.name}).toArray(function(err, user){
+          db.collection('users').update({name: req.body.name}, {$set : {seelater: user[0].seelater.concat(req.body.later)}})
+        })
+      })
     })
     app.post('/users/login',function(req,res){
         var db = client.db('Vegan') 
@@ -260,26 +318,44 @@ MongoClient.connect(url,{useUnifiedTopology: true},function(err,client){
         img : req.body.img,
         content: req.body.content,
         like: req.body.like,
-        seelater: req.body.seelater
+        seelater: req.body.seelater,
+        writer: req.body.writer
       }
       db.collection('Recipes').save(recipe)
       res.json({result: "success"})
     })
     app.post('/foodrecipe/like', function(req, res){
       var db = client.db('Vegan')
-      var recipe = {
-        food: req.body.food,
-        ingredients: req.body.ingredients,
-        img : req.body.img,
-        content: req.body.content,
-        like: req.body.like,
-        seelater: req.body.seelater
-      }
-      db.collection('Recipes').remove({img : req.body.img})
-      db.collection('Recipes').save(recipe)
+      // var recipe = {
+      //   food: req.body.food,
+      //   ingredients: req.body.ingredients,
+      //   img : req.body.img,
+      //   content: req.body.content,
+      //   like: req.body.like,
+      //   seelater: req.body.seelater
+      // }
+      // db.collection('Recipes').remove({img : req.body.img})
+      // db.collection('Recipes').save(recipe)
+      db.collection('Recipes').update({img : req.body.img},{$set: {like: req.body.like}})
+      
       res.json({result: "success"})
     })
-
+    app.post('/foodrecipe/seelater', function(req, res){
+      var db = client.db('Vegan')
+      // var recipe = {
+      //   food: req.body.food,
+      //   ingredients: req.body.ingredients,
+      //   img : req.body.img,
+      //   content: req.body.content,
+      //   like: req.body.like,
+      //   seelater: req.body.seelater
+      // }
+      // db.collection('Recipes').remove({img : req.body.img})
+      // db.collection('Recipes').save(recipe)
+      
+      db.collection('Recipes').update({img : req.body.img},{$set: {seelater: req.body.seelater}})
+      res.json({result: "success"})
+    })
     app.get('/foodrecipe', function(req, res){
       var db = client.db('Vegan')
       db.collection('Recipes').find().toArray(function(err, recipes){

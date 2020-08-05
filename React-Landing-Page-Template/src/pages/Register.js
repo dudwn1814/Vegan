@@ -10,10 +10,10 @@ class Register extends Component {
     id: '',
     password: '',
     email: '',
-    mypage: {
-      like : new Array(),
-      seelater: new Array()
-    }
+    like : new Array(),
+    seelater: new Array(),
+    upload: new Array()
+    
   }
   handleChange = (e) => {
     this.setState({
@@ -34,10 +34,10 @@ class Register extends Component {
       id: '',
       password: '',
       email: '',
-      mypage: {
-        like : new Array(),
-        seelater: new Array()
-      }});
+      like : new Array(),
+      seelater: new Array(),
+      upload: new Array()
+      });
       this.goBack();
   }
 

@@ -65,7 +65,7 @@ class Recipe extends Component {
                 />
                 <button> 
                     <Link to={{
-                        path : "/recipeadd",
+                        pathname : "/recipeadd",
                         state : this.props.location.state}}>Add Recipe</Link>
                 </button>
                 

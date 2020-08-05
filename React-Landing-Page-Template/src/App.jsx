@@ -18,6 +18,7 @@ export class App extends Component {
           <Route path= "/restaurant_info" component = {Restaurant_Info} />
           <Route path= "/mypage" component = {Mypage} />
         </Switch>
+        
       </div>
     )
   }
