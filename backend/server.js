@@ -142,7 +142,8 @@ MongoClient.connect(url,{useUnifiedTopology: true},function(err,client){
       var name = req.query.name;
       var area = req.query.area;
       var text = req.query.text;
-      console.log(text);
+      var user = req.query.user;
+      console.log(user);
       
       db.collection('restaurant').find({'name':name, 'area': area}).toArray(function(err, users){
         var currentDate = new Date();
@@ -151,14 +152,14 @@ MongoClient.connect(url,{useUnifiedTopology: true},function(err,client){
         var year = currentDate.getFullYear();
         var hour = currentDate.getHours();
         var min = currentDate.getMinutes();
-        var dateString = year + "년 " + (month + 1) + "월 " + date + "일 " + hour + "시 " + min;
-        console.log(users[0].comment)
-        console.log(users[0].comment.length)
+        var dateString = year + "년 " + (month + 1) + "월 " + date + "일 " + hour + "시 " + min + "분";
       
 
-        db.collection('restaurant').updateMany({'name':name, 'area': area},{$set: {'comment': users[0].comment.concat([['작성자',dateString,text]])}});
+        db.collection('restaurant').updateMany({'name':name, 'area': area},{$set: {'comment': users[0].comment.concat([[user,dateString,text]])}});
         
-        res.json(users)
+        db.collection('restaurant').find({'name':name, 'area': area}).toArray(function(err, users){
+          res.json(users);
+        });
 
       })
       
