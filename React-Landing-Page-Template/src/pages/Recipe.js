@@ -65,7 +65,7 @@ class Recipe extends Component {
                 </div>
                 <button  style={{float: "right", marginRight: '20px', border: '1px solid black'  ,backgroundColor: '#ffffff', width: '130px', marginLeft: '10px', boxShadow: 'none', fontSize: '15px'}}> 
                     <Link style={{ textDecoration: 'none', color: 'black'}} to={{
-                        path : "/recipeadd",
+                         pathname : "/recipeadd",
                         state : this.props.location.state}}>Add Recipe</Link>
                 </button><br/><br/>
                 <div style={{padding: '20px 20px'}}>
@@ -75,11 +75,6 @@ class Recipe extends Component {
                     onRemove = {this.handleRemove}
                 /></div>
 
-                <button> 
-                    <Link to={{
-                        pathname : "/recipeadd",
-                        state : this.props.location.state}}>Add Recipe</Link>
-                </button>
                 
             </Fragment>  
         )
