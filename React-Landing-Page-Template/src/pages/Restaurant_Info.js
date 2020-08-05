@@ -505,7 +505,7 @@ class Restaurant_Info extends Component {
     
                             <div style={{marginLeft: '400px', background: '#EFF7EB', padding: '15px 15px 0.1px 15px'}}>
                                 {/* <div style={{textAlign: 'left', fontWeight: 'bold', marginBottom: '5px', fontSize: '17px'}}>{user}</div> */}
-                                <textarea style={{width: '740px', height: '100px', resize: 'none', outline: 'none'}}
+                                <textarea style={{width: '795px', height: '100px', resize: 'none', outline: 'none', marginBottom: '10px'}}
                                     value = {this.state.text} placeholder='후기는 로그인 후 작성 가능합니다' name="addcomment">
                                     </textarea>
                                     {/* 로그아웃 상태에서는 댓글 작성 불가능 */}
