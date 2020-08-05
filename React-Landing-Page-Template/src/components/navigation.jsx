@@ -3,7 +3,9 @@ import { Link} from 'react-router-dom';
 
 
 export class Navigation extends Component {
+  state={
 
+  }
   constructor() {
     super();
     
@@ -32,6 +34,7 @@ export class Navigation extends Component {
   }
 
   render() {
+    console.log(this.props)
     if(this.props.dataFromParent){
       const user = "&name="+this.props.dataFromParent
       return (
@@ -66,7 +69,7 @@ export class Navigation extends Component {
             >
               <ul className="nav navbar-nav navbar-right" style={{verticalalign: 'middle'}}>
               <li>
-                <a href="/#features" className="page-scroll">
+                <a href="/#features?" dataFromParent = {this.props.dataFromParent} className="page-scroll">
                 채식주의자란
                 </a>
               </li>
@@ -98,7 +101,7 @@ export class Navigation extends Component {
                 </Link>
               </li>
               <li>
-                <Link to="/mypage" className="page-scroll">
+                <Link to={{pathname: "/mypage",state : this.props.dataFromParent}}  className="page-scroll">
                   마이 페이지
                 </Link>
               </li>
@@ -181,6 +184,7 @@ export class Navigation extends Component {
         </nav>
       );
     }
+    
     return (
       <nav id="menu" className="navbar navbar-default navbar-fixed-top">
         <button className = "LoginButton" style={{float: 'right', marginRight: '10px', borderRadius: '15px', padding: '3px 8px', outline: 'none'}}>

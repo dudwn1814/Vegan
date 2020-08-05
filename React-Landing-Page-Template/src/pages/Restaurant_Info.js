@@ -261,6 +261,7 @@ class Restaurant_Info extends Component {
                                 <div style={{width: '800px', fontSize: '15px', color: 'black'}}><span title="연락처">📞</span> &nbsp;&nbsp;{contact}</div><br/>
                                 <div style={{width: '800px', fontSize: '15px', color: 'black'}}><span title="주소">🍽️</span> &nbsp;&nbsp;{address}</div><br/>
                                 <tdetail>
+                                    
                                 {detail.map(function(detail, i) {
                                     if (detail === "") {
                                     }

@@ -11,7 +11,7 @@ class Mypage extends Component {
         return (
 
             <Fragment>
-                <Navigation />
+                <Navigation dataFromParent={this.props.location.state}/>
             </Fragment>
         )
     }
