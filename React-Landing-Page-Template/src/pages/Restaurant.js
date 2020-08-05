@@ -13,6 +13,7 @@ class Restaurant extends Component {
     }
     
     loadItem = async () => {
+      
         const query = new URLSearchParams(this.props.location.search);
         this.setState({
             area: query.get('area')
@@ -39,18 +40,22 @@ class Restaurant extends Component {
               });
             });
       }
-
-    componentDidMount() {
-        this.loadItem();  // loadItem 호출
+    
+    componentWillMount() {
+        console.log(this.props.location.state)
+        this.loadItem();
+          // loadItem 호출
     }
     render() {
+      const query = new URLSearchParams(this.props.location.search);
         const {area} = this.state;
         const {title} = this.state;
         const {ItemList} = this.state;
+        
         if (area === '') {
           return (
-            <Fragment>
-                <Navigation />
+            <Fragment >
+                <Navigation dataFromParent={query.get('name')}/>
                 <Gallery itemlist ={ItemList} area = {title} />
             </Fragment>
             
@@ -59,7 +64,7 @@ class Restaurant extends Component {
         else {
           return (
             <Fragment>
-                <Navigation />
+                <Navigation dataFromParent={query.get('name')}/>
                 <Gallery itemlist ={ItemList} area = {area} />
             </Fragment>
             

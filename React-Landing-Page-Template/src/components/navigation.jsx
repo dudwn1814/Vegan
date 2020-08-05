@@ -33,6 +33,7 @@ export class Navigation extends Component {
 
   render() {
     if(this.props.dataFromParent){
+      const user = "&name="+this.props.dataFromParent
       return (
         <nav id="menu" className="navbar navbar-default navbar-fixed-top">
           <div style={{float: 'right', marginRight: '10px'}}>{this.props.dataFromParent}님 환영합니다
@@ -54,9 +55,9 @@ export class Navigation extends Component {
                 <span className="icon-bar"></span>{" "}
                 <span className="icon-bar"></span>{" "}
               </button>
-              <a className="navbar-brand page-scroll" href="#page-top">
-                React Landing Page
-              </a>{" "}
+              <Link className="navbar-brand page-scroll" to={{pathname: "/", state: this.props.dataFromParent}}>
+              For Vegan
+              </Link>{" "}
             </div>
   
             <div
@@ -90,7 +91,9 @@ export class Navigation extends Component {
                 </a>
               </li>
               <li>
-                <Link to="/recipe" className="page-scroll">
+                <Link to={{
+                        pathname : "/recipe",
+                        state : this.props.dataFromParent}} className="page-scroll">
                   요리 레시피
                 </Link>
               </li>
@@ -107,62 +110,62 @@ export class Navigation extends Component {
                 <div >
                   <ul style={{margin: '10px', textAlign: 'right'}}>
                     <li style={{textAlign: 'center', display: 'inline-block', margin: '15px'}}>
-                      <a href="/Restaurant?area=" className="page-scroll" style={{color: 'black'}}>
+                      <a href={"/Restaurant?area="+user} className="page-scroll" style={{color: 'black'}}>
                         전국
                       </a>
                     </li>
                     <li style={{textAlign: 'center', display: 'inline-block', margin: '15px'}}>
-                      <a href="/Restaurant?area=서울" className="page-scroll" style={{color: 'black'}}>
+                      <a href={"/Restaurant?area=서울"+user} className="page-scroll" style={{color: 'black'}}>
                         서울
                       </a>
                     </li>
                     <li style={{textAlign: 'center', display: 'inline-block', margin: '15px'}}>
-                      <a href="/Restaurant?area=인천" className="page-scroll" style={{color: 'black'}}>
+                      <a href={"/Restaurant?area=인천"+user} className="page-scroll" style={{color: 'black'}}>
                         인천
                       </a>
                     </li>
                     <li style={{textAlign: 'center', display: 'inline-block', margin: '15px'}}>
-                      <a href="/Restaurant?area=경기" className="page-scroll" style={{color: 'black'}}>
+                      <a href={"/Restaurant?area=경기"+user} className="page-scroll" style={{color: 'black'}}>
                         경기
                       </a>
                     </li>
                     <li style={{textAlign: 'center', display: 'inline-block', margin: '15px'}}>
-                      <a href="/Restaurant?area=강원도" className="page-scroll" style={{color: 'black'}}>
+                      <a href={"/Restaurant?area=강원도"+user} className="page-scroll" style={{color: 'black'}}>
                         강원도
                       </a>
                     </li>
                     <li style={{textAlign: 'center', display: 'inline-block', margin: '15px'}}>
-                      <a href="/Restaurant?area=충청북도" className="page-scroll" style={{color: 'black'}}>
+                      <a href={"/Restaurant?area=충청북도"+user} className="page-scroll" style={{color: 'black'}}>
                         충청북도
                       </a>
                     </li>
                     <li style={{textAlign: 'center', display: 'inline-block', margin: '15px'}}>
-                      <a href="/Restaurant?area=충청남도" className="page-scroll" style={{color: 'black'}}>
+                      <a href={"/Restaurant?area=충청남도"+user} className="page-scroll" style={{color: 'black'}}>
                         충청남도
                       </a>
                     </li>
                     <li style={{textAlign: 'center', display: 'inline-block', margin: '15px'}}>
-                      <a href="/Restaurant?area=전라북도" className="page-scroll" style={{color: 'black'}}>
+                      <a href={"/Restaurant?area=전라북도"+user} className="page-scroll" style={{color: 'black'}}>
                         전라북도
                       </a>
                     </li>
                     <li style={{textAlign: 'center', display: 'inline-block', margin: '15px'}}>
-                      <a href="/Restaurant?area=전라남도" className="page-scroll" style={{color: 'black'}}>
+                      <a href={"/Restaurant?area=전라남도"+user} className="page-scroll" style={{color: 'black'}}>
                         전라남도
                       </a>
                     </li>
                     <li style={{textAlign: 'center', display: 'inline-block', margin: '15px'}}>
-                      <a href="/Restaurant?area=경상북도" className="page-scroll" style={{color: 'black'}}>
+                      <a href={"/Restaurant?area=경상북도"+user} className="page-scroll" style={{color: 'black'}}>
                         경상북도
                       </a>
                     </li>
                     <li style={{textAlign: 'center', display: 'inline-block', margin: '15px'}}>
-                      <a href="/Restaurant?area=경상남도" className="page-scroll" style={{color: 'black'}}>
+                      <a href={"/Restaurant?area=경상남도"+user} className="page-scroll" style={{color: 'black'}}>
                         경상남도
                       </a>
                     </li>
                     <li style={{textAlign: 'center', display: 'inline-block', margin: '15px'}}>
-                      <a href="/Restaurant?area=제주" className="page-scroll" style={{color: 'black'}}>
+                      <a href={"/Restaurant?area=제주"+user} className="page-scroll" style={{color: 'black'}}>
                         제주
                       </a>
                     </li>

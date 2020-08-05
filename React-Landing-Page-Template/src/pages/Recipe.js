@@ -75,6 +75,11 @@ class Recipe extends Component {
                     onRemove = {this.handleRemove}
                 /></div>
 
+                <button> 
+                    <Link to={{
+                        pathname : "/recipeadd",
+                        state : this.props.location.state}}>Add Recipe</Link>
+                </button>
                 
             </Fragment>  
         )
