@@ -121,6 +121,17 @@ MongoClient.connect(url,{useUnifiedTopology: true},function(err,client){
       
     });
 
+    app.get('/addcomment', function(req, res){
+      var db = client.db('Vegan');
+      var text = req.query.text;
+      console.log(text);
+      
+      db.collection('restaurant').find({'area':area}).toArray(function(err, users){
+        db.collection('restaurant').update({'area': area},{$set: {comment: users[0].concat([text])}})
+      })
+      
+    });
+
 
     app.post("/nodemailerTest", function(req, res){
       let email = req.body.email;
