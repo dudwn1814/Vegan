@@ -34,7 +34,7 @@ class Food extends Component {
         })
         if(this.props.location.state.user){
             axios.get('http://localhost:8080/users/name/'+this.props.location.state.user).then(res =>{
-                console.log(this.state.food)
+                console.log(this.state)
 
                 if(res.data[0].name===this.state.writer){
                     this.setState({
