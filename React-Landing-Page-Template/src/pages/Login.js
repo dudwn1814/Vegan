@@ -21,16 +21,12 @@ class Login extends Component {
   }
   handleSubmit = (e) => {
     e.preventDefault()
-    // axios.get("http://localhost:8080/users/id/"+this.state.id).then(response => {
-    //     console.log(response)
-    //
-    // });
 
   }
 
   componentWillMount() {
 
-    axios.get('http://localhost:8080/users').then(response=>{
+    axios.get('http://192.168.0.89:8080/users').then(response=>{
       this.state.auth = response.data;
     })
   }

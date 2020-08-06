@@ -19,7 +19,7 @@ $(function() {
             }
             $.ajax({
                 crossOrigin: true,
-                url: "http://localhost:8080/nodemailerTest",
+                url: "http://192.168.0.89:8080/nodemailerTest",
                 type: "POST",
                 data: {
                     name: name,

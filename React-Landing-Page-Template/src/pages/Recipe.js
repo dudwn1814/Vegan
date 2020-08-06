@@ -24,7 +24,7 @@ class Recipe extends Component {
         })
       }
     componentWillMount() {
-        axios.get('http://localhost:8080/foodrecipe').then(response=>{
+        axios.get('http://192.168.0.89:8080/foodrecipe').then(response=>{
             var recipelist =new Array();
             for(var i=0; i< response.data.length;i++){
                 recipelist.push({
@@ -51,7 +51,7 @@ class Recipe extends Component {
             <Fragment>
                 { <Navigation dataFromParent={this.props.location.state}/>  }
                 
-                <div style={{marginTop: "100px", marginLeft: '1710px', outline: 'none'}}>🔍&nbsp;
+                <div style={{marginTop: "100px", marginLeft: '1200px', outline: 'none'}}>🔍&nbsp;
                     <input
                         placeholder="검색"
                         onChange={this.handleChange}
@@ -65,7 +65,7 @@ class Recipe extends Component {
                </div>
                 </div>
 
-                <div style={{padding: '20px 20px'}}>
+                <div style={{padding: '20px 20px', marginLeft:'-30px'}}>
                 <RecipeList
                     data= {filteredList}
                     dataFromParent = {this.props.location.state}

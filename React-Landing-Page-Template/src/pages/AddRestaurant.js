@@ -31,7 +31,7 @@ class AddRestaurant extends Component {
     onClick = async () => {
         const formData = new FormData();
         formData.append('file', this.state.img);
-        const res = await axios.post("http://localhost:8080/upload", formData);
+        const res = await axios.post("http://192.168.0.89:8080/upload", formData);
         this.setState({
             url: "img/"+res.data,
             writer: this.props.location.state
@@ -43,8 +43,8 @@ class AddRestaurant extends Component {
         this.setState({
             detail : [this.state.detail]
         })
-        axios.post("http://localhost:8080/restaurant",this.state)
-        axios.post('http://localhost:8080/users/name/uploader/',{key: key, name: this.props.location.state, area: area, upload: upload})
+        axios.post("http://192.168.0.89:8080/restaurant",this.state)
+        axios.post('http://192.168.0.89:8080/users/name/uploader/',{key: key, name: this.props.location.state, area: area, upload: upload})
     }
     handleChange = (e) => {
         this.setState({
@@ -71,7 +71,7 @@ class AddRestaurant extends Component {
         return(
             <Fragment>
             <Navigation dataFromParent={this.props.location.state}/> 
-            <div style={{marginTop: '100px', marginLeft: '600px'}}>
+            <div style={{marginTop: '100px', marginLeft: '400px'}}>
             <div className="section-title" style={{marginBottom: '20px'}}>
                 <h2 style= {{textAlign: 'center', marginRight: '550px', marginBottom:'50px', fontSize: '27px', marginTop: '150px'}}>식당 추가</h2></div>
                 <div>
@@ -145,7 +145,7 @@ class AddRestaurant extends Component {
                 </div>
                 <input type="file" name="file" onChange={this.onChange} style={{marginTop: '10px', backgroundColor: 'white', marginBottom: '10px'}}/>
                 <button type="button" onClick={this.onClick} style={{marginTop: '10px', color: 'black'}}>사진 업로드</button>
-                <button type="button" style={{backgroundColor: '#4CAF50', border: '1px solid #4CAF50', float: 'right', marginRight: '610px', width: '100px',  boxShadow: 'none', fontSize: '15px', borderRadius: '10px', padding: '5px', fontWeight: 'bold', outline: 'none',  marginTop: "10px"}}><a style={{color: 'white'}} href={"/Restaurant?area=&name="+this.props.location.state}>제출</a></button>
+                <button type="button" style={{backgroundColor: '#4CAF50', border: '1px solid #4CAF50', float: 'right', marginRight: '480px', width: '100px',  boxShadow: 'none', fontSize: '15px', borderRadius: '10px', padding: '5px', fontWeight: 'bold', outline: 'none',  marginTop: "10px"}}><a style={{color: 'white'}} href={"/Restaurant?area=&name="+this.props.location.state.name+"&id="+this.props.location.state.id}>제출</a></button>
             </div>
             </Fragment>
             )}
@@ -153,7 +153,7 @@ class AddRestaurant extends Component {
                 return(
                     <Fragment>
                     <Navigation dataFromParent={this.props.location.state}/> 
-                    <div style={{marginTop: '100px', marginLeft: '600px'}}>
+                    <div style={{marginTop: '100px', marginLeft: '400px'}}>
                     <div className="section-title" style={{marginBottom: '20px'}}>
                         <h2 style= {{textAlign: 'center', marginRight: '550px', marginBottom:'50px', fontSize: '27px', marginTop: '150px'}}>식당 추가</h2></div>
                         <div>
@@ -227,7 +227,7 @@ class AddRestaurant extends Component {
                         </div>
                         <input type="file" name="file" onChange={this.onChange} style={{marginTop: '10px', backgroundColor: 'white', marginBottom: '10px'}}/>
                         <button type="button" ostyle={{marginTop: '10px', color: 'black'}}>사진 업로드</button>
-                        <button type="button" style={{backgroundColor: '#4CAF50', border: '1px solid #4CAF50', float: 'right', marginRight: '610px', width: '100px',  boxShadow: 'none', fontSize: '15px', borderRadius: '10px', padding: '5px', fontWeight: 'bold', outline: 'none',  marginTop: "10px"}}><a style={{color: 'white'}} href={"/Restaurant?area=&name="+this.props.location.state}>제출</a></button>
+                        <button type="button" style={{backgroundColor: '#4CAF50', border: '1px solid #4CAF50', float: 'right', marginRight: '480px', width: '100px',  boxShadow: 'none', fontSize: '15px', borderRadius: '10px', padding: '5px', fontWeight: 'bold', outline: 'none',  marginTop: "10px"}}><a style={{color: 'white'}} href={"/Restaurant?area=&name="+this.props.location.state.name+"&id="+this.props.location.state.id}>제출</a></button>
                     </div>
                     </Fragment>
                     )}

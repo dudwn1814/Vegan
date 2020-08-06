@@ -23,7 +23,7 @@ class AddRecipe extends Component {
     onClick = async () => {
         const formData = new FormData();
         formData.append('file', this.state.img);
-        const res = await axios.post("http://localhost:8080/upload", formData);
+        const res = await axios.post("http://192.168.0.89:8080/upload", formData);
         this.setState({
             img: res.data,
             writer: this.props.location.state.name
@@ -31,8 +31,8 @@ class AddRecipe extends Component {
         let key = 'food'
         let upload = this.state.food
         console.log(upload)
-        axios.post("http://localhost:8080/foodrecipe",this.state)
-        axios.post('http://localhost:8080/users/name/uploader/',{key: key, name: this.props.location.state.name, upload: upload})
+        axios.post("http://192.168.0.89:8080/foodrecipe",this.state)
+        axios.post('http://192.168.0.89:8080/users/name/uploader/',{key: key, name: this.props.location.state.name, upload: upload})
     }
     handleChange = (e) => {
         this.setState({
@@ -85,7 +85,7 @@ class AddRecipe extends Component {
             return(
                 <Fragment>
                 <Navigation dataFromParent={this.props.location.state}/> 
-                <div style={{marginTop: '100px', marginLeft: '600px'}}>
+                <div style={{marginTop: '100px', marginLeft: '400px'}}>
                 <div className="section-title" style={{marginBottom: '20px'}}>
                     <h2 style= {{textAlign: 'center', marginRight: '550px', marginBottom:'50px', fontSize: '27px', marginTop: '150px'}}>레시피추가</h2></div>
                     <div>
@@ -114,7 +114,7 @@ class AddRecipe extends Component {
                     </div>
                     <input type="file" name="file" onChange={this.onChange} style={{marginTop: '10px', backgroundColor: 'white'}}/>
                     <button type="button" style={{marginTop: '10px', color: 'black'}}>사진 업로드</button>
-                    <button type="button" style={{backgroundColor: '#4CAF50', border: '1px solid #4CAF50', float: 'right', marginRight: '610px', width: '100px',  boxShadow: 'none', fontSize: '15px', borderRadius: '10px', padding: '5px', fontWeight: 'bold', outline: 'none',  marginTop: "10px"}}><Link style={{color: 'white'}} to={{pathname: "/recipe", state: this.props.location.state}}>제출</Link></button>
+                    <button type="button" style={{backgroundColor: '#4CAF50', border: '1px solid #4CAF50', float: 'right', marginRight: '480px', width: '100px',  boxShadow: 'none', fontSize: '15px', borderRadius: '10px', padding: '5px', fontWeight: 'bold', outline: 'none',  marginTop: "10px"}}><Link style={{color: 'white'}} to={{pathname: "/recipe", state: this.props.location.state}}>제출</Link></button>
                 </div>
                 </Fragment>
                 )

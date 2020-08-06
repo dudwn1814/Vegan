@@ -30,7 +30,7 @@ app.use(express.static('/loadingitems'));
 app.use(express.static('/myitem'));
 app.use(
   cors({
-    origin: ["http://localhost:8080","http://localhost:3000"],
+    origin: ["http://localhost:8080","http://localhost:3000", "http://192.168.0.72:3000","http://192.168.0.89:3000"],
     exposeHeaders: ["WWW-Authenticate", "Server-Authorization"],
     // maxAge: 5,
     // credentials: true,
@@ -246,17 +246,17 @@ MongoClient.connect(url,{useUnifiedTopology: true},function(err,client){
         
         var area = '';
         var restaurant = '';
-        if (key == 'food') {
+        if (key === 'food') {
           var food = req.body.upload;
           db.collection('users').find({'name': name}).toArray(function(err,user) {
-            db.collection('users').update({name: name}, {$set : {upload: user[0].upload.concat([key,food])}})
+            db.collection('users').update({name: name}, {$set : {upload: user[0].upload.concat([[key,food]])}})
           })
         }
         else {
           var area = req.body.area;
           var restaurant = req.body.upload;
           db.collection('users').find({name: name}).toArray(function(err, user){
-          db.collection('users').update({name: name}, {$set : {upload: user[0].upload.concat([key,area,restaurant])}})
+          db.collection('users').update({name: name}, {$set : {upload: user[0].upload.concat([[key,area,restaurant]])}})
           console.log(user[0])
         })
         }
@@ -347,7 +347,7 @@ MongoClient.connect(url,{useUnifiedTopology: true},function(err,client){
         
         var area = '';
         var restaurant = '';
-        if (key == 'food') {
+        if (key === 'food') {
           var food = req.body.like;
           db.collection('users').find({'name': name}).toArray(function(err,user) {
             db.collection('users').update({name: name}, {$set : {like: user[0].like.concat([[key,food]])}})
@@ -369,7 +369,7 @@ MongoClient.connect(url,{useUnifiedTopology: true},function(err,client){
         
         var area = '';
         var restaurant = '';
-        if (key == 'food') {
+        if (key === 'food') {
           var food = req.body.later;
           db.collection('users').find({'name': name}).toArray(function(err,user) {
             db.collection('users').update({name: name}, {$set : {seelater: user[0].seelater.concat([[key,food]])}})

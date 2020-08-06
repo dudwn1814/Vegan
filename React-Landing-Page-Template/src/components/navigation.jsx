@@ -50,7 +50,7 @@ export class Navigation extends Component {
     console.log(this.state.data)
     console.log(this.props.dataFromParent)
 
-    if(this.props.dataFromParent){
+    if(this.props.dataFromParent&&this.props.dataFromParent.name!=null){
       const user = "&name="+this.props.dataFromParent.name+"&id="+this.props.dataFromParent.id
       
       return (
@@ -117,7 +117,7 @@ export class Navigation extends Component {
                 </Link>
               </li>
               <li>
-                <Link to={{pathname: "/mypage",state : this.props.dataFromParent}}  className="page-scroll">
+                <Link style={{marginRight: '100px'}} to={{pathname: "/mypage",state : this.props.dataFromParent}}  className="page-scroll">
                   마이 페이지
                 </Link>
               </li>
@@ -200,7 +200,7 @@ export class Navigation extends Component {
         </nav>
       );
     }
-    else if(this.state.data){
+    else if(this.state.data&&this.state.data.name!=null){
       const user = "&name="+this.state.data.name+"&id="+this.state.data.id
       return (
         <nav id="menu" className="navbar navbar-default navbar-fixed-top">
@@ -266,7 +266,7 @@ export class Navigation extends Component {
                 </Link>
               </li>
               <li>
-                <Link to={{pathname: "/mypage",state : this.state.data}}  className="page-scroll">
+                <Link style={{marginRight: '100px'}} to={{pathname: "/mypage",state : this.state.data}}  className="page-scroll">
                   마이 페이지
                 </Link>
               </li>

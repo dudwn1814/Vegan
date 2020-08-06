@@ -34,7 +34,7 @@ class Restaurant_Info extends Component {
         var NAME = query.get('name');
         var AREA = query.get('area');
 
-        axios.get("http://localhost:8080/oneitem?area="+AREA+"&name="+NAME)
+        axios.get("http://192.168.0.89:8080/oneitem?area="+AREA+"&name="+NAME)
             .then((response) => {
               var list = [];
               for (var i = 0; i < response.data.length; i++) {
@@ -60,7 +60,7 @@ class Restaurant_Info extends Component {
               });
             });
             if(query.get('user')!='null'&&query.get('user')!='undefined'){
-                axios.get('http://localhost:8080/users/name/'+query.get('user')).then(res =>{
+                axios.get('http://192.168.0.89:8080/users/name/'+query.get('user')).then(res =>{
                     
                     if(res.data[0].upload.find(c => c[0]==='restaurant'&&c[1]===AREA&&c[2]===NAME)){
                         this.setState({
@@ -94,12 +94,12 @@ class Restaurant_Info extends Component {
         let key = 'restaurant';
         let area = AREA;
         let likerestaurant = NAME;
-        axios.post('http://localhost:8080/users/like',{key: key, name: USER, area: area, like: likerestaurant})
+        axios.post('http://192.168.0.89:8080/users/like',{key: key, name: USER, area: area, like: likerestaurant})
         this.setState({
             like : this.state.like + 1,
             isLike : true
         })
-        axios.post('http://localhost:8080/restaurant/like', {contact: this.state.contact ,like: this.state.like+1})
+        axios.post('http://192.168.0.89:8080/restaurant/like', {contact: this.state.contact ,like: this.state.like+1})
         
     }
     onClickLater=()=>{
@@ -110,13 +110,13 @@ class Restaurant_Info extends Component {
         let key = 'restaurant';
         let area = AREA;
         let laterrestaurant = NAME
-        axios.post('http://localhost:8080/users/later',{key:key, name: USER, area:area, later: laterrestaurant})
+        axios.post('http://192.168.0.89:8080/users/later',{key:key, name: USER, area:area, later: laterrestaurant})
         this.setState({
             seelater : this.state.seelater + 1,
             isLater : true
         })
         
-        axios.post('http://localhost:8080/restaurant/seelater',{contact: this.state.contact, seelater: this.state.seelater+1})
+        axios.post('http://192.168.0.89:8080/restaurant/seelater',{contact: this.state.contact, seelater: this.state.seelater+1})
     }
 
     handleSubmit = (e) => {
@@ -131,7 +131,7 @@ class Restaurant_Info extends Component {
         var AREA = query.get('area');
         var USER = query.get('user');
 
-        axios.get("http://localhost:8080/addcomment?area="+AREA+"&name="+NAME+"&text="+this.state.text+"&user="+USER)
+        axios.get("http://192.168.0.89:8080/addcomment?area="+AREA+"&name="+NAME+"&text="+this.state.text+"&user="+USER)
         .then((response) => {
           var list = [];
           for (var i = 0; i < response.data.length; i++) {
@@ -163,14 +163,14 @@ class Restaurant_Info extends Component {
         var {vegan_level} = this.state;
         const query = new URLSearchParams(this.props.location.search);
         if (vegan_level === '채식지원') {
-            vegan_level = '🤍';
+            vegan_level = '💛';
         }
         else {
             vegan_level = '💚';
         }
         const user = query.get('user')
         const id = query.get('id')
-        if(query.get('user')!='null'&&query.get('user')!='undefined'&&!this.state.isWriter&&!this.state.isLater&&!this.state.isLike){
+        if(query.get('user')!=null&&query.get('user')!='undefined'&&!this.state.isWriter&&!this.state.isLater&&!this.state.isLike){
         return (
             
             <Fragment>
@@ -219,14 +219,14 @@ class Restaurant_Info extends Component {
                     <tbody>
                         {comment.map(function(comment, i) {
                             
-                            return (<div style={{marginLeft: '400px', background: '#EFF7EB', padding: '10px 15px 0.1px 10px'}}>
+                            return (<div style={{marginLeft: '241px', background: '#EFF7EB', padding: '10px 15px 0.1px 10px'}}>
                                         <div style={{textAlign: 'left', fontWeight: 'bold', marginBottom: '5px', fontSize: '17px'}}>{comment[0]}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style={{fontWeight: 'lighter', fontSize: '13px'}}>{comment[1]}</span></div>
                                         <div>&nbsp;<span style={{verticalAlign: 'super'}}>↳</span> &nbsp;{comment[2]}</div>
                                         <hr style={{width: '800px', background: 'lightgray', marginTop: '10px', marginBottom: '10px'}}/>
                                     </div>)
                         })}
 
-                        <div style={{marginLeft: '400px', background: '#EFF7EB', padding: '15px 15px 0.1px 15px'}}>
+                        <div style={{marginLeft: '241px', background: '#EFF7EB', padding: '15px 15px 0.1px 15px'}}>
                             <div style={{textAlign: 'left', fontWeight: 'bold', marginBottom: '5px', fontSize: '17px'}}>{user}</div>
                             <textarea style={{width: '740px', height: '100px', resize: 'none', outline: 'none'}}
                                 placeholder='후기를 남겨주세요'
@@ -291,14 +291,14 @@ class Restaurant_Info extends Component {
                         <tbody>
                         {comment.map(function(comment, i) {
                             
-                            return (<div style={{marginLeft: '400px', background: '#EFF7EB', padding: '10px 15px 0.1px 10px'}}>
+                            return (<div style={{marginLeft: '241px', background: '#EFF7EB', padding: '10px 15px 0.1px 10px'}}>
                                         <div style={{textAlign: 'left', fontWeight: 'bold', marginBottom: '5px', fontSize: '17px'}}>{comment[0]}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style={{fontWeight: 'lighter', fontSize: '13px'}}>{comment[1]}</span></div>
                                         <div>&nbsp;<span style={{verticalAlign: 'super'}}>↳</span> &nbsp;{comment[2]}</div>
                                         <hr style={{width: '800px', background: 'lightgray', marginTop: '10px', marginBottom: '10px'}}/>
                                     </div>)
                         })}
     
-                            <div style={{marginLeft: '400px', background: '#EFF7EB', padding: '15px 15px 0.1px 15px'}}>
+                            <div style={{marginLeft: '241px', background: '#EFF7EB', padding: '15px 15px 0.1px 15px'}}>
                                 <div style={{textAlign: 'left', fontWeight: 'bold', marginBottom: '5px', fontSize: '17px'}}>{user}</div>
                                 <textarea style={{width: '740px', height: '100px', resize: 'none', outline: 'none'}}
                                     placeholder='후기를 남겨주세요'
@@ -308,7 +308,7 @@ class Restaurant_Info extends Component {
                                     onChange={this.handleChange}
                                     className="addcomment">
                                     </textarea>
-                                <button type="submit" style ={{marginLeft: '10px', verticalAlign: '40%', marginBottom: '10px'}}>작성</button>
+                                <button onClick={this.handleSubmit} style ={{marginLeft: '10px', verticalAlign: '40%', marginBottom: '10px'}}>작성</button>
                             </div>
     
                         </tbody>
@@ -362,14 +362,14 @@ class Restaurant_Info extends Component {
                         <tbody>
                         {comment.map(function(comment, i) {
                             
-                            return (<div style={{marginLeft: '400px', background: '#EFF7EB', padding: '10px 15px 0.1px 10px'}}>
+                            return (<div style={{marginLeft: '241px', background: '#EFF7EB', padding: '10px 15px 0.1px 10px'}}>
                                         <div style={{textAlign: 'left', fontWeight: 'bold', marginBottom: '5px', fontSize: '17px'}}>{comment[0]}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style={{fontWeight: 'lighter', fontSize: '13px'}}>{comment[1]}</span></div>
                                         <div>&nbsp;<span style={{verticalAlign: 'super'}}>↳</span> &nbsp;{comment[2]}</div>
                                         <hr style={{width: '800px', background: 'lightgray', marginTop: '10px', marginBottom: '10px'}}/>
                                     </div>)
                         })}
     
-                            <div style={{marginLeft: '400px', background: '#EFF7EB', padding: '15px 15px 0.1px 15px'}}>
+                            <div style={{marginLeft: '241px', background: '#EFF7EB', padding: '15px 15px 0.1px 15px'}}>
                                 <div style={{textAlign: 'left', fontWeight: 'bold', marginBottom: '5px', fontSize: '17px'}}>{user}</div>
                                 <textarea style={{width: '740px', height: '100px', resize: 'none', outline: 'none'}}
                                     placeholder='후기를 남겨주세요'
@@ -379,7 +379,7 @@ class Restaurant_Info extends Component {
                                     onChange={this.handleChange}
                                     className="addcomment">
                                     </textarea>
-                                <button type="submit" style ={{marginLeft: '10px', verticalAlign: '40%', marginBottom: '10px'}}>작성</button>
+                                <button onClick={this.handleSubmit} style ={{marginLeft: '10px', verticalAlign: '40%', marginBottom: '10px'}}>작성</button>
                             </div>
     
                         </tbody>
@@ -433,13 +433,13 @@ class Restaurant_Info extends Component {
                         <tbody>
                         {comment.map(function(comment, i) {
                             
-                            return (<div style={{marginLeft: '400px', background: '#EFF7EB', padding: '10px 15px 0.1px 10px'}}>
+                            return (<div style={{marginLeft: '241px', background: '#EFF7EB', padding: '10px 15px 0.1px 10px'}}>
                                         <div style={{textAlign: 'left', fontWeight: 'bold', marginBottom: '5px', fontSize: '17px'}}>{comment[0]}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style={{fontWeight: 'lighter', fontSize: '13px'}}>{comment[1]}</span></div>
                                         <div>&nbsp;<span style={{verticalAlign: 'super'}}>↳</span> &nbsp;{comment[2]}</div>
                                         <hr style={{width: '800px', background: 'lightgray', marginTop: '10px', marginBottom: '10px'}}/>
                                     </div>)
                         })}
-                            <div style={{marginLeft: '400px', background: '#EFF7EB', padding: '15px 15px 0.1px 15px'}}>
+                            <div style={{marginLeft: '241px', background: '#EFF7EB', padding: '15px 15px 0.1px 15px'}}>
                                 <div style={{textAlign: 'left', fontWeight: 'bold', marginBottom: '5px', fontSize: '17px'}}>{user}</div>
                                 <textarea style={{width: '740px', height: '100px', resize: 'none', outline: 'none'}}
                                     placeholder='후기를 남겨주세요'
@@ -449,7 +449,7 @@ class Restaurant_Info extends Component {
                                     onChange={this.handleChange}
                                     className="addcomment">
                                 </textarea>
-                                <button type="submit" style ={{marginLeft: '10px', verticalAlign: '40%', marginBottom: '10px'}}>작성</button>
+                                <button onClick={this.handleSubmit} style ={{marginLeft: '10px', verticalAlign: '40%', marginBottom: '10px'}}>작성</button>
                             </div>
     
                         </tbody>
@@ -503,14 +503,14 @@ class Restaurant_Info extends Component {
                         <tbody>
                         {comment.map(function(comment, i) {
                             
-                            return (<div style={{marginLeft: '400px', background: '#EFF7EB', padding: '10px 15px 0.1px 10px'}}>
+                            return (<div style={{marginLeft: '241px', background: '#EFF7EB', padding: '10px 15px 0.1px 10px'}}>
                                         <div style={{textAlign: 'left', fontWeight: 'bold', marginBottom: '5px', fontSize: '17px'}}>{comment[0]}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style={{fontWeight: 'lighter', fontSize: '13px'}}>{comment[1]}</span></div>
                                         <div>&nbsp;<span style={{verticalAlign: 'super'}}>↳</span> &nbsp;{comment[2]}</div>
                                         <hr style={{width: '800px', background: 'lightgray', marginTop: '10px', marginBottom: '10px'}}/>
                                     </div>)
                         })}
     
-                            <div style={{marginLeft: '400px', background: '#EFF7EB', padding: '15px 15px 0.1px 15px'}}>
+                            <div style={{marginLeft: '241px', background: '#EFF7EB', padding: '15px 15px 0.1px 15px'}}>
                                 {/* <div style={{textAlign: 'left', fontWeight: 'bold', marginBottom: '5px', fontSize: '17px'}}>{user}</div> */}
                                 <textarea style={{width: '795px', height: '100px', resize: 'none', outline: 'none', marginBottom: '10px'}}
                                     value = {this.state.text} placeholder='후기는 로그인 후 작성 가능합니다' name="addcomment">

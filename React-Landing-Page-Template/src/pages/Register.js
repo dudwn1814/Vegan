@@ -25,7 +25,7 @@ class Register extends Component {
 
   handleClick = (e)=>{
     e.preventDefault();
-    axios.post('http://localhost:8080/users', this.state).then(response => {
+    axios.post('http://192.168.0.89:8080/users', this.state).then(response => {
         console.log(response)
 
     });

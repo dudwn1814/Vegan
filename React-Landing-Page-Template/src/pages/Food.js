@@ -19,7 +19,7 @@ class Food extends Component {
     }
     
     componentWillMount() {
-        axios.get('http://localhost:8080/foodrecipe/'+this.props.location.state.food).then(response=>{
+        axios.get('http://192.168.0.89:8080/foodrecipe/'+this.props.location.state.food).then(response=>{
             this.setState({
                 food: response.data[0].food,
                 ingredients: response.data[0].ingredients,
@@ -33,7 +33,7 @@ class Food extends Component {
             console.log(response.data)
         })
         if(this.props.location.state.user){
-            axios.get('http://localhost:8080/users/name/'+this.props.location.state.user.name).then(res =>{
+            axios.get('http://192.168.0.89:8080/users/name/'+this.props.location.state.user.name).then(res =>{
                 console.log(res.data[0].seelater)
                 console.log(res.data[0])
                 console.log(res)
@@ -61,26 +61,26 @@ class Food extends Component {
         console.log(this.props.location.state)
         let key = 'food';
         let likefood = this.props.location.state.food
-        axios.post('http://localhost:8080/users/like',{key: key, name: this.props.location.state.user.name, like: likefood})
+        axios.post('http://192.168.0.89:8080/users/like',{key: key, name: this.props.location.state.user.name, like: likefood})
         this.setState({
             like : this.state.like + 1,
             isLike : true
         })
         console.log(this.state.like)
-        axios.post('http://localhost:8080/foodrecipe/like', {img:this.state.img ,like: this.state.like+1})
+        axios.post('http://192.168.0.89:8080/foodrecipe/like', {img:this.state.img ,like: this.state.like+1})
         
     }
     onClickLater=()=>{
         console.log(this.props.location.state)
         let key = 'food';
         let laterfood = this.props.location.state.food
-        axios.post('http://localhost:8080/users/later',{key: key, name: this.props.location.state.user.name,later: laterfood})
+        axios.post('http://192.168.0.89:8080/users/later',{key: key, name: this.props.location.state.user.name,later: laterfood})
         this.setState({
             seelater : this.state.seelater + 1,
             isLater : true
         })
         
-        axios.post('http://localhost:8080/foodrecipe/seelater', {img:this.state.img, seelater: this.state.seelater+1})
+        axios.post('http://192.168.0.89:8080/foodrecipe/seelater', {img:this.state.img, seelater: this.state.seelater+1})
     }
 
     render(){
@@ -118,7 +118,7 @@ class Food extends Component {
                             <h4 style={{marginTop: '30px'}}>레시피</h4>
                             <div className="list-style">
                             <div className="col-lg-6 col-sm-6 col-xs-12" style={{paddingLeft: '0px'}}>
-                            <ul>
+                            <ul style={{width: '550px'}}>
                                 {
                                 this.state.content.split('\n').map( line =>{
                                     return(<span>{line}<br /></span>)
@@ -170,7 +170,7 @@ class Food extends Component {
                                 <h4 style={{marginTop: '30px'}}>레시피</h4>
                                 <div className="list-style">
                                 <div className="col-lg-6 col-sm-6 col-xs-12"  style={{paddingLeft: '0px'}}>
-                                <ul>
+                                <ul style={{width: '550px'}}>
                                     {
                                     this.state.content.split('\n').map( line =>{
                                         return(<span>{line}<br /></span>)
@@ -220,7 +220,7 @@ class Food extends Component {
                                 <h4 style={{marginTop: '30px'}}>레시피</h4>
                                 <div className="list-style">
                                 <div className="col-lg-6 col-sm-6 col-xs-12"  style={{paddingLeft: '0px'}}>
-                                <ul>
+                                <ul style={{width: '550px'}}>
                                     {
                                     this.state.content.split('\n').map( line =>{
                                         return(<span>{line}<br /></span>)
@@ -271,7 +271,7 @@ class Food extends Component {
                                 <h4 style={{marginTop: '30px'}}>레시피</h4>
                                 <div className="list-style">
                                 <div className="col-lg-6 col-sm-6 col-xs-12" style={{paddingLeft: '0px'}}>
-                                <ul>
+                                <ul style={{width: '550px'}}>
                                     {
                                     this.state.content.split('\n').map( line =>{
                                         return(<span>{line}<br /></span>)
@@ -324,7 +324,7 @@ class Food extends Component {
                             <h4 style={{marginTop: '30px'}}>레시피</h4>
                             <div className="list-style">
                             <div className="col-lg-6 col-sm-6 col-xs-12" style={{paddingLeft: '0px'}}>
-                                <ul>
+                                <ul style={{width: '550px'}}>
                                 {
                                 this.state.content.split('\n').map( line =>{
                                     return(<span>{line}<br /></span>)

@@ -2,8 +2,13 @@ import React from 'react';
 
 function Restaurant_item({ImageURL, Area, RestaurantName, User}) {
     console.log(User)
-    var url = "/Restaurant_Info?area="+Area+"&name="+RestaurantName+"&user="+User.name+"&id="+User.id;
-
+    var url = '';
+    if(User!=null){
+        url = "/Restaurant_Info?area="+Area+"&name="+RestaurantName+"&user="+User.name+"&id="+User.id;
+    }
+    else{
+        url = "/Restaurant_Info?area="+Area+"&name="+RestaurantName
+    }
     return (
 
         <div className="col-sm-6 col-md-4 col-lg-4">

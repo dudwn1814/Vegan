@@ -30,7 +30,7 @@ class RecipeInfo extends Component {
     console.log('render RecipeInfo' + this.props.info.id);
     console.log(this.props.info)
     const style = {
-      width: '1500px',
+      width: '1200px',
       borderBottom: '1px solid black',
       padding: '15px',
       margin: '8px',
@@ -52,7 +52,7 @@ class RecipeInfo extends Component {
                 food: name
             }
         }}>
-            <div>🟢&nbsp;&nbsp;&nbsp;<b>{name}</b>
+            <div>⚫&nbsp;&nbsp;&nbsp;<b>{name}</b>
               <div style={{float: "right" }}>
                 {writer}
               </div>
