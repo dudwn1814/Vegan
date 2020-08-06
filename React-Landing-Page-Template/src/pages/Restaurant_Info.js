@@ -187,7 +187,7 @@ class Restaurant_Info extends Component {
                         <div className="col-xs-12 col-md-6"> <img src={url} className="img-responsive" style={{width: '450px', height: '350px', marginLeft: '50px'}} alt=""/> </div>
                         <div className="col-xs-12 col-md-6">
                         <div className="about-text">
-                            <h2 style={{marginTop: '10px'}}>{name} <span style={{fontSize: '30px', verticalAlign: 'middle'}}>{vegan_level}</span></h2>
+                            <h2 style={{marginTop: '10px'}}>{name} <span style={{fontSize: '30px', verticalAlign: 'text-top '}}>{vegan_level}</span></h2>
                             <div className="col-lg-6 col-sm-6 col-xs-12">
                             <div style={{width: '800px', marginTop: '40px', fontSize: '15px', color: 'black'}}><span title="카테고리">😋</span> &nbsp;&nbsp;{category}</div><br/>
                             <div style={{width: '800px', fontSize: '15px', color: 'black'}}><span title="연락처">📞</span> &nbsp;&nbsp;{contact}</div><br/>
@@ -261,7 +261,7 @@ class Restaurant_Info extends Component {
                             <div className="col-xs-12 col-md-6"> <img src={url} className="img-responsive" style={{width: '450px', height: '350px', marginLeft: '50px'}} alt=""/> </div>
                             <div className="col-xs-12 col-md-6">
                             <div className="about-text">
-                                <h2 style={{marginTop: '10px'}}>{name} <span style={{fontSize: '30px', verticalAlign: 'middle'}}>{vegan_level}</span></h2>
+                                <h2 style={{marginTop: '10px'}}>{name} <span style={{fontSize: '30px', verticalAlign: 'text-top '}}>{vegan_level}</span></h2>
                                 <div className="col-lg-6 col-sm-6 col-xs-12">
                                 <div style={{width: '800px', marginTop: '40px', fontSize: '15px', color: 'black'}}><span title="카테고리">😋</span> &nbsp;&nbsp;{category}</div><br/>
                                 <div style={{width: '800px', fontSize: '15px', color: 'black'}}><span title="연락처">📞</span> &nbsp;&nbsp;{contact}</div><br/>
@@ -333,7 +333,7 @@ class Restaurant_Info extends Component {
                             <div className="col-xs-12 col-md-6"> <img src={url} className="img-responsive" style={{width: '450px', height: '350px', marginLeft: '50px'}} alt=""/> </div>
                             <div className="col-xs-12 col-md-6">
                             <div className="about-text">
-                                <h2 style={{marginTop: '10px'}}>{name} <span style={{fontSize: '30px', verticalAlign: 'middle'}}>{vegan_level}</span></h2>
+                                <h2 style={{marginTop: '10px'}}>{name} <span style={{fontSize: '30px', verticalAlign: 'text-top '}}>{vegan_level}</span></h2>
                                 <div className="col-lg-6 col-sm-6 col-xs-12">
                                 <div style={{width: '800px', marginTop: '40px', fontSize: '15px', color: 'black'}}><span title="카테고리">😋</span> &nbsp;&nbsp;{category}</div><br/>
                                 <div style={{width: '800px', fontSize: '15px', color: 'black'}}><span title="연락처">📞</span> &nbsp;&nbsp;{contact}</div><br/>
@@ -404,7 +404,7 @@ class Restaurant_Info extends Component {
                             <div className="col-xs-12 col-md-6"> <img src={url} className="img-responsive" style={{width: '450px', height: '350px', marginLeft: '50px'}} alt=""/> </div>
                             <div className="col-xs-12 col-md-6">
                             <div className="about-text">
-                                <h2 style={{marginTop: '10px'}}>{name} <span style={{fontSize: '30px', verticalAlign: 'middle'}}>{vegan_level}</span></h2>
+                                <h2 style={{marginTop: '10px'}}>{name} <span style={{fontSize: '30px', verticalAlign: 'text-top '}}>{vegan_level}</span></h2>
                                 <div className="col-lg-6 col-sm-6 col-xs-12">
                                 <div style={{width: '800px', marginTop: '40px', fontSize: '15px', color: 'black'}}><span title="카테고리">😋</span> &nbsp;&nbsp;{category}</div><br/>
                                 <div style={{width: '800px', fontSize: '15px', color: 'black'}}><span title="연락처">📞</span> &nbsp;&nbsp;{contact}</div><br/>
@@ -474,7 +474,7 @@ class Restaurant_Info extends Component {
                             <div className="col-xs-12 col-md-6"> <img src={url} className="img-responsive" style={{width: '450px', height: '350px', marginLeft: '50px'}} alt=""/> </div>
                             <div className="col-xs-12 col-md-6">
                             <div className="about-text">
-                                <h2 style={{marginTop: '10px'}}>{name} <span style={{fontSize: '30px', verticalAlign: 'middle'}}>{vegan_level}</span></h2>
+                                <h2 style={{marginTop: '10px'}}>{name} <span style={{fontSize: '30px', verticalAlign: 'text-top '}}>{vegan_level}</span></h2>
                                 <div className="col-lg-6 col-sm-6 col-xs-12">
                                 <div style={{width: '800px', marginTop: '40px', fontSize: '15px', color: 'black'}}><span title="카테고리">😋</span> &nbsp;&nbsp;{category}</div><br/>
                                 <div style={{width: '800px', fontSize: '15px', color: 'black'}}><span title="연락처">📞</span> &nbsp;&nbsp;{contact}</div><br/>

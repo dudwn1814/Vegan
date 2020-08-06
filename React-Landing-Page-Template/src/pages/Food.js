@@ -117,7 +117,7 @@ class Food extends Component {
                             <div>{this.state.ingredients}</div>
                             <h4 style={{marginTop: '30px'}}>레시피</h4>
                             <div className="list-style">
-                            <div className="col-lg-6 col-sm-6 col-xs-12">
+                            <div className="col-lg-6 col-sm-6 col-xs-12" style={{paddingLeft: '0px'}}>
                             <ul>
                                 {
                                 this.state.content.split('\n').map( line =>{
@@ -169,7 +169,7 @@ class Food extends Component {
                                 <div>{this.state.ingredients}</div>
                                 <h4 style={{marginTop: '30px'}}>레시피</h4>
                                 <div className="list-style">
-                                <div className="col-lg-6 col-sm-6 col-xs-12">
+                                <div className="col-lg-6 col-sm-6 col-xs-12"  style={{paddingLeft: '0px'}}>
                                 <ul>
                                     {
                                     this.state.content.split('\n').map( line =>{
@@ -219,7 +219,7 @@ class Food extends Component {
                                 <div>{this.state.ingredients}</div>
                                 <h4 style={{marginTop: '30px'}}>레시피</h4>
                                 <div className="list-style">
-                                <div className="col-lg-6 col-sm-6 col-xs-12">
+                                <div className="col-lg-6 col-sm-6 col-xs-12"  style={{paddingLeft: '0px'}}>
                                 <ul>
                                     {
                                     this.state.content.split('\n').map( line =>{
@@ -270,7 +270,7 @@ class Food extends Component {
                                 <div>{this.state.ingredients}</div>
                                 <h4 style={{marginTop: '30px'}}>레시피</h4>
                                 <div className="list-style">
-                                <div className="col-lg-6 col-sm-6 col-xs-12">
+                                <div className="col-lg-6 col-sm-6 col-xs-12" style={{paddingLeft: '0px'}}>
                                 <ul>
                                     {
                                     this.state.content.split('\n').map( line =>{
@@ -323,7 +323,7 @@ class Food extends Component {
                             <div>{this.state.ingredients}</div>
                             <h4 style={{marginTop: '30px'}}>레시피</h4>
                             <div className="list-style">
-                            <div className="col-lg-6 col-sm-6 col-xs-12">
+                            <div className="col-lg-6 col-sm-6 col-xs-12" style={{paddingLeft: '0px'}}>
                                 <ul>
                                 {
                                 this.state.content.split('\n').map( line =>{

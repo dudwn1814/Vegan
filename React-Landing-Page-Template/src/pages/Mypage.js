@@ -23,7 +23,6 @@ class Mypage extends Component {
             name: this.props.location.state
         })
         var NAME =this.props.location.state;
-
         axios.get("http://localhost:8080/myitem?name="+NAME)
             .then((response) => {
               var my_recipe_list = [];  // food name만
@@ -63,8 +62,10 @@ class Mypage extends Component {
                     }
                 }
               }
+              console.log(like_recipe_list);
               this.setState({
                 loading: true,
+                name: NAME,
                 my_recipe: my_recipe_list,
                 my_restaurant: my_restaurant_list,
                 like_recipe: like_recipe_list,
@@ -72,6 +73,7 @@ class Mypage extends Component {
                 like_restaurant: like_restaurant_list,
                 later_restaurant: later_restaurant_list
               });
+              axios.get('http://localhost:8080/restaurant_info?')
             })
             .catch(e => {
               console.error(e);
@@ -88,84 +90,149 @@ class Mypage extends Component {
     }
 
     render(){
-        const {name} = this.props.location.state;
+        const {name} = this.state;
         const {my_recipe, my_restaurant, like_recipe, later_recipe, like_restaurant, later_restaurant} = this.state;
         console.log(this.props.location.state)
+        console.log('name'+name)
         console.log('my_recipe: '+my_recipe)
         console.log('my_restaurant: '+my_restaurant)
         console.log('like_recipe: '+like_recipe)
         console.log('later_recipe: '+later_recipe)
         console.log('like_restaurant: '+like_restaurant)
         console.log('later_restaurant: '+later_restaurant)
-
+        
         return (
             <Fragment>
                 <Navigation dataFromParent={this.props.location.state}/>
 
-                <div style={{marginLeft: '15px', fontSize: '20px', marginTop: '120px', color: 'darkgreen', fontWeight: 'bold'}}>내가 올린 레시피</div>
-                <hr style={{float: 'left', marginLeft: '15px', width: '1850px', background: 'limegreen'}}/>
+                <div style={{marginLeft: '350px', fontSize: '20px', marginTop: '120px', color: 'darkgreen', fontWeight: 'bold', padding:'20px'}}>▶ 내가 올린 레시피</div>
+                <hr style={{float: 'left', width: '1150px', background: 'limegreen', margin:'0px', marginLeft: '350px'}}/>
                 <p></p>
                 <tbody>
                     {my_recipe.map(function(my_recipe, i) {
+                        console.log(name)
+                        console.log(my_recipe)
                         return (
-                            <div>{my_recipe}</div>
-                        )
+                            <div style={{marginLeft: '370px', padding:'5px', paddingLeft:'20px'}}>
+                                <Link to={{
+                                    pathname: '/food',
+                                    state: {
+                                        user: {name},
+                                        food: {my_recipe}
+                                    }
+                                }}><div>{my_recipe}</div></Link>
+                            </div>
+                        );
+
                     })}
                 </tbody>
                 
 
-                <div style={{marginTop: '10px', marginLeft: '15px', fontSize: '20px', color: 'darkgreen', fontWeight: 'bold'}}>내가 올린 식당</div>
-                <hr style={{float: 'left', marginLeft: '15px', width: '1850px', background: 'limegreen'}}/>
+                <div style={{marginTop: '30px', marginLeft: '350px', fontSize: '20px', color: 'darkgreen', fontWeight: 'bold', padding:'20px'}}>▶ 내가 올린 식당</div>
+                <hr style={{float: 'left', width: '1150px', background: 'limegreen', margin:'0px', marginLeft: '350px'}}/>
                 <p></p>
                 <tbody >
                     {my_restaurant.map(function(my_restaurant, i) {
+                        var url = "/Restaurant_Info?area="+my_restaurant[0]+"&name="+my_restaurant[1]+"&user="+name;
+
                         return (
-                            <div>{my_restaurant}</div>
-                        )
+                            <div style={{marginLeft: '370px', padding:'5px', paddingLeft:'20px'}}>
+                            <a
+                            href={url}
+                            title="Project Title"
+                            data-lightbox-gallery="gallery1"
+                            >
+                            <div className="hover-text">
+                                <h4>{my_restaurant[1]}</h4>
+                            </div>
+                            </a>
+                            </div>
+                        );
                     })}
                 </tbody>
 
-                <div style={{marginTop: '10px', marginLeft: '15px', fontSize: '20px', color: 'darkgreen', fontWeight: 'bold'}}>좋아요한 레시피</div>
-                <hr style={{float: 'left', marginLeft: '15px', width: '1850px', background: 'limegreen'}}/>
+                <div style={{marginTop: '30px', marginTop: '30px', marginLeft: '350px', fontSize: '20px', color: 'darkgreen', fontWeight: 'bold', padding:'20px'}}>▶ 좋아요한 레시피</div>
+                <hr style={{float: 'left', width: '1150px', background: 'limegreen', margin:'0px', marginLeft: '350px'}}/>
                 <p></p>
                 <tbody>
                     {like_recipe.map(function(like_recipe, i) {
                         return (
-                            <div>{like_recipe}</div>
+                            <div style={{marginLeft: '370px', padding:'5px', paddingLeft:'20px'}}>
+                                <Link to={{
+                                    pathname: '/food',
+                                    state: {
+                                        user: {name},
+                                        food: {like_recipe}
+                                    }
+                                }}><div>{like_recipe}</div></Link>
+                            </div>
                         )
                     })}
                 </tbody>
 
-                <div style={{marginLeft: '15px', fontSize: '20px', color: 'darkgreen', fontWeight: 'bold'}}>나중에 볼 레시피</div>
-                <hr style={{float: 'left', marginLeft: '15px', width: '1850px', background: 'limegreen'}}/>
+                <div style={{marginTop: '30px',marginLeft: '350px', fontSize: '20px', color: 'darkgreen', fontWeight: 'bold', padding:'20px'}}>▶ 나중에 볼 레시피</div>
+                <hr style={{float: 'left', width: '1150px', background: 'limegreen', margin:'0px', marginLeft: '350px'}}/>
                 <p></p>
                 <tbody>
                     {later_recipe.map(function(later_recipe, i) {
                         return (
-                            <div>{later_recipe}</div>
+                            <div style={{marginLeft: '370px', padding:'5px', paddingLeft:'20px'}}>
+                                <Link to={{
+                                    pathname: '/food',
+                                    state: {
+                                        user: {name},
+                                        food: {later_recipe}
+                                    }
+                                }}><div>{later_recipe}</div></Link>
+                            </div>
                         )
                     })}
                 </tbody>
 
-                <div style={{marginLeft: '15px', fontSize: '20px', color: 'darkgreen', fontWeight: 'bold'}}>좋아요한 식당</div>
-                <hr style={{float: 'left', marginLeft: '15px', width: '1850px', background: 'limegreen'}}/>
+                <div style={{marginTop: '30px', marginLeft: '350px', fontSize: '20px', color: 'darkgreen', fontWeight: 'bold', padding:'20px'}}>▶ 좋아요한 식당</div>
+                <hr style={{float: 'left', width: '1150px', background: 'limegreen', margin:'0px', marginLeft: '350px'}}/>
                 <p></p>
                 <tbody>
                     {like_restaurant.map(function(like_restaurant, i) {
+                        var url = "/Restaurant_Info?area="+like_restaurant[0]+"&name="+like_restaurant[1]+"&user="+name;
+
                         return (
-                            <div>{like_restaurant}</div>
-                        )
+                            <div style={{marginLeft: '370px', padding:'5px', paddingLeft:'20px'}}>
+                            <a
+                            href={url}
+                            title="Project Title"
+                            data-lightbox-gallery="gallery1"
+                            >
+                            <div className="hover-text">
+                                <h4>{like_restaurant[1]}</h4>
+                            </div>
+                            </a>
+                            </div>
+                        );
                     })}
                 </tbody>
 
-                <div style={{marginLeft: '15px', fontSize: '20px', color: 'darkgreen', fontWeight: 'bold'}}>가고 싶은 식당</div>
-                <hr style={{float: 'left', marginLeft: '15px', width: '1850px', background: 'limegreen'}}/>
+                <div style={{marginTop: '30px', marginLeft: '350px', fontSize: '20px', color: 'darkgreen', fontWeight: 'bold', padding:'20px'}}>▶ 가고 싶은 식당</div>
+                <hr style={{float: 'left', width: '1150px', background: 'limegreen', margin:'0px', marginLeft: '350px'}}/>
                 <p></p>
                 <tbody>
                     {later_restaurant.map(function(later_restaurant, i) {
+                        var url = "/Restaurant_Info?area="+later_restaurant[0]+"&name="+later_restaurant[1]+"&user="+name;
+
                         return (
-                            <div>{later_restaurant}</div>
-                        )
+
+                            <div style={{marginLeft: '370px', padding:'5px', paddingLeft:'20px'}}>
+                            <a 
+                            href={url}
+                            title="Project Title"
+                            data-lightbox-gallery="gallery1"
+                            >
+                            <div className="hover-text">
+                                <h4>{later_restaurant[1]}</h4>
+                            </div><br/><br/><br/><br/><br/>
+                            </a>
+                            </div>
+                        );
                     })}
                 </tbody>
 
