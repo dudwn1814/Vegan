@@ -349,14 +349,14 @@ MongoClient.connect(url,{useUnifiedTopology: true},function(err,client){
         if (key == 'food') {
           var food = req.body.like;
           db.collection('users').find({'name': name}).toArray(function(err,user) {
-            db.collection('users').update({name: name}, {$set : {like: user[0].like.concat([key,food])}})
+            db.collection('users').update({name: name}, {$set : {like: user[0].like.concat([[key,food]])}})
           })
         }
         else {
           var area = req.body.area;
           var restaurant = req.body.like;
           db.collection('users').find({name: name}).toArray(function(err, user){
-          db.collection('users').update({name: name}, {$set : {like: user[0].like.concat([key,area,restaurant])}})
+          db.collection('users').update({name: name}, {$set : {like: user[0].like.concat([[key,area,restaurant]])}})
         })
         }
       })
@@ -371,14 +371,14 @@ MongoClient.connect(url,{useUnifiedTopology: true},function(err,client){
         if (key == 'food') {
           var food = req.body.later;
           db.collection('users').find({'name': name}).toArray(function(err,user) {
-            db.collection('users').update({name: name}, {$set : {seelater: user[0].seelater.concat([key,food])}})
+            db.collection('users').update({name: name}, {$set : {seelater: user[0].seelater.concat([[key,food]])}})
           })
         }
         else {
           var area = req.body.area;
           var restaurant = req.body.later;
           db.collection('users').find({name: name}).toArray(function(err, user){
-          db.collection('users').update({name: name}, {$set : {seelater: user[0].seelater.concat([key,area,restaurant])}})
+          db.collection('users').update({name: name}, {$set : {seelater: user[0].seelater.concat([[key,area,restaurant]])}})
           console.log(user[0])
         })
         }
