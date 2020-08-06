@@ -231,7 +231,6 @@ class AddRestaurant extends Component {
                     </div>
                     </Fragment>
                     )}
-            
     }
 }
 
