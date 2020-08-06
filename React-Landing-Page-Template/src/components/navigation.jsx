@@ -1,10 +1,12 @@
 import React, { Component } from "react";
 import { Link} from 'react-router-dom';
+import axios from 'axios';
 
 
 export class Navigation extends Component {
   state={
-    data: ''
+    data: '',
+    id: ''
   }
   constructor() {
     super();
