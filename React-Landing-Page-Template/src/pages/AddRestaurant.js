@@ -165,13 +165,27 @@ class AddRestaurant extends Component {
                             />
                         </div>
                         <div>
-                            <input  style={{ border: '1px solid black', padding: '3px', width: '300px', height: '34px', marginBottom: '10px', outline: 'none'}}
-                                placeholder=" 지역"
-                                onChange={this.handleChange}
-                                value = {this.state.area}
-                                name = "area"
-                            />
-                        </div>
+                    {/* <input  style={{ border: '1px solid black', padding: '3px', width: '300px', height: '34px', marginBottom: '10px', outline: 'none'}}
+                        placeholder=" 지역"
+                        onChange={this.handleChange}
+                        value = {this.state.area}
+                        name = "area"
+                    /> */}
+                    <select onChange={this.handleChange}  value = {this.state.area} name = "area" style={{ border: '1px solid black', padding: '3px', height: '34px', marginBottom: '20px', outline: 'none'}}>
+                    <option selected value="서울">서울</option>
+                    <option value="인천">인천</option>
+                    <option value="경기">경기</option>
+                    <option value="강원도">강원도</option>
+                    <option value="충청북도">충청북도</option>
+                    <option value="충청남도">충청남도</option>
+                    <option value="전라북도">전라북도</option>
+                    <option value="전라남도">전라남도</option>
+                    <option value="경상북도">경상북도</option>
+                    <option value="경상남도">경상남도</option>
+                    <option value="제주">제주</option>
+                    </select>
+
+                </div>
                         <div>
                             <form>
                                 <span>채식지원&nbsp;</span><input type='radio' name='radiogroup' value='채식지원' checked={this.state.radiogroup['채식지원']} onChange={this.handleRadio}></input> 
