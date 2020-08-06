@@ -15,11 +15,12 @@ class AddRestaurant extends Component {
         vegan_level: '',
         detail: [],
         comment: [],
-        url : "img/",
+        url : '',
         like : 0,
         seelater: 0,
         writer: '',
-        radiogroup: ''
+        radiogroup: '',
+        img: ''
     }
     onChange = async(e) => {
         this.setState({
@@ -64,7 +65,9 @@ class AddRestaurant extends Component {
    
     render(){
         
-        console.log(this.props.location.state)
+        console.log(this.state.name!==''&&this.state.area!==''&&this.state.category!==''&&this.state.contact!==''&&this.state.address!==''&&this.state.vegan_level!==''&&this.state.img!=='')
+        console.log(this.state)
+        if(this.state.name!==''&&this.state.area!==''&&this.state.category!==''&&this.state.contact!==''&&this.state.address!==''&&this.state.vegan_level!==''&&this.state.img!==''){
         return(
             <Fragment>
             <Navigation dataFromParent={this.props.location.state}/> 
@@ -131,7 +134,76 @@ class AddRestaurant extends Component {
                 <button type="button" style={{backgroundColor: '#4CAF50', border: '1px solid #4CAF50', float: 'right', marginRight: '610px', width: '100px',  boxShadow: 'none', fontSize: '15px', borderRadius: '10px', padding: '5px', fontWeight: 'bold', outline: 'none',  marginTop: "10px"}}><a style={{color: 'white'}} href={"/Restaurant?area=&name="+this.props.location.state}>제출</a></button>
             </div>
             </Fragment>
-            )
+            )}
+            else{
+                return(
+                    <Fragment>
+                    <Navigation dataFromParent={this.props.location.state}/> 
+                    <div style={{marginTop: '100px', marginLeft: '600px'}}>
+                    <div className="section-title" style={{marginBottom: '20px'}}>
+                        <h2 style= {{textAlign: 'center', marginRight: '550px', marginBottom:'50px', fontSize: '27px', marginTop: '150px'}}>식당 추가</h2></div>
+                        <div>
+                            <input style={{ border: '1px solid black', padding: '3px', width: '228px', height: '34px', marginBottom: '10px', outline: 'none'}}
+                                placeholder=" 식당 이름"
+                                onChange={this.handleChange}
+                                value = {this.state.name}
+                                name = "name"
+                            />
+                        </div>
+                        <div>
+                            <input  style={{ border: '1px solid black', padding: '3px', width: '300px', height: '34px', marginBottom: '10px', outline: 'none'}}
+                                placeholder=" 지역"
+                                onChange={this.handleChange}
+                                value = {this.state.area}
+                                name = "area"
+                            />
+                        </div>
+                        <div>
+                            <form>
+                                <span>채식지원&nbsp;</span><input type='radio' name='radiogroup' value='채식지원' checked={this.state.radiogroup['채식지원']} onChange={this.handleRadio}></input> 
+                                <span>&nbsp;&nbsp;&nbsp;채식전문&nbsp;</span><input type='radio' name='radiogroup' value='채식전문' checked={this.state.radiogroup['채식전문']} onChange={this.handleRadio}></input> 
+                            </form>  
+        
+                        </div>
+                        <div>
+                            <input style={{ border: '1px solid black', padding: '3px', width: '228px', height: '34px', marginBottom: '10px', outline: 'none'}}
+                                placeholder=" 음식점 종류"
+                                onChange={this.handleChange}
+                                value = {this.state.category}
+                                name = "category"
+                            />
+                        </div>
+                        <div>
+                        <input style={{ border: '1px solid black', padding: '3px', width: '228px', height: '34px', marginBottom: '10px', outline: 'none'}}
+                                placeholder=" 전화번호"
+                                onChange={this.handleChange}
+                                value = {this.state.contact}
+                                name = "contact"
+                            />
+                        </div>
+                        <div>
+                        <input style={{ border: '1px solid black', padding: '3px', width: '700px', height: '34px', marginBottom: '10px', outline: 'none'}}
+                                placeholder=" 상세주소"
+                                onChange={this.handleChange}
+                                value = {this.state.address}
+                                name = "address"
+                            />
+                        </div>
+                        <div>
+                            <textarea style={{border: '1px solid black',width:'700px', height:'100px', resize: 'none', border: '1px solid black', marginBottom: '10px' , outline: 'none'}}
+                                placeholder=" 비고"
+                                onChange={this.handleChange}
+                                value = {this.state.detail}
+                                name = "detail"
+                            />
+                        </div>
+                        <input type="file" name="file" onChange={this.onChange} style={{marginTop: '10px', backgroundColor: 'white'}}/>
+                        <button type="button" ostyle={{marginTop: '10px', color: 'black'}}>사진 업로드</button>
+                        <button type="button" style={{backgroundColor: '#4CAF50', border: '1px solid #4CAF50', float: 'right', marginRight: '610px', width: '100px',  boxShadow: 'none', fontSize: '15px', borderRadius: '10px', padding: '5px', fontWeight: 'bold', outline: 'none',  marginTop: "10px"}}><a style={{color: 'white'}} href={"/Restaurant?area=&name="+this.props.location.state}>제출</a></button>
+                    </div>
+                    </Fragment>
+                    )}
+            
     }
 }
 
