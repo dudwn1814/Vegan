@@ -145,7 +145,7 @@ class AddRestaurant extends Component {
                 </div>
                 <input type="file" name="file" onChange={this.onChange} style={{marginTop: '10px', backgroundColor: 'white', marginBottom: '10px'}}/>
                 <button type="button" onClick={this.onClick} style={{marginTop: '10px', color: 'black'}}>사진 업로드</button>
-                <button type="button" style={{backgroundColor: '#4CAF50', border: '1px solid #4CAF50', float: 'right', marginRight: '610px', width: '100px',  boxShadow: 'none', fontSize: '15px', borderRadius: '10px', padding: '5px', fontWeight: 'bold', outline: 'none',  marginTop: "10px"}}><a style={{color: 'white'}} href={"/Restaurant?area=&name="+this.props.location.state}>제출</a></button>
+                <button type="button" style={{backgroundColor: '#4CAF50', border: '1px solid #4CAF50', float: 'right', marginRight: '610px', width: '100px',  boxShadow: 'none', fontSize: '15px', borderRadius: '10px', padding: '5px', fontWeight: 'bold', outline: 'none',  marginTop: "10px"}}><a style={{color: 'white'}} href={"/Restaurant?area=&name="+this.props.location.state.name+"&user="+this.props.location.state.id}>제출</a></button>
             </div>
             </Fragment>
             )}
@@ -227,7 +227,7 @@ class AddRestaurant extends Component {
                         </div>
                         <input type="file" name="file" onChange={this.onChange} style={{marginTop: '10px', backgroundColor: 'white', marginBottom: '10px'}}/>
                         <button type="button" ostyle={{marginTop: '10px', color: 'black'}}>사진 업로드</button>
-                        <button type="button" style={{backgroundColor: '#4CAF50', border: '1px solid #4CAF50', float: 'right', marginRight: '610px', width: '100px',  boxShadow: 'none', fontSize: '15px', borderRadius: '10px', padding: '5px', fontWeight: 'bold', outline: 'none',  marginTop: "10px"}}><a style={{color: 'white'}} href={"/Restaurant?area=&name="+this.props.location.state}>제출</a></button>
+                        <button type="button" style={{backgroundColor: '#4CAF50', border: '1px solid #4CAF50', float: 'right', marginRight: '610px', width: '100px',  boxShadow: 'none', fontSize: '15px', borderRadius: '10px', padding: '5px', fontWeight: 'bold', outline: 'none',  marginTop: "10px"}}><a style={{color: 'white'}} href={"/Restaurant?area=&name="+this.props.location.state.name+"&user="+this.props.location.state.id}>제출</a></button>
                     </div>
                     </Fragment>
                     )}
