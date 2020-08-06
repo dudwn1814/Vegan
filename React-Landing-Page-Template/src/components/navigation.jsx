@@ -34,24 +34,28 @@ export class Navigation extends Component {
       showMenu: false
     });
   }
-  
+
   getSnapshotBeforeUpdate(prevProps, prevState){
+    
     if(prevProps.dataFromParent){
       this.state.data=prevProps.dataFromParent
     }
     else{
       this.state.data = prevState.data
     }
+    
   }
 
   render() {
     console.log(this.state.data)
     console.log(this.props.dataFromParent)
+
     if(this.props.dataFromParent){
-      const user = "&name="+this.props.dataFromParent
+      const user = "&name="+this.props.dataFromParent.name+"&id="+this.props.dataFromParent.id
+      
       return (
         <nav id="menu" className="navbar navbar-default navbar-fixed-top">
-          <div style={{float: 'right', marginRight: '10px'}}>{this.props.dataFromParent}님 환영합니다
+          <div style={{float: 'right', marginRight: '10px'}}>{this.props.dataFromParent.name}님 환영합니다
               <button className = "LogoutButton" style={{marginLeft:'10px', borderRadius: '15px', padding: '3px 8px', outline: 'none'}}>
                   <Link style={{ textDecoration: 'none', color: 'black' }} to="/"  className = "login-button">로그아웃</Link>
                 </button></div>
@@ -197,10 +201,10 @@ export class Navigation extends Component {
       );
     }
     else if(this.state.data){
-      const user = "&name="+this.state.data
+      const user = "&name="+this.state.data.name+"&id="+this.state.data.id
       return (
         <nav id="menu" className="navbar navbar-default navbar-fixed-top">
-          <div style={{float: 'right', marginRight: '10px'}}>{this.state.data}님 환영합니다
+          <div style={{float: 'right', marginRight: '10px'}}>{this.state.data.name}님 환영합니다
               <button className = "LogoutButton" style={{marginLeft:'10px', borderRadius: '15px', padding: '3px 8px', outline: 'none'}}>
                   <Link style={{ textDecoration: 'none', color: 'black' }} to="/"  className = "login-button">로그아웃</Link>
                 </button></div>
@@ -219,7 +223,7 @@ export class Navigation extends Component {
                 <span className="icon-bar"></span>{" "}
                 <span className="icon-bar"></span>{" "}
               </button>
-              <Link className="navbar-brand page-scroll" to={{pathname: "/", state: this.props.dataFromParent}}>
+              <Link className="navbar-brand page-scroll" to={{pathname: "/", state: this.props.data}}>
               For Vegan
               </Link>{" "}
             </div>

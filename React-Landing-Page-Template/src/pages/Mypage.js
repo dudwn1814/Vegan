@@ -92,6 +92,7 @@ class Mypage extends Component {
     render(){
         const {name} = this.state;
         const {my_recipe, my_restaurant, like_recipe, later_recipe, like_restaurant, later_restaurant} = this.state;
+        console.log(this.props.location.state)
         console.log('name'+name)
         console.log('my_recipe: '+my_recipe)
         console.log('my_restaurant: '+my_restaurant)
@@ -104,15 +105,15 @@ class Mypage extends Component {
             <Fragment>
                 <Navigation dataFromParent={this.props.location.state}/>
 
-                <div style={{marginLeft: '15px', fontSize: '20px', marginTop: '120px', color: 'darkgreen', fontWeight: 'bold'}}>내가 올린 레시피</div>
-                <hr style={{float: 'left', marginLeft: '15px', width: '1850px', background: 'limegreen'}}/>
+                <div style={{marginLeft: '350px', fontSize: '20px', marginTop: '120px', color: 'darkgreen', fontWeight: 'bold', padding:'20px'}}>▶ 내가 올린 레시피</div>
+                <hr style={{float: 'left', width: '1150px', background: 'limegreen', margin:'0px', marginLeft: '350px'}}/>
                 <p></p>
                 <tbody>
                     {my_recipe.map(function(my_recipe, i) {
                         console.log(name)
                         console.log(my_recipe)
                         return (
-                            <div>
+                            <div style={{marginLeft: '370px', padding:'5px', paddingLeft:'20px'}}>
                                 <Link to={{
                                     pathname: '/food',
                                     state: {
@@ -127,15 +128,15 @@ class Mypage extends Component {
                 </tbody>
                 
 
-                <div style={{marginTop: '10px', marginLeft: '15px', fontSize: '20px', color: 'darkgreen', fontWeight: 'bold'}}>내가 올린 식당</div>
-                <hr style={{float: 'left', marginLeft: '15px', width: '1850px', background: 'limegreen'}}/>
+                <div style={{marginTop: '30px', marginLeft: '350px', fontSize: '20px', color: 'darkgreen', fontWeight: 'bold', padding:'20px'}}>▶ 내가 올린 식당</div>
+                <hr style={{float: 'left', width: '1150px', background: 'limegreen', margin:'0px', marginLeft: '350px'}}/>
                 <p></p>
                 <tbody >
                     {my_restaurant.map(function(my_restaurant, i) {
                         var url = "/Restaurant_Info?area="+my_restaurant[0]+"&name="+my_restaurant[1]+"&user="+name;
 
                         return (
-                            <div>
+                            <div style={{marginLeft: '370px', padding:'5px', paddingLeft:'20px'}}>
                                 <Link to={{
                                     pathname: url,
                                 }}><div>{my_restaurant[1]}</div></Link>
@@ -145,13 +146,13 @@ class Mypage extends Component {
                     })}
                 </tbody>
 
-                <div style={{marginTop: '10px', marginLeft: '15px', fontSize: '20px', color: 'darkgreen', fontWeight: 'bold'}}>좋아요한 레시피</div>
-                <hr style={{float: 'left', marginLeft: '15px', width: '1850px', background: 'limegreen'}}/>
+                <div style={{marginTop: '30px', marginTop: '30px', marginLeft: '350px', fontSize: '20px', color: 'darkgreen', fontWeight: 'bold', padding:'20px'}}>▶ 좋아요한 레시피</div>
+                <hr style={{float: 'left', width: '1150px', background: 'limegreen', margin:'0px', marginLeft: '350px'}}/>
                 <p></p>
                 <tbody>
                     {like_recipe.map(function(like_recipe, i) {
                         return (
-                            <div>
+                            <div style={{marginLeft: '370px', padding:'5px', paddingLeft:'20px'}}>
                                 <Link to={{
                                     pathname: '/food',
                                     state: {
@@ -164,13 +165,13 @@ class Mypage extends Component {
                     })}
                 </tbody>
 
-                <div style={{marginLeft: '15px', fontSize: '20px', color: 'darkgreen', fontWeight: 'bold'}}>나중에 볼 레시피</div>
-                <hr style={{float: 'left', marginLeft: '15px', width: '1850px', background: 'limegreen'}}/>
+                <div style={{marginTop: '30px',marginLeft: '350px', fontSize: '20px', color: 'darkgreen', fontWeight: 'bold', padding:'20px'}}>▶ 나중에 볼 레시피</div>
+                <hr style={{float: 'left', width: '1150px', background: 'limegreen', margin:'0px', marginLeft: '350px'}}/>
                 <p></p>
                 <tbody>
                     {later_recipe.map(function(later_recipe, i) {
                         return (
-                            <div>
+                            <div style={{marginLeft: '370px', padding:'5px', paddingLeft:'20px'}}>
                                 <Link to={{
                                     pathname: '/food',
                                     state: {
@@ -183,15 +184,15 @@ class Mypage extends Component {
                     })}
                 </tbody>
 
-                <div style={{marginLeft: '15px', fontSize: '20px', color: 'darkgreen', fontWeight: 'bold'}}>좋아요한 식당</div>
-                <hr style={{float: 'left', marginLeft: '15px', width: '1850px', background: 'limegreen'}}/>
+                <div style={{marginTop: '30px', marginLeft: '350px', fontSize: '20px', color: 'darkgreen', fontWeight: 'bold', padding:'20px'}}>▶ 좋아요한 식당</div>
+                <hr style={{float: 'left', width: '1150px', background: 'limegreen', margin:'0px', marginLeft: '350px'}}/>
                 <p></p>
                 <tbody>
                     {like_restaurant.map(function(like_restaurant, i) {
                         var url = "/Restaurant_Info?area="+like_restaurant[0]+"&name="+like_restaurant[1]+"&user="+name;
 
                         return (
-                            <div>
+                            <div style={{marginLeft: '370px', padding:'5px', paddingLeft:'20px'}}>
                                 <Link to={{
                                     pathname: url,
                                 }}><div>{like_restaurant[1]}</div></Link>
@@ -200,15 +201,15 @@ class Mypage extends Component {
                     })}
                 </tbody>
 
-                <div style={{marginLeft: '15px', fontSize: '20px', color: 'darkgreen', fontWeight: 'bold'}}>가고 싶은 식당</div>
-                <hr style={{float: 'left', marginLeft: '15px', width: '1850px', background: 'limegreen'}}/>
+                <div style={{marginTop: '30px', marginLeft: '350px', fontSize: '20px', color: 'darkgreen', fontWeight: 'bold', padding:'20px'}}>▶ 가고 싶은 식당</div>
+                <hr style={{float: 'left', width: '1150px', background: 'limegreen', margin:'0px', marginLeft: '350px'}}/>
                 <p></p>
                 <tbody>
                     {later_restaurant.map(function(later_restaurant, i) {
                         var url = "/Restaurant_Info?area="+later_restaurant[0]+"&name="+later_restaurant[1]+"&user="+name;
 
                         return (
-                            <div>
+                            <div style={{marginLeft: '370px', padding:'5px', paddingLeft:'20px'}}>
                                 <Link to={{
                                     pathname: url,
                                 }}><div>{later_restaurant[1]}</div></Link>

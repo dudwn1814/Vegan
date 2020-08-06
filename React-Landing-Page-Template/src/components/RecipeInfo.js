@@ -28,6 +28,7 @@ class RecipeInfo extends Component {
  
   render() {
     console.log('render RecipeInfo' + this.props.info.id);
+    console.log(this.props.info)
     const style = {
       width: '1500px',
       borderBottom: '1px solid black',
@@ -39,16 +40,24 @@ class RecipeInfo extends Component {
     const {
       name, writer, id
     } = this.props.info;
+    
+    console.log(writer)
     const user = this.props.dataFromParent
     return (
       <div style={style}>
         <Link to={{
             pathname: '/food',
             state: {
-                user: user,
+                user: this.props.dataFromParent,
                 food: name
             }
-        }}><div>🟢&nbsp;&nbsp;&nbsp;<b>{name}</b><div style={{float:"right"}}>{writer}</div></div></Link>
+        }}>
+            <div>🟢&nbsp;&nbsp;&nbsp;<b>{name}</b>
+              <div style={{float: "right" }}>
+                {writer}
+              </div>
+            </div>
+          </Link>
       </div>
     );
   }

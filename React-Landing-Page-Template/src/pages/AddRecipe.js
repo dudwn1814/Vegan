@@ -26,13 +26,13 @@ class AddRecipe extends Component {
         const res = await axios.post("http://localhost:8080/upload", formData);
         this.setState({
             img: res.data,
-            writer: this.props.location.state
+            writer: this.props.location.state.name
         })
         let key = 'food'
         let upload = this.state.food
         console.log(upload)
         axios.post("http://localhost:8080/foodrecipe",this.state)
-        axios.post('http://localhost:8080/users/name/uploader/',{key: key, name: this.props.location.state, upload: upload})
+        axios.post('http://localhost:8080/users/name/uploader/',{key: key, name: this.props.location.state.name, upload: upload})
     }
     handleChange = (e) => {
         this.setState({

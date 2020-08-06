@@ -2,7 +2,7 @@ import React from 'react';
 
 function Restaurant_item({ImageURL, Area, RestaurantName, User}) {
     console.log(User)
-    var url = "/Restaurant_Info?area="+Area+"&name="+RestaurantName+"&user="+User;
+    var url = "/Restaurant_Info?area="+Area+"&name="+RestaurantName+"&user="+User.name+"&id="+User.id;
 
     return (
 

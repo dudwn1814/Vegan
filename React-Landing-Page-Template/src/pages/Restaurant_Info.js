@@ -159,7 +159,7 @@ class Restaurant_Info extends Component {
 
 
     render() {
-        const {name, category, contact, address, detail, comment, url, user} = this.state;
+        const {name, category, contact, address, detail, comment, url} = this.state;
         var {vegan_level} = this.state;
         const query = new URLSearchParams(this.props.location.search);
         if (vegan_level === '채식지원') {
@@ -168,11 +168,13 @@ class Restaurant_Info extends Component {
         else {
             vegan_level = '💚';
         }
+        const user = query.get('user')
+        const id = query.get('id')
         if(query.get('user')!='null'&&query.get('user')!='undefined'&&!this.state.isWriter&&!this.state.isLater&&!this.state.isLike){
         return (
             
             <Fragment>
-                <Navigation dataFromParent={query.get('user')}/>
+                <Navigation dataFromParent={{name : user, id : id}}/>
                 <div id="about" style={{margin: '30px'}}>
                     <div className="container">
                     <div>
@@ -185,7 +187,7 @@ class Restaurant_Info extends Component {
                         <div className="col-xs-12 col-md-6"> <img src={url} className="img-responsive" style={{width: '450px', height: '350px', marginLeft: '50px'}} alt=""/> </div>
                         <div className="col-xs-12 col-md-6">
                         <div className="about-text">
-                            <h2 style={{marginTop: '10px'}}>{name} <span style={{fontSize: '30px', verticalAlign: 'middle'}}>{vegan_level}</span></h2>
+                            <h2 style={{marginTop: '10px'}}>{name} <span style={{fontSize: '30px', verticalAlign: 'text-top '}}>{vegan_level}</span></h2>
                             <div className="col-lg-6 col-sm-6 col-xs-12">
                             <div style={{width: '800px', marginTop: '40px', fontSize: '15px', color: 'black'}}><span title="카테고리">😋</span> &nbsp;&nbsp;{category}</div><br/>
                             <div style={{width: '800px', fontSize: '15px', color: 'black'}}><span title="연락처">📞</span> &nbsp;&nbsp;{contact}</div><br/>
@@ -246,7 +248,7 @@ class Restaurant_Info extends Component {
             return (
                 
                 <Fragment>
-                    <Navigation dataFromParent={query.get('user')}/>
+                    <Navigation dataFromParent={{name : user, id : id}}/>
                     <div id="about" style={{margin: '30px'}}>
                         <div className="container">
                         <div>
@@ -259,7 +261,7 @@ class Restaurant_Info extends Component {
                             <div className="col-xs-12 col-md-6"> <img src={url} className="img-responsive" style={{width: '450px', height: '350px', marginLeft: '50px'}} alt=""/> </div>
                             <div className="col-xs-12 col-md-6">
                             <div className="about-text">
-                                <h2 style={{marginTop: '10px'}}>{name} <span style={{fontSize: '30px', verticalAlign: 'middle'}}>{vegan_level}</span></h2>
+                                <h2 style={{marginTop: '10px'}}>{name} <span style={{fontSize: '30px', verticalAlign: 'text-top '}}>{vegan_level}</span></h2>
                                 <div className="col-lg-6 col-sm-6 col-xs-12">
                                 <div style={{width: '800px', marginTop: '40px', fontSize: '15px', color: 'black'}}><span title="카테고리">😋</span> &nbsp;&nbsp;{category}</div><br/>
                                 <div style={{width: '800px', fontSize: '15px', color: 'black'}}><span title="연락처">📞</span> &nbsp;&nbsp;{contact}</div><br/>
@@ -318,7 +320,7 @@ class Restaurant_Info extends Component {
             return (
                 
                 <Fragment>
-                    <Navigation dataFromParent={query.get('user')}/>
+                    <Navigation dataFromParent={{name : user, id : id}}/>
                     <div id="about" style={{margin: '30px'}}>
                         <div className="container">
                         <div>
@@ -331,7 +333,7 @@ class Restaurant_Info extends Component {
                             <div className="col-xs-12 col-md-6"> <img src={url} className="img-responsive" style={{width: '450px', height: '350px', marginLeft: '50px'}} alt=""/> </div>
                             <div className="col-xs-12 col-md-6">
                             <div className="about-text">
-                                <h2 style={{marginTop: '10px'}}>{name} <span style={{fontSize: '30px', verticalAlign: 'middle'}}>{vegan_level}</span></h2>
+                                <h2 style={{marginTop: '10px'}}>{name} <span style={{fontSize: '30px', verticalAlign: 'text-top '}}>{vegan_level}</span></h2>
                                 <div className="col-lg-6 col-sm-6 col-xs-12">
                                 <div style={{width: '800px', marginTop: '40px', fontSize: '15px', color: 'black'}}><span title="카테고리">😋</span> &nbsp;&nbsp;{category}</div><br/>
                                 <div style={{width: '800px', fontSize: '15px', color: 'black'}}><span title="연락처">📞</span> &nbsp;&nbsp;{contact}</div><br/>
@@ -389,7 +391,7 @@ class Restaurant_Info extends Component {
             return (
                 
                 <Fragment>
-                    <Navigation dataFromParent={query.get('user')}/>
+                    <Navigation dataFromParent={{name : user, id : id}}/>
                     <div id="about" style={{margin: '30px'}}>
                         <div className="container">
                         <div>
@@ -402,7 +404,7 @@ class Restaurant_Info extends Component {
                             <div className="col-xs-12 col-md-6"> <img src={url} className="img-responsive" style={{width: '450px', height: '350px', marginLeft: '50px'}} alt=""/> </div>
                             <div className="col-xs-12 col-md-6">
                             <div className="about-text">
-                                <h2 style={{marginTop: '10px'}}>{name} <span style={{fontSize: '30px', verticalAlign: 'middle'}}>{vegan_level}</span></h2>
+                                <h2 style={{marginTop: '10px'}}>{name} <span style={{fontSize: '30px', verticalAlign: 'text-top '}}>{vegan_level}</span></h2>
                                 <div className="col-lg-6 col-sm-6 col-xs-12">
                                 <div style={{width: '800px', marginTop: '40px', fontSize: '15px', color: 'black'}}><span title="카테고리">😋</span> &nbsp;&nbsp;{category}</div><br/>
                                 <div style={{width: '800px', fontSize: '15px', color: 'black'}}><span title="연락처">📞</span> &nbsp;&nbsp;{contact}</div><br/>
@@ -459,7 +461,7 @@ class Restaurant_Info extends Component {
             return (
                 
                 <Fragment>
-                    <Navigation dataFromParent={query.get('user')}/>
+                    <Navigation dataFromParent={{name : user, id : id}}/>
                     <div id="about" style={{margin: '30px'}}>
                         <div className="container">
                         <div>
@@ -472,7 +474,7 @@ class Restaurant_Info extends Component {
                             <div className="col-xs-12 col-md-6"> <img src={url} className="img-responsive" style={{width: '450px', height: '350px', marginLeft: '50px'}} alt=""/> </div>
                             <div className="col-xs-12 col-md-6">
                             <div className="about-text">
-                                <h2 style={{marginTop: '10px'}}>{name} <span style={{fontSize: '30px', verticalAlign: 'middle'}}>{vegan_level}</span></h2>
+                                <h2 style={{marginTop: '10px'}}>{name} <span style={{fontSize: '30px', verticalAlign: 'text-top '}}>{vegan_level}</span></h2>
                                 <div className="col-lg-6 col-sm-6 col-xs-12">
                                 <div style={{width: '800px', marginTop: '40px', fontSize: '15px', color: 'black'}}><span title="카테고리">😋</span> &nbsp;&nbsp;{category}</div><br/>
                                 <div style={{width: '800px', fontSize: '15px', color: 'black'}}><span title="연락처">📞</span> &nbsp;&nbsp;{contact}</div><br/>
