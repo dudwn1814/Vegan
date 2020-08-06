@@ -135,15 +135,12 @@ class Mypage extends Component {
                         var url = "/Restaurant_Info?area="+my_restaurant[0]+"&name="+my_restaurant[1]+"&user="+name;
 
                         return (
-                            <a
-                            href={url}
-                            title="Project Title"
-                            data-lightbox-gallery="gallery1"
-                            >
-                            <div className="hover-text">
-                                <h4>{my_restaurant[1]}</h4>
+                            <div>
+                                <Link to={{
+                                    pathname: url,
+                                }}><div>{my_restaurant[1]}</div></Link>
                             </div>
-                            </a>
+                            
                         );
                     })}
                 </tbody>
@@ -194,15 +191,11 @@ class Mypage extends Component {
                         var url = "/Restaurant_Info?area="+like_restaurant[0]+"&name="+like_restaurant[1]+"&user="+name;
 
                         return (
-                            <a
-                            href={url}
-                            title="Project Title"
-                            data-lightbox-gallery="gallery1"
-                            >
-                            <div className="hover-text">
-                                <h4>{like_restaurant[1]}</h4>
+                            <div>
+                                <Link to={{
+                                    pathname: url,
+                                }}><div>{like_restaurant[1]}</div></Link>
                             </div>
-                            </a>
                         );
                     })}
                 </tbody>
@@ -215,15 +208,11 @@ class Mypage extends Component {
                         var url = "/Restaurant_Info?area="+later_restaurant[0]+"&name="+later_restaurant[1]+"&user="+name;
 
                         return (
-                            <a
-                            href={url}
-                            title="Project Title"
-                            data-lightbox-gallery="gallery1"
-                            >
-                            <div className="hover-text">
-                                <h4>{later_restaurant[1]}</h4>
+                            <div>
+                                <Link to={{
+                                    pathname: url,
+                                }}><div>{later_restaurant[1]}</div></Link>
                             </div>
-                            </a>
                         );
                     })}
                 </tbody>
