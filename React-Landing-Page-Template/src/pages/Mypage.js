@@ -102,71 +102,71 @@ class Mypage extends Component {
             <Fragment>
                 <Navigation dataFromParent={this.props.location.state}/>
 
-                <div style={{marginLeft: '15px', fontSize: '20px', marginTop: '120px', color: 'darkgreen', fontWeight: 'bold'}}>내가 올린 레시피</div>
-                <hr style={{float: 'left', marginLeft: '15px', width: '1850px', background: 'limegreen'}}/>
+                <div style={{marginLeft: '350px', fontSize: '20px', marginTop: '120px', color: 'darkgreen', fontWeight: 'bold', padding:'20px'}}>▶ 내가 올린 레시피</div>
+                <hr style={{float: 'left', width: '1150px', background: 'limegreen', margin:'0px', marginLeft: '350px'}}/>
                 <p></p>
                 <tbody>
                     {my_recipe.map(function(my_recipe, i) {
                         return (
-                            <div>{my_recipe}</div>
+                            <div style={{marginLeft: '370px', padding:'5px', paddingLeft:'20px'}}>{my_recipe}</div>
                         )
                     })}
                 </tbody>
                 
 
-                <div style={{marginTop: '10px', marginLeft: '15px', fontSize: '20px', color: 'darkgreen', fontWeight: 'bold'}}>내가 올린 식당</div>
-                <hr style={{float: 'left', marginLeft: '15px', width: '1850px', background: 'limegreen'}}/>
+                <div style={{marginTop: '30px', marginLeft: '350px', fontSize: '20px', color: 'darkgreen', fontWeight: 'bold', padding:'20px'}}>▶ 내가 올린 식당</div>
+                <hr style={{float: 'left', width: '1150px', background: 'limegreen', margin:'0px', marginLeft: '350px'}}/>
                 <p></p>
                 <tbody >
                     {my_restaurant.map(function(my_restaurant, i) {
                         return (
-                            <div>{my_restaurant}</div>
+                            <div style={{marginLeft: '370px', padding:'5px', paddingLeft:'20px'}}>{my_restaurant}</div>
                         )
                     })}
                 </tbody>
 
-                <div style={{marginTop: '10px', marginLeft: '15px', fontSize: '20px', color: 'darkgreen', fontWeight: 'bold'}}>좋아요한 레시피</div>
-                <hr style={{float: 'left', marginLeft: '15px', width: '1850px', background: 'limegreen'}}/>
+                <div style={{marginTop: '30px', marginTop: '30px', marginLeft: '350px', fontSize: '20px', color: 'darkgreen', fontWeight: 'bold', padding:'20px'}}>▶ 좋아요한 레시피</div>
+                <hr style={{float: 'left', width: '1150px', background: 'limegreen', margin:'0px', marginLeft: '350px'}}/>
                 <p></p>
                 <tbody>
                     {like_recipe.map(function(like_recipe, i) {
                         return (
-                            <div>{like_recipe}</div>
+                            <div style={{marginLeft: '370px', padding:'5px', paddingLeft:'20px'}}>{like_recipe}</div>
                         )
                     })}
                 </tbody>
 
-                <div style={{marginLeft: '15px', fontSize: '20px', color: 'darkgreen', fontWeight: 'bold'}}>나중에 볼 레시피</div>
-                <hr style={{float: 'left', marginLeft: '15px', width: '1850px', background: 'limegreen'}}/>
+                <div style={{marginTop: '30px',marginLeft: '350px', fontSize: '20px', color: 'darkgreen', fontWeight: 'bold', padding:'20px'}}>▶ 나중에 볼 레시피</div>
+                <hr style={{float: 'left', width: '1150px', background: 'limegreen', margin:'0px', marginLeft: '350px'}}/>
                 <p></p>
                 <tbody>
                     {later_recipe.map(function(later_recipe, i) {
                         return (
-                            <div>{later_recipe}</div>
+                            <div style={{marginLeft: '370px', padding:'5px', paddingLeft:'20px'}}>{later_recipe}</div>
                         )
                     })}
                 </tbody>
 
-                <div style={{marginLeft: '15px', fontSize: '20px', color: 'darkgreen', fontWeight: 'bold'}}>좋아요한 식당</div>
-                <hr style={{float: 'left', marginLeft: '15px', width: '1850px', background: 'limegreen'}}/>
+                <div style={{marginTop: '30px', marginLeft: '350px', fontSize: '20px', color: 'darkgreen', fontWeight: 'bold', padding:'20px'}}>▶ 좋아요한 식당</div>
+                <hr style={{float: 'left', width: '1150px', background: 'limegreen', margin:'0px', marginLeft: '350px'}}/>
                 <p></p>
                 <tbody>
                     {like_restaurant.map(function(like_restaurant, i) {
                         return (
-                            <div>{like_restaurant}</div>
+                            <div style={{marginLeft: '370px', padding:'5px', paddingLeft:'20px'}}>{like_restaurant}</div>
                         )
                     })}
                 </tbody>
 
-                <div style={{marginLeft: '15px', fontSize: '20px', color: 'darkgreen', fontWeight: 'bold'}}>가고 싶은 식당</div>
-                <hr style={{float: 'left', marginLeft: '15px', width: '1850px', background: 'limegreen'}}/>
+                <div style={{marginTop: '30px', marginLeft: '350px', fontSize: '20px', color: 'darkgreen', fontWeight: 'bold', padding:'20px'}}>▶ 가고 싶은 식당</div>
+                <hr style={{float: 'left', width: '1150px', background: 'limegreen', margin:'0px', marginLeft: '350px'}}/>
                 <p></p>
                 <tbody>
                     {later_restaurant.map(function(later_restaurant, i) {
                         return (
-                            <div>{later_restaurant}</div>
+                            <div style={{marginLeft: '370px', padding:'5px', paddingLeft:'20px'}}>{later_restaurant}</div>
                         )
-                    })}
+                    })}<br/><br/><br/><br/><br/>
                 </tbody>
 
             </Fragment>
