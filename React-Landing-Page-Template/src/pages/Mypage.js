@@ -22,8 +22,9 @@ class Mypage extends Component {
         this.setState({
             name: this.props.location.state
         })
-        var NAME =this.props.location.state;
-        axios.get("http://localhost:8080/myitem?name="+NAME)
+        var NAME =this.props.location.state.name;
+        var ID =this.props.location.state.id;
+        axios.get("http://localhost:8080/myitem?name="+NAME+"&id="+ID)
             .then((response) => {
               var my_recipe_list = [];  // food name만
               var my_restaurant_list = [];  // area + name
@@ -137,16 +138,11 @@ class Mypage extends Component {
 
                         return (
                             <div style={{marginLeft: '370px', padding:'5px', paddingLeft:'20px'}}>
-                            <a
-                            href={url}
-                            title="Project Title"
-                            data-lightbox-gallery="gallery1"
-                            >
-                            <div className="hover-text">
-                                <h4>{my_restaurant[1]}</h4>
+                                <Link to={{
+                                    pathname: url,
+                                }}><div>{my_restaurant[1]}</div></Link>
                             </div>
-                            </a>
-                            </div>
+                            
                         );
                     })}
                 </tbody>
@@ -198,15 +194,9 @@ class Mypage extends Component {
 
                         return (
                             <div style={{marginLeft: '370px', padding:'5px', paddingLeft:'20px'}}>
-                            <a
-                            href={url}
-                            title="Project Title"
-                            data-lightbox-gallery="gallery1"
-                            >
-                            <div className="hover-text">
-                                <h4>{like_restaurant[1]}</h4>
-                            </div>
-                            </a>
+                                <Link to={{
+                                    pathname: url,
+                                }}><div>{like_restaurant[1]}</div></Link>
                             </div>
                         );
                     })}
@@ -220,17 +210,10 @@ class Mypage extends Component {
                         var url = "/Restaurant_Info?area="+later_restaurant[0]+"&name="+later_restaurant[1]+"&user="+name;
 
                         return (
-
                             <div style={{marginLeft: '370px', padding:'5px', paddingLeft:'20px'}}>
-                            <a 
-                            href={url}
-                            title="Project Title"
-                            data-lightbox-gallery="gallery1"
-                            >
-                            <div className="hover-text">
-                                <h4>{later_restaurant[1]}</h4>
-                            </div><br/><br/><br/><br/><br/>
-                            </a>
+                                <Link to={{
+                                    pathname: url,
+                                }}><div>{later_restaurant[1]}</div></Link>
                             </div>
                         );
                     })}

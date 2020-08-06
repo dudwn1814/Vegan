@@ -92,9 +92,10 @@ MongoClient.connect(url,{useUnifiedTopology: true},function(err,client){
       var db = client.db('Vegan');
       console.log('야야야 ')
       var name = req.query.name;
+      var id = req.query.id;
       console.log(name)
 
-      db.collection('users').find({'name': name}).toArray(function(err,users) {
+      db.collection('users').find({'name': name, 'id': id}).toArray(function(err,users) {
         if(err) return res.status(500).send({error: 'database failure'});
         console.log(users);
         res.json(users)
