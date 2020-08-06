@@ -357,7 +357,6 @@ MongoClient.connect(url,{useUnifiedTopology: true},function(err,client){
           var restaurant = req.body.like;
           db.collection('users').find({name: name}).toArray(function(err, user){
           db.collection('users').update({name: name}, {$set : {like: user[0].like.concat([key,area,restaurant])}})
-          console.log(user[0])
         })
         }
       })

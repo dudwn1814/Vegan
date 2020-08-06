@@ -50,7 +50,7 @@ class Mypage extends Component {
                         like_recipe_list.push(response.data[i].like[j][1]);
                     }
                     else {
-                        like_restaurant_list.push([response.data[i].like[j][1],response.data[i].upload[j][2]]);
+                        like_restaurant_list.push([response.data[i].like[j][1],response.data[i].like[j][2]]);
                     }
                 }
                 
@@ -104,7 +104,7 @@ class Mypage extends Component {
 
                 <div style={{marginLeft: '15px', fontSize: '20px', marginTop: '120px', color: 'darkgreen', fontWeight: 'bold'}}>내가 올린 레시피</div>
                 <hr style={{float: 'left', marginLeft: '15px', width: '1850px', background: 'limegreen'}}/>
-
+                <p></p>
                 <tbody>
                     {my_recipe.map(function(my_recipe, i) {
                         return (
@@ -116,8 +116,8 @@ class Mypage extends Component {
 
                 <div style={{marginTop: '10px', marginLeft: '15px', fontSize: '20px', color: 'darkgreen', fontWeight: 'bold'}}>내가 올린 식당</div>
                 <hr style={{float: 'left', marginLeft: '15px', width: '1850px', background: 'limegreen'}}/>
-
-                <tbody>
+                <p></p>
+                <tbody >
                     {my_restaurant.map(function(my_restaurant, i) {
                         return (
                             <div>{my_restaurant}</div>
@@ -127,7 +127,7 @@ class Mypage extends Component {
 
                 <div style={{marginTop: '10px', marginLeft: '15px', fontSize: '20px', color: 'darkgreen', fontWeight: 'bold'}}>좋아요한 레시피</div>
                 <hr style={{float: 'left', marginLeft: '15px', width: '1850px', background: 'limegreen'}}/>
-
+                <p></p>
                 <tbody>
                     {like_recipe.map(function(like_recipe, i) {
                         return (
@@ -136,9 +136,9 @@ class Mypage extends Component {
                     })}
                 </tbody>
 
-                <div style={{marginTop: '10px', marginLeft: '15px', fontSize: '20px', color: 'darkgreen', fontWeight: 'bold'}}>나중에 볼 레시피</div>
+                <div style={{marginLeft: '15px', fontSize: '20px', color: 'darkgreen', fontWeight: 'bold'}}>나중에 볼 레시피</div>
                 <hr style={{float: 'left', marginLeft: '15px', width: '1850px', background: 'limegreen'}}/>
-
+                <p></p>
                 <tbody>
                     {later_recipe.map(function(later_recipe, i) {
                         return (
@@ -149,7 +149,7 @@ class Mypage extends Component {
 
                 <div style={{marginLeft: '15px', fontSize: '20px', color: 'darkgreen', fontWeight: 'bold'}}>좋아요한 식당</div>
                 <hr style={{float: 'left', marginLeft: '15px', width: '1850px', background: 'limegreen'}}/>
-
+                <p></p>
                 <tbody>
                     {like_restaurant.map(function(like_restaurant, i) {
                         return (
@@ -160,7 +160,7 @@ class Mypage extends Component {
 
                 <div style={{marginLeft: '15px', fontSize: '20px', color: 'darkgreen', fontWeight: 'bold'}}>가고 싶은 식당</div>
                 <hr style={{float: 'left', marginLeft: '15px', width: '1850px', background: 'limegreen'}}/>
-
+                <p></p>
                 <tbody>
                     {later_restaurant.map(function(later_restaurant, i) {
                         return (
