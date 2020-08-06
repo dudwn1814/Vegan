@@ -56,8 +56,9 @@ class Food extends Component {
 
     onClickLike=()=>{
         console.log(this.props.location.state)
-        let likefood = 'food'+this.props.location.state.food
-        axios.post('http://localhost:8080/users/like',{name: this.props.location.state.user, like: likefood})
+        let key = 'food';
+        let likefood = this.props.location.state.food
+        axios.post('http://localhost:8080/users/like',{key:key, name: this.props.location.state.user, like: likefood})
         this.setState({
             like : this.state.like + 1,
             isLike : true
@@ -68,8 +69,9 @@ class Food extends Component {
     }
     onClickLater=()=>{
         console.log(this.props.location.state)
-        let laterfood = 'food'+this.props.location.state.food
-        axios.post('http://localhost:8080/users/later',{name: this.props.location.state.user, later: laterfood})
+        let key = 'food';
+        let laterfood = this.props.location.state.food
+        axios.post('http://localhost:8080/users/later',{key: key, name: this.props.location.state.user, later: laterfood})
         this.setState({
             seelater : this.state.seelater + 1,
             isLater : true
