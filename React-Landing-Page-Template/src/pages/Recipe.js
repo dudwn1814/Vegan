@@ -51,7 +51,7 @@ class Recipe extends Component {
             <Fragment>
                 { <Navigation dataFromParent={this.props.location.state}/>  }
                 
-                <div style={{marginTop: "100px", marginLeft: '1710px'}}>🔍&nbsp;
+                <div style={{marginTop: "100px", marginLeft: '1710px', outline: 'none'}}>🔍&nbsp;
                     <input
                         placeholder="검색"
                         onChange={this.handleChange}
