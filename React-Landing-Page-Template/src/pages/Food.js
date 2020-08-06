@@ -34,19 +34,20 @@ class Food extends Component {
         })
         if(this.props.location.state.user){
             axios.get('http://localhost:8080/users/name/'+this.props.location.state.user).then(res =>{
-                console.log(this.state.food)
-
+                console.log(res.data[0].seelater)
+                console.log(res.data[0])
+                console.log(res)
                 if(res.data[0].name===this.state.writer){
                     this.setState({
                         isWriter : true
                     })
                 }
-                if(res.data[0].like.find(c => c===['food',this.props.location.state.food])){
+                if(res.data[0].like.find(c => c[0]==="food"&&c[1]===this.props.location.state.food)){
                     this.setState({
                         isLike : true
                     })
                 }
-                if(res.data[0].seelater.find(c => c===['food',this.props.location.state.food])){
+                if(res.data[0].seelater.find(c => c[0]==="food"&&c[1]===this.props.location.state.food)){
                     this.setState({
                         isLater : true
                     })
@@ -71,8 +72,9 @@ class Food extends Component {
     }
     onClickLater=()=>{
         console.log(this.props.location.state)
-        let laterfood = 'food'+this.props.location.state.food
-        axios.post('http://localhost:8080/users/later',{name: this.props.location.state.user, later: laterfood})
+        let key = 'food';
+        let laterfood = this.props.location.state.food
+        axios.post('http://localhost:8080/users/later',{key: key, name: this.props.location.state.user,later: laterfood})
         this.setState({
             seelater : this.state.seelater + 1,
             isLater : true

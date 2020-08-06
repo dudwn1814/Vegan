@@ -62,17 +62,17 @@ class Restaurant_Info extends Component {
             if(query.get('user')!='null'&&query.get('user')!='undefined'){
                 axios.get('http://localhost:8080/users/name/'+query.get('user')).then(res =>{
                     
-                    if(res.data[0].upload.find(c => c===['restaurant',AREA,NAME])){
+                    if(res.data[0].upload.find(c => c[0]==='restaurant'&&c[1]===AREA&&c[2]===NAME)){
                         this.setState({
                             isWriter : true
                         })
                     }
-                    if(res.data[0].like.find(c => c===['restaurant',AREA,NAME])){
+                    if(res.data[0].like.find(c => c[0]==='restaurant'&&c[1]===AREA&&c[2]===NAME)){
                         this.setState({
                             isLike : true
                         })
                     }
-                    if(res.data[0].seelater.find(c => c===['restaurant',AREA,NAME])){
+                    if(res.data[0].seelater.find(c => c[0]==='restaurant'&&c[1]===AREA&&c[2]===NAME)){
                         this.setState({
                             isLater : true
                         })
