@@ -70,7 +70,7 @@ class AddRestaurant extends Component {
             <div className="section-title" style={{marginBottom: '20px'}}>
                 <h2 style= {{textAlign: 'center', marginRight: '550px', marginBottom:'50px', fontSize: '27px', marginTop: '150px'}}>식당 추가</h2></div>
                 <div>
-                    <input style={{ border: '1px solid black', padding: '3px', width: '228px', height: '34px', marginBottom: '10px', outline: 'none'}}
+                    <input style={{ border: '1px solid black', padding: '3px', width: '228px', height: '34px', marginBottom: '20px', outline: 'none'}}
                         placeholder=" 식당 이름"
                         onChange={this.handleChange}
                         value = {this.state.name}
@@ -78,22 +78,36 @@ class AddRestaurant extends Component {
                     />
                 </div>
                 <div>
-                    <input  style={{ border: '1px solid black', padding: '3px', width: '300px', height: '34px', marginBottom: '10px', outline: 'none'}}
+                    {/* <input  style={{ border: '1px solid black', padding: '3px', width: '300px', height: '34px', marginBottom: '10px', outline: 'none'}}
                         placeholder=" 지역"
                         onChange={this.handleChange}
                         value = {this.state.area}
                         name = "area"
-                    />
+                    /> */}
+                    <select onChange={this.handleChange}  value = {this.state.area} name = "area" style={{ border: '1px solid black', padding: '3px', height: '34px', marginBottom: '20px', outline: 'none'}}>
+                    <option selected value="서울">서울</option>
+                    <option value="인천">인천</option>
+                    <option value="경기">경기</option>
+                    <option value="강원도">강원도</option>
+                    <option value="충청북도">충청북도</option>
+                    <option value="충청남도">충청남도</option>
+                    <option value="전라북도">전라북도</option>
+                    <option value="전라남도">전라남도</option>
+                    <option value="경상북도">경상북도</option>
+                    <option value="경상남도">경상남도</option>
+                    <option value="제주">제주</option>
+                    </select>
+
                 </div>
                 <div>
                     <form>
-                        <span>채식지원&nbsp;</span><input type='radio' name='radiogroup' value='채식지원' checked={this.state.radiogroup['채식지원']} onChange={this.handleRadio}></input> 
+                        <span>채식지원&nbsp;</span><input type='radio' name='radiogroup' value='채식지원' checked={this.state.radiogroup['채식지원']} onChange={this.handleRadio} checked="checked"></input> 
                         <span>&nbsp;&nbsp;&nbsp;채식전문&nbsp;</span><input type='radio' name='radiogroup' value='채식전문' checked={this.state.radiogroup['채식전문']} onChange={this.handleRadio}></input> 
                     </form>  
 
                 </div>
                 <div>
-                    <input style={{ border: '1px solid black', padding: '3px', width: '228px', height: '34px', marginBottom: '10px', outline: 'none'}}
+                    <input style={{ border: '1px solid black', padding: '3px', width: '228px', height: '34px', marginBottom: '20px', outline: 'none'}}
                         placeholder=" 음식점 종류"
                         onChange={this.handleChange}
                         value = {this.state.category}
@@ -101,7 +115,7 @@ class AddRestaurant extends Component {
                     />
                 </div>
                 <div>
-                <input style={{ border: '1px solid black', padding: '3px', width: '228px', height: '34px', marginBottom: '10px', outline: 'none'}}
+                <input style={{ border: '1px solid black', padding: '3px', width: '228px', height: '34px', marginBottom: '20px', outline: 'none'}}
                         placeholder=" 전화번호"
                         onChange={this.handleChange}
                         value = {this.state.contact}
@@ -109,7 +123,7 @@ class AddRestaurant extends Component {
                     />
                 </div>
                 <div>
-                <input style={{ border: '1px solid black', padding: '3px', width: '700px', height: '34px', marginBottom: '10px', outline: 'none'}}
+                <input style={{ border: '1px solid black', padding: '3px', width: '700px', height: '34px', marginBottom: '20px', outline: 'none'}}
                         placeholder=" 상세주소"
                         onChange={this.handleChange}
                         value = {this.state.address}
@@ -117,7 +131,7 @@ class AddRestaurant extends Component {
                     />
                 </div>
                 <div>
-                    <textarea style={{border: '1px solid black',width:'700px', height:'100px', resize: 'none', border: '1px solid black', marginBottom: '10px' , outline: 'none'}}
+                    <textarea style={{border: '1px solid black',width:'700px', height:'100px', resize: 'none', border: '1px solid black', marginBottom: '8x' , outline: 'none'}}
                         placeholder=" 비고"
                         onChange={this.handleChange}
                         value = {this.state.detail}
