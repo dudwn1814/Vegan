@@ -90,7 +90,7 @@ class Mypage extends Component {
     render(){
         const {name} = this.props.location.state;
         const {my_recipe, my_restaurant, like_recipe, later_recipe, like_restaurant, later_restaurant} = this.state;
-
+        console.log(this.props.location.state)
         console.log('my_recipe: '+my_recipe)
         console.log('my_restaurant: '+my_restaurant)
         console.log('like_recipe: '+like_recipe)

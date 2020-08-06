@@ -33,7 +33,7 @@ class Food extends Component {
             console.log(response.data)
         })
         if(this.props.location.state.user){
-            axios.get('http://localhost:8080/users/name/'+this.props.location.state.user).then(res =>{
+            axios.get('http://localhost:8080/users/name/'+this.props.location.state.user.name).then(res =>{
                 console.log(res.data[0].seelater)
                 console.log(res.data[0])
                 console.log(res)
@@ -61,7 +61,7 @@ class Food extends Component {
         console.log(this.props.location.state)
         let key = 'food';
         let likefood = this.props.location.state.food
-        axios.post('http://localhost:8080/users/like',{key: key, name: this.props.location.state.user, like: likefood})
+        axios.post('http://localhost:8080/users/like',{key: key, name: this.props.location.state.user.name, like: likefood})
         this.setState({
             like : this.state.like + 1,
             isLike : true
@@ -74,7 +74,7 @@ class Food extends Component {
         console.log(this.props.location.state)
         let key = 'food';
         let laterfood = this.props.location.state.food
-        axios.post('http://localhost:8080/users/later',{key: key, name: this.props.location.state.user,later: laterfood})
+        axios.post('http://localhost:8080/users/later',{key: key, name: this.props.location.state.user.name,later: laterfood})
         this.setState({
             seelater : this.state.seelater + 1,
             isLater : true
@@ -182,12 +182,7 @@ class Food extends Component {
                             </div>
                         </div>
                     </div>
-                    <div>
-                        <button onClick={this.onClickLike}>Like</button>
-                        <text>{this.state.like}</text>
-                        <button onClick={this.onClickLater}>SeeLater</button>
-                        <text>{this.state.seelater}</text>
-                    </div>
+                    
                     </div>
                     </div>
                 </div>

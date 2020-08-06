@@ -40,10 +40,12 @@ class Login extends Component {
 
     console.log(this.state)
     let name = ""
+    let id = ""
     for(var i=0; i<this.state.auth.length; i++){
       if(this.state.id===this.state.auth[i].id&&this.state.password===this.state.auth[i].password){
         console.log(this.state.id);
         name = this.state.auth[i].name
+        id = this.state.auth[i].id
         return (
 
 
@@ -80,8 +82,11 @@ class Login extends Component {
           <div style={{textAlign: 'center', marginTop: '50px'}}>
           <button type="submit" style={{marginLeft: '30px', backgroundColor: '#1E7A46',  width: '180px',  boxShadow: 'none', fontSize: '15px', color: 'darkgreen', border: 'none', borderRadius: '10px', padding: '5px', fontWeight: 'bold', outline: 'none',  marginTop: "20px"}}><Link style={{ textDecoration: 'none', color: 'white'}} to= {{
                   pathname: '/',
-                  state: name
-                }}>로그인</Link></button>
+                  state: {
+                    name:name,
+                    id: id
+                  }
+                  }}>로그인</Link></button>
            </div>
            <div style={{textAlign: 'center', marginTop: '20px'}}>     
           <button type="submit" style={{marginLeft: '30px', backgroundColor: '#1E7A46',  width: '180px',  boxShadow: 'none', fontSize: '15px', border: 'none', borderRadius: '10px', padding: '5px', outline: 'none'}}><Link to="/register" style={{color: 'white'}}>회원가입</Link></button>
