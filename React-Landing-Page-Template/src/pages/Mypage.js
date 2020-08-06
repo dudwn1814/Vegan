@@ -112,7 +112,6 @@ class Mypage extends Component {
                         console.log(name)
                         console.log(my_recipe)
                         return (
-\
                             <div style={{marginLeft: '370px', padding:'5px', paddingLeft:'20px'}}>
                                 <Link to={{
                                     pathname: '/food',
@@ -136,7 +135,8 @@ class Mypage extends Component {
                         var url = "/Restaurant_Info?area="+my_restaurant[0]+"&name="+my_restaurant[1]+"&user="+name;
 
                         return (
-                            <a style={{marginLeft: '370px', padding:'5px', paddingLeft:'20px'}}
+                            <div style={{marginLeft: '370px', padding:'5px', paddingLeft:'20px'}}>
+                            <a
                             href={url}
                             title="Project Title"
                             data-lightbox-gallery="gallery1"
@@ -145,6 +145,7 @@ class Mypage extends Component {
                                 <h4>{my_restaurant[1]}</h4>
                             </div>
                             </a>
+                            </div>
                         );
                     })}
                 </tbody>
@@ -195,7 +196,8 @@ class Mypage extends Component {
                         var url = "/Restaurant_Info?area="+like_restaurant[0]+"&name="+like_restaurant[1]+"&user="+name;
 
                         return (
-                            <a style={{marginLeft: '370px', padding:'5px', paddingLeft:'20px'}}
+                            <div style={{marginLeft: '370px', padding:'5px', paddingLeft:'20px'}}>
+                            <a
                             href={url}
                             title="Project Title"
                             data-lightbox-gallery="gallery1"
@@ -204,6 +206,7 @@ class Mypage extends Component {
                                 <h4>{like_restaurant[1]}</h4>
                             </div>
                             </a>
+                            </div>
                         );
                     })}
                 </tbody>
@@ -217,16 +220,17 @@ class Mypage extends Component {
 
                         return (
 
-
-                            <a style={{marginLeft: '370px', padding:'5px', paddingLeft:'20px'}}
+                            <div style={{marginLeft: '370px', padding:'5px', paddingLeft:'20px'}}>
+                            <a 
                             href={url}
                             title="Project Title"
                             data-lightbox-gallery="gallery1"
                             >
                             <div className="hover-text">
                                 <h4>{later_restaurant[1]}</h4>
+                            </div><br/><br/><br/><br/><br/>
+                            </a>
                             </div>
-                            </a><br/><br/><br/><br/><br/>
                         );
                     })}
                 </tbody>
