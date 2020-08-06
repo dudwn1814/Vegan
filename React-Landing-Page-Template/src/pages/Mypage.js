@@ -22,8 +22,9 @@ class Mypage extends Component {
         this.setState({
             name: this.props.location.state
         })
-        var NAME =this.props.location.state;
-        axios.get("http://localhost:8080/myitem?name="+NAME)
+        var NAME =this.props.location.state.name;
+        var ID =this.props.location.state.id;
+        axios.get("http://localhost:8080/myitem?name="+NAME+"&id="+ID)
             .then((response) => {
               var my_recipe_list = [];  // food name만
               var my_restaurant_list = [];  // area + name
