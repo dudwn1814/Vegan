@@ -53,37 +53,62 @@ class Restaurant extends Component {
         const {area} = this.state;
         const {title} = this.state;
         const {ItemList} = this.state;
-        
-        if (area === '') {
+        if(query.get('name')){
+          if (area === '') {
+            return (
+              <Fragment >
+                  <Navigation dataFromParent={query.get('name')}/>
+                  <button  style={{backgroundColor: '#4CAF50', border: '1px solid #4CAF50', position: 'absolute', right: '370px', top: '200px', width: '130px',  boxShadow: 'none', fontSize: '15px', borderRadius: '10px', padding: '5px', fontWeight: 'bold', outline: 'none',  marginTop: "100px"}}> 
+                      <Link style={{ textDecoration: 'none', color: 'white'}} to={{
+                          pathname : "/restaurantadd",
+                          state : query.get('name')}}>식당 추가</Link>
+                  </button>
+                  <Gallery itemlist ={ItemList} area = {title} dataFromParent={query.get('name')}/>
+                  
+              </Fragment>
+              
+          );
+          }
+          else {
+            return (
+              <Fragment>
+                  <Navigation dataFromParent={query.get('name')}/>
+                  <button  style={{backgroundColor: '#4CAF50', border: '1px solid #4CAF50', position: 'absolute', right: '370px', top: '200px',  width: '130px',  boxShadow: 'none', fontSize: '15px', borderRadius: '10px', padding: '5px', fontWeight: 'bold', outline: 'none',  marginTop: "100px"}}> 
+                      <Link style={{ textDecoration: 'none', color: 'white'}} to={{
+                          pathname : "/restaurantadd",
+                          state : query.get('name')}}>식당 추가</Link>
+                  </button>
+                  <Gallery itemlist ={ItemList} area = {area} dataFromParent={query.get('name')} />
+                  
+              </Fragment>
+              
+          );
+          }
+        }
+        else{
+          if (area === '') {
           return (
             <Fragment >
                 <Navigation dataFromParent={query.get('name')}/>
-                <button  style={{backgroundColor: '#4CAF50', border: '1px solid #4CAF50', position: 'absolute', right: '370px', top: '200px', width: '130px',  boxShadow: 'none', fontSize: '15px', borderRadius: '10px', padding: '5px', fontWeight: 'bold', outline: 'none',  marginTop: "100px"}}> 
-                    <Link style={{ textDecoration: 'none', color: 'white'}} to={{
-                         pathname : "/restaurantadd",
-                        state : query.get('name')}}>식당 추가</Link>
-                </button>
+                
                 <Gallery itemlist ={ItemList} area = {title} dataFromParent={query.get('name')}/>
                 
             </Fragment>
             
-        );
+          );
+          }
+          else {
+            return (
+              <Fragment>
+                  <Navigation dataFromParent={query.get('name')}/>
+                  
+                  <Gallery itemlist ={ItemList} area = {area} dataFromParent={query.get('name')} />
+                  
+              </Fragment>
+              
+          );
         }
-        else {
-          return (
-            <Fragment>
-                <Navigation dataFromParent={query.get('name')}/>
-                <button  style={{backgroundColor: '#4CAF50', border: '1px solid #4CAF50', position: 'absolute', right: '370px', top: '200px',  width: '130px',  boxShadow: 'none', fontSize: '15px', borderRadius: '10px', padding: '5px', fontWeight: 'bold', outline: 'none',  marginTop: "100px"}}> 
-                    <Link style={{ textDecoration: 'none', color: 'white'}} to={{
-                         pathname : "/restaurantadd",
-                        state : query.get('name')}}>식당 추가</Link>
-                </button>
-                <Gallery itemlist ={ItemList} area = {area} dataFromParent={query.get('name')} />
-                
-            </Fragment>
-            
-        );
-        }
+     }
     }
 }
 

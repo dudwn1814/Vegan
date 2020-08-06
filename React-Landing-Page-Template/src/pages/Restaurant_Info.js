@@ -91,8 +91,10 @@ class Restaurant_Info extends Component {
         var NAME = query.get('name');
         var AREA = query.get('area');
         var USER = query.get('user');
-        let likerestaurant = 'restaurant'+ AREA + NAME
-        axios.post('http://localhost:8080/users/like',{name: USER, like: likerestaurant})
+        let key = 'restaurant';
+        let area = AREA;
+        let likerestaurant = NAME;
+        axios.post('http://localhost:8080/users/like',{key: key, name: USER, area: area, like: likerestaurant})
         this.setState({
             like : this.state.like + 1,
             isLike : true
@@ -105,8 +107,10 @@ class Restaurant_Info extends Component {
         var NAME = query.get('name');
         var AREA = query.get('area');
         var USER = query.get('user');
-        let laterrestaurant = 'restaurant'+ AREA + NAME
-        axios.post('http://localhost:8080/users/later',{name: USER, later: laterrestaurant})
+        let key = 'restaurant';
+        let area = AREA;
+        let laterrestaurant = NAME
+        axios.post('http://localhost:8080/users/later',{key:key, name: USER, area:area, later: laterrestaurant})
         this.setState({
             seelater : this.state.seelater + 1,
             isLater : true

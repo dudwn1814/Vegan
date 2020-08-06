@@ -35,13 +35,15 @@ class AddRestaurant extends Component {
             url: "img/"+res.data,
             writer: this.props.location.state
         })
-        let upload = 'restaurant'+ this.state.area + this.state.name
+        let key = 'restaurant';
+        let area = this.state.area;
+        let upload = this.state.name
         console.log(upload)
         this.setState({
             detail : [this.state.detail]
         })
         axios.post("http://localhost:8080/restaurant",this.state)
-        axios.post('http://localhost:8080/users/name/uploader/',{name: this.props.location.state, upload: upload})
+        axios.post('http://localhost:8080/users/name/uploader/',{key: key, name: this.props.location.state, area: area, upload: upload})
     }
     handleChange = (e) => {
         this.setState({

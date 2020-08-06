@@ -27,6 +27,7 @@ app.use(express.static('moviegridview/'));
 app.use(express.static('bootstrap2'));
 app.use(express.static('/findall'));
 app.use(express.static('/loadingitems'));
+app.use(express.static('/myitem'));
 app.use(
   cors({
     origin: ["http://localhost:8080","http://localhost:3000"],
@@ -86,6 +87,20 @@ MongoClient.connect(url,{useUnifiedTopology: true},function(err,client){
   if (err)
     console.log('Unable to connect to the mongoDB server.Error', err);
   else{
+
+    app.get('/myitem', function(req,res) {
+      var db = client.db('Vegan');
+      console.log('야야야 ')
+      var name = req.query.name;
+      console.log(name)
+
+      db.collection('users').find({'name': name}).toArray(function(err,users) {
+        if(err) return res.status(500).send({error: 'database failure'});
+        console.log(users);
+        res.json(users)
+        
+      })
+    })
 
     app.get('/oneitem', function(req, res){
       var db = client.db('Vegan') 
@@ -224,6 +239,26 @@ MongoClient.connect(url,{useUnifiedTopology: true},function(err,client){
 
       app.post('/users/name/uploader/', function(req, res){
         var db = client.db('Vegan') 
+        
+        var key = req.body.key;
+        var name = req.body.name;
+        
+        var area = '';
+        var restaurant = '';
+        if (key == 'food') {
+          var food = req.body.upload;
+          db.collection('users').find({'name': name}).toArray(function(err,user) {
+            db.collection('users').update({name: name}, {$set : {upload: user[0].upload.concat([key,food])}})
+          })
+        }
+        else {
+          var area = req.body.area;
+          var restaurant = req.body.upload;
+          db.collection('users').find({name: name}).toArray(function(err, user){
+          db.collection('users').update({name: name}, {$set : {upload: user[0].upload.concat([key,area,restaurant])}})
+          console.log(user[0])
+        })
+        }
         // db.collection('users').find({name: req.body.name}).toArray(function(err, user){
           
         //   var name = user[0].name
@@ -246,10 +281,7 @@ MongoClient.connect(url,{useUnifiedTopology: true},function(err,client){
         //   db.collection('users').remove({name: req.body.name})
         //   db.collection('users').save(modified)
         // })
-        db.collection('users').find({name: req.body.name}).toArray(function(err, user){
-          db.collection('users').update({name: req.body.name}, {$set : {upload: user[0].upload.concat(req.body.upload)}})
-          console.log(user[0])
-        })
+        
         
      })
     app.post('/users',(req,res)=>{
@@ -308,13 +340,49 @@ MongoClient.connect(url,{useUnifiedTopology: true},function(err,client){
         //   db.collection('users').remove({name: req.body.name})
         //   db.collection('users').save(modified)
         // })
-        db.collection('users').find({name: req.body.name}).toArray(function(err, user){
-          db.collection('users').update({name: req.body.name}, {$set : {like: user[0].like.concat(req.body.like)}})
+
+        var key = req.body.key;
+        var name = req.body.name;
+        
+        var area = '';
+        var restaurant = '';
+        if (key == 'food') {
+          var food = req.body.like;
+          db.collection('users').find({'name': name}).toArray(function(err,user) {
+            db.collection('users').update({name: name}, {$set : {like: user[0].like.concat([key,food])}})
+          })
+        }
+        else {
+          var area = req.body.area;
+          var restaurant = req.body.like;
+          db.collection('users').find({name: name}).toArray(function(err, user){
+          db.collection('users').update({name: name}, {$set : {like: user[0].like.concat([key,area,restaurant])}})
         })
+        }
       })
     app.post('/users/later', function(req,res){
       var db = client.db('Vegan')
-      db.collection('users').find({name: req.body.name}).toArray(function(err, user){
+
+      var key = req.body.key;
+        var name = req.body.name;
+        
+        var area = '';
+        var restaurant = '';
+        if (key == 'food') {
+          var food = req.body.later;
+          db.collection('users').find({'name': name}).toArray(function(err,user) {
+            db.collection('users').update({name: name}, {$set : {seelater: user[0].seelater.concat([key,food])}})
+          })
+        }
+        else {
+          var area = req.body.area;
+          var restaurant = req.body.later;
+          db.collection('users').find({name: name}).toArray(function(err, user){
+          db.collection('users').update({name: name}, {$set : {seelater: user[0].seelater.concat([key,area,restaurant])}})
+          console.log(user[0])
+        })
+        }
+
           
         // let modified = {
         //     name: user[0].name,
@@ -329,10 +397,12 @@ MongoClient.connect(url,{useUnifiedTopology: true},function(err,client){
         //   }
         // db.collection('users').remove({name: req.body.name})
         // db.collection('users').save(modified)
-        db.collection('users').find({name: req.body.name}).toArray(function(err, user){
-          db.collection('users').update({name: req.body.name}, {$set : {seelater: user[0].seelater.concat(req.body.later)}})
-        })
-      })
+
+      // 여기서부터 김정현이 단 주석
+      //   db.collection('users').find({name: req.body.name}).toArray(function(err, user){
+      //     db.collection('users').update({name: req.body.name}, {$set : {seelater: user[0].seelater.concat(req.body.later)}})
+      //   })
+      // })
     })
     app.post('/users/login',function(req,res){
         var db = client.db('Vegan') 

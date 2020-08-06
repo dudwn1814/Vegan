@@ -13,8 +13,9 @@ export class Gallery extends Component {
 
   handleChange = (e) => {
     this.setState({
-      keyword: e.target.value,
+      [e.target.name]: e.target.value,
     });
+    
   }
 
   render() {
@@ -22,17 +23,11 @@ export class Gallery extends Component {
     const {area} = this.props;
     const {keyword} = this.state;
     console.log(this.props.dataFromParent)
-    var filteredList = [];
-    if (keyword === '') {
-      filteredList = itemlist;
-    }
-    else {
-      for (var i = 0; i<itemlist.length; i++) {
-        if (itemlist[i].name === keyword) {
-          filteredList.push(itemlist[i]);
-        }
-      }
-    }
+    
+    const filteredList = itemlist.filter(
+      info => info.name.indexOf(keyword) !== -1
+    )
+    
     return (
       <div id="portfolio" className="text-center">
         <div className="container">
@@ -47,6 +42,8 @@ export class Gallery extends Component {
             <input 
               placeholder="    식당 이름을 검색하세요"
               onChange={this.handleChange}
+              id="keyword"
+              name="keyword"
               value={keyword}
               style = {{marginTop: '10px', borderRadius: '15px', padding: '3px 8px', width: '200px', outline: 'none'}}
             />
