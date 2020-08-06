@@ -14,7 +14,8 @@ class Food extends Component {
         seelater: 0,
         isWriter: false,
         isLike: false,
-        isLater: false
+        isLater: false,
+        writer: ''
     }
     
     componentWillMount() {
@@ -25,7 +26,8 @@ class Food extends Component {
                 img: response.data[0].img,
                 content: response.data[0].content,
                 like :  response.data[0].like,
-                seelater: response.data[0].seelater
+                seelater: response.data[0].seelater,
+                writer : response.data[0].writer
             })
             console.log(response.data.food)
             console.log(response.data)
@@ -34,17 +36,17 @@ class Food extends Component {
             axios.get('http://localhost:8080/users/name/'+this.props.location.state.user).then(res =>{
                 console.log(this.state.food)
 
-                if(res.data[0].upload.find(c => c==='food'+this.props.location.state.food)){
+                if(res.data[0].name===this.state.writer){
                     this.setState({
                         isWriter : true
                     })
                 }
-                if(res.data[0].like.find(c => c==='food'+this.props.location.state.food)){
+                if(res.data[0].like.find(c => c===['food',this.props.location.state.food])){
                     this.setState({
                         isLike : true
                     })
                 }
-                if(res.data[0].seelater.find(c => c==='food'+this.props.location.state.food)){
+                if(res.data[0].seelater.find(c => c===['food',this.props.location.state.food])){
                     this.setState({
                         isLater : true
                     })
@@ -56,8 +58,9 @@ class Food extends Component {
 
     onClickLike=()=>{
         console.log(this.props.location.state)
-        let likefood = 'food'+this.props.location.state.food
-        axios.post('http://localhost:8080/users/like',{name: this.props.location.state.user, like: likefood})
+        let key = 'food';
+        let likefood = this.props.location.state.food
+        axios.post('http://localhost:8080/users/like',{key: key, name: this.props.location.state.user, like: likefood})
         this.setState({
             like : this.state.like + 1,
             isLike : true
@@ -190,7 +193,7 @@ class Food extends Component {
                 //     <h1>Food: {this.state.food}</h1>
                 //     <p>CookingRecipe: {this.state.content}</p>
                 //     <p>Food picture</p>
-                //     <img src={imgsrc}></img>
+                //     <i   mg src={imgsrc}></img>
                 //     <button><Link to="/recipe">목록</Link></button>
                 // </div>
         )}
