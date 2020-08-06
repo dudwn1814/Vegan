@@ -56,9 +56,8 @@ class Food extends Component {
 
     onClickLike=()=>{
         console.log(this.props.location.state)
-        let key = 'food';
-        let likefood = this.props.location.state.food
-        axios.post('http://localhost:8080/users/like',{key:key, name: this.props.location.state.user, like: likefood})
+        let likefood = 'food'+this.props.location.state.food
+        axios.post('http://localhost:8080/users/like',{name: this.props.location.state.user, like: likefood})
         this.setState({
             like : this.state.like + 1,
             isLike : true
@@ -69,9 +68,8 @@ class Food extends Component {
     }
     onClickLater=()=>{
         console.log(this.props.location.state)
-        let key = 'food';
-        let laterfood = this.props.location.state.food
-        axios.post('http://localhost:8080/users/later',{key: key, name: this.props.location.state.user, later: laterfood})
+        let laterfood = 'food'+this.props.location.state.food
+        axios.post('http://localhost:8080/users/later',{name: this.props.location.state.user, later: laterfood})
         this.setState({
             seelater : this.state.seelater + 1,
             isLater : true
@@ -98,7 +96,7 @@ class Food extends Component {
                         state : this.props.location.state.user}}>⬅</Link></button>
 
 
-                    <button style={{backgroundColor: 'white', border: 'none', outline: 'none', marginLeft:'390px'}} onClick={this.onClickLike}>❤️</button>
+                    <button style={{backgroundColor: 'white', border: 'none', outline: 'none', marginLeft:'370px'}} onClick={this.onClickLike}>❤️</button>
                     <text>{this.state.like}&nbsp;&nbsp;&nbsp;</text>
                     <button style={{backgroundColor: 'white', border: 'none', outline: 'none'}} onClick={this.onClickLater}>⭐</button>
                     <text>{this.state.seelater}</text>
@@ -106,7 +104,7 @@ class Food extends Component {
 
 
                     <div className="row">   
-                        <div className="col-xs-12 col-md-6"> <img src={imgsrc} className="img-responsive" alt=""/> </div>
+                        <div className="col-xs-12 col-md-6"> <img  style={{width: '500px', height: '380px'}} src={imgsrc} className="img-responsive" alt=""/> </div>
                         <div className="col-xs-12 col-md-6">
                         <div className="about-text">
                         <h2 style={{marginBottom: '50px'}}>{this.state.food}</h2>
@@ -180,9 +178,9 @@ class Food extends Component {
                         </div>
                     </div>
                     <div>
-                        <button >Like</button>
+                        <button onClick={this.onClickLike}>Like</button>
                         <text>{this.state.like}</text>
-                        <button >SeeLater</button>
+                        <button onClick={this.onClickLater}>SeeLater</button>
                         <text>{this.state.seelater}</text>
                     </div>
                     </div>
