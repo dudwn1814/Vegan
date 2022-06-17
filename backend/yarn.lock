@@ -663,9 +663,9 @@ jimp@^0.14.0:
     regenerator-runtime "^0.13.3"
 
 jpeg-js@^0.4.0:
-  version "0.4.1"
-  resolved "https://registry.yarnpkg.com/jpeg-js/-/jpeg-js-0.4.1.tgz#937a3ae911eb6427f151760f8123f04c8bfe6ef7"
-  integrity sha512-jA55yJiB5tCXEddos8JBbvW+IMrqY0y1tjjx9KNVtA+QPmu7ND5j0zkKopClpUTsaETL135uOM2XfcYG4XRjmw==
+  version "0.4.4"
+  resolved "https://registry.yarnpkg.com/jpeg-js/-/jpeg-js-0.4.4.tgz#a9f1c6f1f9f0fa80cdb3484ed9635054d28936aa"
+  integrity sha512-WZzeDOEtTOBK4Mdsar0IqEU5sMr3vSV2RqkAIzUEV2BHnUfKGyswWFPFwK5EeDo93K3FohSHbLAjj0s1Wzd+dg==
 
 load-bmfont@^1.3.1, load-bmfont@^1.4.0:
   version "1.4.1"
@@ -959,7 +959,7 @@ safe-buffer@^5.1.1, safe-buffer@^5.1.2:
   resolved "https://registry.yarnpkg.com/safer-buffer/-/safer-buffer-2.1.2.tgz#44fa161b0187b9549dd84bb91802f9bd8385cd6a"
   integrity sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==
 
-saslprep@^1.0.0:
+saslprep@^1.0.0, saslprep@^1.0.3:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/saslprep/-/saslprep-1.0.3.tgz#4c02f946b56cf54297e347ba1093e7acac4cf226"
   integrity sha512-/MY/PEMbk2SuY5sScONwhUDsV2p77Znkb/q3nSVstq/yQzYJOH/Azh29p9oJLsl3LnQwSvZDKagDGBsBwSooag==
@@ -1058,11 +1058,6 @@ tinycolor2@^1.4.1:
   version "1.4.1"
   resolved "https://registry.yarnpkg.com/tinycolor2/-/tinycolor2-1.4.1.tgz#f4fad333447bc0b07d4dc8e9209d8f39a8ac77e8"
   integrity sha1-9PrTM0R7wLB9TcjpIJ2POaisd+g=
-
-tls@0.0.1:
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/tls/-/tls-0.0.1.tgz#0ab2bf5968d71df2f8c0e1515d24a2240b98aac8"
-  integrity sha1-CrK/WWjXHfL4wOFRXSSiJAuYqsg=
 
 toidentifier@1.0.0:
   version "1.0.0"
